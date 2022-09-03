@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net48</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>10</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="H.Pipes" Version="2.0.37"/>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj"/>
+	</ItemGroup>
+</Project>
