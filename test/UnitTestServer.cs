@@ -309,13 +309,15 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 		var fcw = await FluentCeVIO.FactoryAsync();
 		sw.Restart();
 		sw.Start();
-		fcw.Cast = value;
+		//fcw.Cast = value;
+		await fcw.SetCastAsync(value);
 		sw.Stop();
-		output.WriteLine($"set cast: {sw.ElapsedMilliseconds.ToString()} msec.");
+		output.WriteLine($"set cast: {sw.ElapsedMilliseconds} msec.");
 		sw.Start();
-		var result = fcw.Cast;
+		//var result = fcw.Cast;
+		var result = await fcw.GetCastAsync();
 		sw.Stop();
-		output.WriteLine($"get cast: {sw.ElapsedMilliseconds.ToString()} msec.");
+		output.WriteLine($"get cast: {sw.ElapsedMilliseconds} msec.");
 
 		Assert.True(value == result);
 	}
@@ -371,21 +373,21 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 	public async void GetComponentsAsync(string cast, int num)
 	{
 		var fcw = await FluentCeVIO.FactoryAsync();
-		fcw.Cast = cast;
+		//fcw.Cast = cast;
+		await fcw.SetCastAsync(cast);
 		var result = await fcw.GetComponentsAsync();
 
-		output.WriteLine($"cast:{fcw.Cast}");
+		var currentCast = await fcw.GetCastAsync();
+		output.WriteLine($"cast:{currentCast}");
 
 		Assert.NotNull(result);
 		Assert.True(result.Count > 0);
 
 		Assert.Equal(num, result.Count);
 
-
-
 		result
 			.ToList()
-			.ForEach(v => output.WriteLine($"comp[{v.Name}]:{v.Value.ToString()}"));
+			.ForEach(v => output.WriteLine($"comp[{v.Name}]:{v.Value}"));
 	}
 
 	[Fact]
@@ -410,5 +412,4 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 
 		Assert.True(result);
 	}
-
 }
