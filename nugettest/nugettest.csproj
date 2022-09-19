@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentCeVIOWrapper" Version="0.1.0" />
+  <!-- <PackageReference Include="FluentCeVIOWrapper" Version="0.1.0" /> -->
   </ItemGroup>
 
 </Project>
