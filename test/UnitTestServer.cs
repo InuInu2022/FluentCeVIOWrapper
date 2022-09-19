@@ -312,12 +312,12 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 		//fcw.Cast = value;
 		await fcw.SetCastAsync(value);
 		sw.Stop();
-		output.WriteLine($"set cast: {sw.ElapsedMilliseconds} msec.");
+		output.WriteLine($"set cast[{value}]: {sw.ElapsedMilliseconds} msec.");
 		sw.Start();
 		//var result = fcw.Cast;
 		var result = await fcw.GetCastAsync();
 		sw.Stop();
-		output.WriteLine($"get cast: {sw.ElapsedMilliseconds} msec.");
+		output.WriteLine($"get cast[{result}]: {sw.ElapsedMilliseconds} msec.");
 
 		Assert.True(value == result);
 	}
