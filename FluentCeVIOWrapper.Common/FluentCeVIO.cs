@@ -23,18 +23,30 @@ public class FluentCeVIO : IDisposable
 {
 	/// <summary>
 	/// 内部のプロセス間通信で使用される名前です。
-	/// 複数サーバーを立てる場合はこの名前を変更します。
+	/// 複数サーバーを立てる場合はサーバーと共にこの名前を変更します。
 	/// </summary>
 	public const string PipeName = "FluentCeVIOPipe";
+
+	/// <summary>
+	/// 現在の内部のプロセス間通信で使用される名前です。
+	/// </summary>
+	public string CurrentPipeName { get; set; }
+
+	/// <summary>
+	/// 現在の制御CeVIO製品
+	/// </summary>
+	public Product CurrentProduct { get; }
 
 	private readonly CancellationTokenSource source;
 	private readonly PipeClient<CeVIOTalkMessage> client;
 
-	internal FluentCeVIO()
+	internal FluentCeVIO(string? newPipeName,Product product)
 	{
 		source = new CancellationTokenSource();
 
-		client = new PipeClient<CeVIOTalkMessage>(PipeName);
+		CurrentPipeName = newPipeName ?? PipeName;
+		CurrentProduct = product;
+		client = new PipeClient<CeVIOTalkMessage>(CurrentPipeName);
 		client.Disconnected += (o, args)
 			=> Console.WriteLine($"{nameof(FluentCeVIO)}:Disconnected from server");
 		client.Connected += (o, args)
@@ -47,11 +59,13 @@ public class FluentCeVIO : IDisposable
 	/// <summary>
 	/// 呼び出しのファクトリメソッド
 	/// </summary>
+	/// <param name="pipeName"><inheritdoc cref="PipeName" path="/summary"/></param>
+	/// <param name="product">呼び出すCeVIO製品</param>
 	/// <returns></returns>
-	public static async ValueTask<FluentCeVIO> FactoryAsync()
-	{
-		return await Task.Run(() => new FluentCeVIO());
-	}
+	public static async ValueTask<FluentCeVIO> FactoryAsync(
+		string? pipeName = PipeName,
+		Product product = Product.CeVIO_AI
+	) => await Task.Run(() => new FluentCeVIO(pipeName, product));
 
 	void IDisposable.Dispose()
 	{
@@ -79,12 +93,13 @@ public class FluentCeVIO : IDisposable
 
 		client.WriteAsync(
 			new CeVIOTalkMessage
-				{
-				 ServerCommand = ServerCommand.CallMethod,
-				 ServerHost = host,
-				 ServerCallName = callName,
-				 ServerCallArgValues = args
-				}
+			{
+				ServerCommand = ServerCommand.CallMethod,
+				ServerHost = host,
+				ServerCallName = callName,
+				ServerCallArgValues = args,
+				Product = CurrentProduct
+			}
 		);
 
 		return tcs.Task;
@@ -109,6 +124,7 @@ public class FluentCeVIO : IDisposable
 				ServerCommand = ServerCommand.GetProperty,
 				ServerHost = host,
 				ServerCallName = propName,
+				Product = CurrentProduct
 			}
 		);
 		return tcs.Task;
@@ -122,12 +138,13 @@ public class FluentCeVIO : IDisposable
 	{
 		return client.WriteAsync(
 			new CeVIOTalkMessage
-				{
-				 ServerCommand = ServerCommand.SetProperty,
-				 ServerHost = host,
-				 ServerCallName = propName,
-				 ServerCallValue = value
-				}
+			{
+				ServerCommand = ServerCommand.SetProperty,
+				ServerHost = host,
+				ServerCallName = propName,
+				ServerCallValue = value,
+				Product = CurrentProduct
+			}
 		);
 	}
 
