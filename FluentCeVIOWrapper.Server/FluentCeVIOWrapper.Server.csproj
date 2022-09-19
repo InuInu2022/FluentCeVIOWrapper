@@ -5,6 +5,8 @@
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>10</LangVersion>
+		<PublishSingleFile>true</PublishSingleFile>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="H.Pipes" Version="2.0.37"/>
