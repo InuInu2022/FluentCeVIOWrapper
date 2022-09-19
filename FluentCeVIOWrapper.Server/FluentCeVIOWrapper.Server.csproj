@@ -7,12 +7,13 @@
 		<LangVersion>10</LangVersion>
 		<PublishSingleFile>true</PublishSingleFile>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="H.Pipes" Version="2.0.37"/>
-		<PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+		<PackageReference Include="H.Pipes" Version="2.0.42" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj"/>
+		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
 	</ItemGroup>
 </Project>
