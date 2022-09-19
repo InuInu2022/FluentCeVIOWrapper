@@ -139,14 +139,14 @@ public class FluentCeVIO : IDisposable
 
 	#region Host.Service
 
-	/** ------------------------------------------------------------ **/
+	//** ------------------------------------------------------------ **/
 
 	/// <summary>
 	/// 非同期で起動
 	/// 元の<c>StartHost</c>
 	/// </summary>
 	public Task<HostStartResult?> StartAsync()
-		=> CallWrapAsync<HostStartResult?>(Host.Service, "StartHost");
+		=> CallWrapAsync<HostStartResult?>(Host.Service, nameof(IServiceControl.StartHost));
 
 	/// <summary>
 	/// 非同期で終了処理
@@ -159,7 +159,7 @@ public class FluentCeVIO : IDisposable
 	/// </example>
 	/// <returns></returns>
 	public Task<bool> CloseAsync()
-		=> CallWrapAsync<bool>(Host.Service, "CloseHost");
+		=> CallWrapAsync<bool>(Host.Service, nameof(IServiceControl.CloseHost));
 
 	/// <summary>
 	/// ホストアプリ（CeVIO）のバージョンを<see cref="System.Version" />型で返す
@@ -174,15 +174,15 @@ public class FluentCeVIO : IDisposable
 	/// </summary>
 	/// <returns></returns>
 	public Task<bool> GetIsHostStartedAsync()
-		=> GetWrapAsync<bool>(Host.Service, "IsHostStarted");
+		=> GetWrapAsync<bool>(Host.Service, nameof(IServiceControl.IsHostStarted));
 
-	/** ------------------------------------------------------------ **/
+	//** ------------------------------------------------------------ **/
 
 	#endregion
 
 	#region Host.Talker
 
-	/** ------------------------------------------------------------ **/
+	//** ------------------------------------------------------------ **/
 
 	/// <summary>
 	/// キャスト(話者)を設定します。
@@ -191,7 +191,7 @@ public class FluentCeVIO : IDisposable
 	/// <seealso cref="GetCastAsync"/>
 	/// <seealso cref="GetAvailableCastsAsync"/>
 	public async ValueTask SetCastAsync(string castName)
-		=> await SetWrapAsync(Host.Talker, "Cast", castName);
+		=> await SetWrapAsync(Host.Talker, nameof(ITalker.Cast), castName);
 
 	/// <summary>
 	/// 現在のキャスト(話者)を取得します。
@@ -199,7 +199,7 @@ public class FluentCeVIO : IDisposable
 	/// <returns>キャスト名</returns>
 	/// <seealso cref="SetCastAsync(string)"/>
 	public Task<string> GetCastAsync()
-		=> GetWrapAsync<string>(Host.Talker, "Cast");
+		=> GetWrapAsync<string>(Host.Talker, nameof(ITalker.Cast));
 
 	/// <summary>
 	/// キャストを取得または設定します。<br />
@@ -219,7 +219,7 @@ public class FluentCeVIO : IDisposable
 	/// </summary>
 	/// <returns>音の大きさ（0～100）</returns>
 	public Task<uint> GetVolumeAsync()
-		=> GetWrapAsync<uint>(Host.Talker, "Volume");
+		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Volume));
 
 	/// <summary>
 	/// 音の大きさ（0～100）を設定します。
@@ -227,14 +227,14 @@ public class FluentCeVIO : IDisposable
 	/// <param name="volume">音の大きさ（0～100）</param>
 	/// <returns></returns>
 	public async ValueTask SetVolumeAsync([Range(0,100)] uint volume)
-		=> await SetWrapAsync<uint>(Host.Talker, "Volume", volume);
+		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Volume), volume);
 
 	/// <summary>
 	/// 話す速さ（0～100）を取得します。
 	/// </summary>
 	/// <returns>話す速さ（0～100）</returns>
 	public Task<uint> GetSpeedAsync()
-		=> GetWrapAsync<uint>(Host.Talker, "Speed");
+		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Speed));
 
 	/// <summary>
 	/// 話す速さ（0～100）を設定します。
@@ -242,14 +242,14 @@ public class FluentCeVIO : IDisposable
 	/// <param name="value">話す速さ（0～100）</param>
 	/// <returns></returns>
 	public async ValueTask SetSpeedAsync([Range(0,100)] uint value)
-		=> await SetWrapAsync<uint>(Host.Talker, "Speed", value);
+		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Speed), value);
 
 	/// <summary>
 	/// 音の高さ（0～100）を取得します。
 	/// </summary>
 	/// <returns>音の高さ（0～100）</returns>
 	public Task<uint> GetToneAsync()
-		=> GetWrapAsync<uint>(Host.Talker, "Tone");
+		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Tone));
 
 	/// <summary>
 	/// 音の高さ（0～100）を設定します。
@@ -257,14 +257,14 @@ public class FluentCeVIO : IDisposable
 	/// <param name="value">音の高さ（0～100）</param>
 	/// <returns></returns>
 	public async ValueTask SetToneAsync([Range(0,100)] uint value)
-		=> await SetWrapAsync<uint>(Host.Talker, "Tone", value);
+		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Tone), value);
 
 	/// <summary>
 	/// 声質（0～100）を取得します。
 	/// </summary>
 	/// <returns>声質（0～100）</returns>
 	public Task<uint> GetAlphaAsync()
-		=> GetWrapAsync<uint>(Host.Talker, "Alpha");
+		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Alpha));
 
 	/// <summary>
 	/// 声質（0～100）を設定します。
@@ -272,14 +272,14 @@ public class FluentCeVIO : IDisposable
 	/// <param name="value">声質（0～100）</param>
 	/// <returns></returns>
 	public async ValueTask SetAlphaAsync([Range(0,100)] uint value)
-		=> await SetWrapAsync<uint>(Host.Talker, "Alpha", value);
+		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Alpha), value);
 
 	/// <summary>
 	/// 抑揚（0～100）を取得します。
 	/// </summary>
 	/// <returns>抑揚（0～100）</returns>
 	public Task<uint> GetToneScaleAsync()
-		=> GetWrapAsync<uint>(Host.Talker, "ToneScale");
+		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.ToneScale));
 
 	/// <summary>
 	/// 抑揚（0～100）を設定します。
@@ -287,7 +287,7 @@ public class FluentCeVIO : IDisposable
 	/// <param name="value">抑揚（0～100）</param>
 	/// <returns></returns>
 	public async ValueTask SetToneScaleAsync([Range(0,100)] uint value)
-		=> await SetWrapAsync<uint>(Host.Talker, "ToneScale", value);
+		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.ToneScale), value);
 
 	/// <summary>
 	/// 現在のキャストの感情パラメータマップコレクションを取得します。
@@ -372,7 +372,7 @@ public class FluentCeVIO : IDisposable
 	)
 		=> CallWrapAsync<bool>(Host.Talker,nameof(ITalker.OutputWaveToFile),new(new[]{text, path}));
 
-	/** ------------------------------------------------------------ **/
+	//** ------------------------------------------------------------ **/
 
 	#endregion
 

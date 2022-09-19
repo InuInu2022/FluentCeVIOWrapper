@@ -1,5 +1,5 @@
 namespace FluentCeVIOWrapper.Common.Talk;
-public interface ITalkerComponentArray
+internal interface ITalkerComponentArray
 {
 	int Length { get; }
 

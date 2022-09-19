@@ -1,7 +1,7 @@
 namespace FluentCeVIOWrapper.Common.Talk;
 
 /// <summary>
-/// <see cref="ServiceControl.StartHostAsync()"/> の結果コードを表します。
+/// <see cref="FluentCeVIO.StartAsync()"/> の結果コードを表します。
 /// </summary>
 public enum HostStartResult
 {

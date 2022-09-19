@@ -1,14 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<ImplicitUsings>disable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<LangVersion>10</LangVersion>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="H.Pipes" Version="2.0.37"/>
-		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
-		<PackageReference Include="System.Reactive" Version="5.0.0"/>
-		<PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
-	</ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+    <!-- nupkg -->
+    <PackageId>FluentCeVIOWrapper.Common</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>InuInu</Authors>
+    <Company>InuInu</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="H.Pipes"
+                      Version="2.0.37" />
+    <PackageReference Include="System.ComponentModel.Annotations"
+                      Version="5.0.0" />
+    <PackageReference Include="System.Reactive"
+                      Version="5.0.0" />
+    <PackageReference Include="Microsoft.CSharp"
+                      Version="4.7.0" />
+  </ItemGroup>
 </Project>

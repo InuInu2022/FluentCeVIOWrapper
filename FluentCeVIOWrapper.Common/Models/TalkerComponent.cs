@@ -9,22 +9,27 @@ namespace FluentCeVIOWrapper.Common.Talk;
 [Serializable]
 public record TalkerComponent : ITalkerComponent
 {
-	/// <summary>
-	/// 識別子を取得します。
-	/// </summary>
+	/// <inheritdoc/>
 	public string Id { get; }
 
-	/// <summary>
-	/// 感情の名前を取得します。
-	/// </summary>
+	/// <inheritdoc/>
 	public string Name { get; }
 
-	/// <summary>
-	/// 感情の値（0～100）を取得または設定します。
-	/// </summary>
+	/// <inheritdoc/>
 	[Range(0, 100)]
 	public uint Value { get; set; }
 
+	/// <summary>
+	/// 感情パラメータの単位オブジェクトのコンストラクタ
+	/// </summary>
+	/// <param name="id">
+	/// 	<inheritdoc cref="Id" path="/summary"/></param>
+	/// <param name="name">
+	/// 	<inheritdoc cref="Name" path="/summary"/>
+	/// 	</param>
+	/// <param name="value">
+	/// 	<inheritdoc cref="Value" path="/summary"/>
+	/// 	</param>
 	public TalkerComponent(
 		string id,
 		string name,
