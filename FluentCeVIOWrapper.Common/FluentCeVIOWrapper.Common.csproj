@@ -12,6 +12,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+      <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="H.Pipes" Version="2.0.42" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
