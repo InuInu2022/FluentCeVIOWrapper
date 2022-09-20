@@ -28,8 +28,8 @@ public sealed class RemoteHost
 	private Type? agent;
 	private Type? talkerType;
 	private dynamic? talker;
-	private dynamic? agentInst;
-	private dynamic? serviceInst;
+	//private dynamic? agentInst;
+	//private dynamic? serviceInst;
 
 	/// <summary>
 	/// コンストラクタ
