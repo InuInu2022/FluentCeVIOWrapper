@@ -5,13 +5,17 @@
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>10</LangVersion>
-		<PublishSingleFile>true</PublishSingleFile>
-		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	</PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="H.Pipes" Version="2.0.42" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
+		<PackageReference Include="ILRepack.Lib.MSBuild" Version="2.1.18" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
