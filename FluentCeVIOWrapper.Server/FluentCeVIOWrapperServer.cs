@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,20 +8,60 @@ using FluentCeVIOWrapper.Common;
 using FluentCeVIOWrapper.Common.Talk;
 
 using Microsoft.CSharp;
+using Microsoft.Extensions.Hosting;
 
 using H.Pipes;
+using ConsoleAppFramework;
 
 namespace FluentCeVIOWrapper.Server;
 
-internal static class FluentCeVIOWrapperServer{
+internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 	const string pipeName = FluentCeVIO.PipeName;
 
 	private static async Task Main(string[] arguments){
-		var host = await RemoteHost.CreateAsync(new Common.Talk.Environment.AI());
-		var result = await host.TryStartAsync();
-		await Task.Run(
-			async () => await RunAsync(pipeName).ConfigureAwait(false));
+		await Microsoft.Extensions.Hosting.Host
+			.CreateDefaultBuilder()
+			.RunConsoleAppFrameworkAsync<FluentCeVIOWrapperServer>(arguments);
 	}
+
+	public async ValueTask AwakeAsync(
+		[Option("cv",$"select a calling CeVIO product. '{nameof(Product.CeVIO_AI)}' or '{nameof(Product.CeVIO_CS)}'")]
+		Product cevio = Product.CeVIO_AI,
+		string? dirPath = null,
+		[Option("p","another server connection pipe name.")]
+			string pipename = pipeName
+	){
+		Console.WriteLine($"Hello, this is the {nameof(FluentCeVIOWrapperServer)}.");
+
+		Common.Talk.Environment.IEnvironment env = cevio switch
+		{
+			Product.CeVIO_CS
+				=> new Common.Talk.Environment.CS(),
+			Product.CeVIO_AI or _
+				=> new Common.Talk.Environment.AI()
+		};
+		Console.WriteLine($"	env.Product:{env.Product}");
+		Console.WriteLine($"	env.DllPath:{env.DllPath}");
+		//Console.WriteLine($"dirPath:{dirPath}");
+
+		if(dirPath is not null){
+			env.DllPath = dirPath;
+			//Console.WriteLine($"dll path: {dirPath}");
+			//Console.WriteLine($"cenv.DllPath:{env.DllPath}");
+		}
+
+		var host = await RemoteHost.CreateAsync(env);
+		var result = await host.TryStartAsync();
+		Console.WriteLine($"RESULT:{result}");
+		await Task.Run(
+			async () => await RunAsync(pipename).ConfigureAwait(false));
+
+	}
+
+	void IDisposable.Dispose() // NOTE: can not implement `public void Dispose()`
+    {
+        Console.WriteLine("DISPOSED");
+    }
 
 	private static async ValueTask MessageReceivedAsync(
 		H.Pipes.Args.ConnectionMessageEventArgs<CeVIOTalkMessage>? args
@@ -49,7 +90,7 @@ internal static class FluentCeVIOWrapperServer{
 		{
 			return; //ホスト指定が無ければ何もしない
 		}
-		var host = (Host)args.Message.ServerHost;
+		var host = (Common.Host)args.Message.ServerHost;
 
 		//var rHost = await RemoteHost.CreateAsync(new Common.Talk.Environment.AI());
 		var rHost = RemoteHost.GetInstance(product);
@@ -114,7 +155,7 @@ internal static class FluentCeVIOWrapperServer{
 		};
 
 		Console.WriteLine($"- summary: args.msg:{args.Message} cmd:{cmd} name:{name} host:{host} rHost:{rHost} value:{value ?? "no-value"}");
-		Console.WriteLine($" {await rHost.GetPropertyByHostAsync<System.Version>(Host.Service, "HostVersion")}");
+		Console.WriteLine($" {await rHost.GetPropertyByHostAsync<System.Version>(Common.Host.Service, "HostVersion")}");
 
 		if(cmd == ServerCommand.SetProperty){isReturnBack = false;}
 		if(isReturnBack){
@@ -262,7 +303,7 @@ internal static class FluentCeVIOWrapperServer{
 								break;
 							}
 
-							Console.WriteLine($"Sent to {server.ConnectedClients.Count.ToString()} clients");
+							Console.WriteLine($"Sent to {server.ConnectedClients.Count} clients");
 
 							await server.WriteAsync(
 								new CeVIOTalkMessage

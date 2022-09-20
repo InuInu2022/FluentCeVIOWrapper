@@ -4,7 +4,7 @@ namespace FluentCeVIOWrapper.Common.Talk.Environment;
 /// CeVIO Creative Studio (64bit) environment
 /// </summary>
 [System.ComponentModel.Description("CeVIO Creative Studio (64bit) environment records")]
-public record CS : IEnvironment
+public class CS : IEnvironment
 {
 	/// <inheritdoc />
 	public Product Product => Product.CeVIO_CS;
@@ -13,10 +13,10 @@ public record CS : IEnvironment
 	public string DllName => "CeVIO.Talk.RemoteService.dll";
 
 	/// <inheritdoc />
-	internal string ProgDir => System.Environment.ExpandEnvironmentVariables("%ProgramW6432%");
+	internal static string ProgDir => System.Environment.ExpandEnvironmentVariables("%ProgramW6432%");
 
 	/// <inheritdoc />
-	public string DllPath => $"{ProgDir}/CeVIO/CeVIO Creative Studio (64bit)/";
+	public string DllPath { get; set; } = $"{ProgDir}/CeVIO/CeVIO Creative Studio (64bit)/";
 
 	/// <inheritdoc />
 	public string Service => "CeVIO.Talk.RemoteService.ServiceControl";

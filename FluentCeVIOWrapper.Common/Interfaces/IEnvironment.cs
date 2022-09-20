@@ -17,7 +17,7 @@ public interface IEnvironment{
 	/// <summary>
 	/// デフォルトのdllのpath
 	/// </summary>
-	public string DllPath { get; }
+	public string DllPath { get; set; }
 
 	/// <summary>
 	/// ServiceControll class
