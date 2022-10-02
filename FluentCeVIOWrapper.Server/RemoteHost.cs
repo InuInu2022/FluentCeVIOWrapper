@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
 using FluentCeVIOWrapper.Common;
+using FluentCeVIOWrapper.Common.Models;
 using FluentCeVIOWrapper.Common.Talk;
 using FluentCeVIOWrapper.Common.Talk.Environment;
 
@@ -386,8 +388,46 @@ public sealed class RemoteHost
 			}
 			return new(list);
 		}
+
+		set {
+			var comps = this.talker?.Components;
+			if(comps is null)return;
+			var news = value.ToList();
+
+			foreach(var i in comps){
+				i.Value = news
+					.First(v => v.Id == i.Id).Value;
+			}
+
+			talker!.Components = comps;
+		}
 	}
-	//	=> {new(this.talker?.Components.ToArray())};
+
+	public async ValueTask<ReadOnlyCollection<PhonemeData>> GetPhonemesAsync(string text)
+	{
+		return await Task.Run(() =>
+		{
+			var data = this.talker?.GetPhonemes(text);
+
+			var list = new List<PhonemeData>();
+			if(data is null)
+			{
+				return list.AsReadOnly();
+			}
+
+			foreach (var item in data)
+			{
+				list.Add(new PhonemeData(
+					item.StartTime,
+					item.EndTime,
+					item.Phoneme
+				));
+			}
+
+			return list.AsReadOnly();
+		});
+
+	}
 
 	/// <summary>
 	/// キャストを取得または設定します。

@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
+using FluentCeVIOWrapper.Common.Models;
 using FluentCeVIOWrapper.Common.Talk;
 
 using H.Pipes;
@@ -40,7 +43,7 @@ public class FluentCeVIO : IDisposable
 	private readonly CancellationTokenSource source;
 	private readonly PipeClient<CeVIOTalkMessage> client;
 
-	internal FluentCeVIO(string? newPipeName,Product product)
+	internal FluentCeVIO(string? newPipeName, Product product)
 	{
 		source = new CancellationTokenSource();
 
@@ -66,6 +69,24 @@ public class FluentCeVIO : IDisposable
 		string? pipeName = PipeName,
 		Product product = Product.CeVIO_AI
 	) => await Task.Run(() => new FluentCeVIO(pipeName, product));
+
+	/// <summary>
+	/// まとめてパラメータを設定するための準備
+	/// メソッドチェーンでパラメータを指定できます
+	/// </summary>
+	/// <example>
+	/// <code>
+	/// var fcw = FluentCeVIO.FactoryAsync();
+	/// await fcw.CreateParam()
+	/// 	.Cast("さとうささら")
+	/// 	.Alpha(50)
+	/// 	.Speed(75)
+	/// 	.SendAsync();
+	/// </code>
+	/// </example>
+	/// <returns></returns>
+	public FluentCeVIOParam CreateParam()
+		=> FluentCeVIOParam.Create(this);
 
 	void IDisposable.Dispose()
 	{
@@ -242,6 +263,7 @@ public class FluentCeVIO : IDisposable
 	/// 音の大きさ（0～100）を設定します。
 	/// </summary>
 	/// <param name="volume">音の大きさ（0～100）</param>
+	/// <see cref="FluentCeVIOParam.Volume(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetVolumeAsync([Range(0,100)] uint volume)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Volume), volume);
@@ -315,9 +337,20 @@ public class FluentCeVIO : IDisposable
 	/// <seealso cref="TalkerComponent"/>
 	/// <seealso cref="GetCastAsync"/>
 	/// <seealso cref="SetCastAsync(string)"/>
+	/// <seealso cref="SetComponentsAsync"/>
 	/// <returns>感情パラメータの管理オブジェクト<see cref="TalkerComponent"/>の<see cref="ReadOnlyCollection{T}"/></returns>
 	public async Task<ReadOnlyCollection<TalkerComponent>> GetComponentsAsync()
 		=> (ReadOnlyCollection<TalkerComponent>)await GetWrapAsync<dynamic>(Host.Talker, nameof(ITalker.Components));
+
+	/// <summary>
+	/// 現在のキャストの感情パラメータマップコレクションを設定します。
+	/// </summary>
+	/// <param name="value">感情パラメータの管理オブジェクト</param>
+	/// <seealso cref="TalkerComponent"/>
+	/// <seealso cref="GetComponentsAsync"/>
+	public async ValueTask SetComponentsAsync(ReadOnlyCollection<TalkerComponent> value){
+		await SetWrapAsync<ReadOnlyCollection<TalkerComponent>>(Host.Talker, nameof(ITalker.Components), value);
+	}
 
 	/// <summary>
 	/// 利用可能なキャスト名 <c>string[]</c> を取得します。
@@ -372,9 +405,25 @@ public class FluentCeVIO : IDisposable
 	/// </remarks>
 	/// <param name="text">セリフ。日本語は最大200文字（古いバージョンは150文字）。</param>
 	/// <returns>音素単位のデータのコレクション</returns>
-	/// <seealso cref="IPhonemeData"/>
-	public Task<ReadOnlyCollection<IPhonemeData>> GetPhonemesAsync(string text)
-		=> CallWrapAsync<ReadOnlyCollection<IPhonemeData>>(Host.Talker,nameof(ITalker.GetPhonemes),new(new[]{text}));
+	/// <seealso cref="PhonemeData"/>
+	public async Task<ReadOnlyCollection<PhonemeData>> GetPhonemesAsync(string text)
+	{
+		var data = await CallWrapAsync<dynamic>(Host.Talker, nameof(ITalker.GetPhonemes), new(new[] { text }));
+
+		var list = new List<PhonemeData>();
+		foreach (var item in data)
+		{
+			list.Add(new PhonemeData(
+				item.StartTime,
+				item.EndTime,
+				item.Phoneme
+			));
+		}
+		return list.AsReadOnly();
+
+		//return (data as IEnumerable)!
+		//	.Select(v => new PhonemeData());
+	}
 
 	/// <summary>
 	/// 指定したセリフをWAVファイルとして出力します。

@@ -1,6 +1,7 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading;
@@ -27,6 +28,8 @@ public class UnitTestAwakeServer
 	//public readonly ITestOutputHelper output;
 	public readonly CancellationTokenSource source;
 	public readonly PipeClient<CeVIOTalkMessage> client;
+
+	public Process? process;
 	public UnitTestAwakeServer()
 	{
 		//全体で1回初期化
@@ -45,6 +48,9 @@ public class UnitTestAwakeServer
 		client
 			.ConnectAsync(source.Token)
 			.ConfigureAwait(false);
+
+
+		//await Task.Delay(2000);
 
 		//
 		/*
@@ -69,6 +75,9 @@ public class UnitTestAwakeServer
 
         //client dispose
 		var _ = client.DisposeAsync();
+		//process?.Kill();
+		process?.WaitForExit();
+		//process = null;
 
         source.Dispose();
 	}
@@ -390,6 +399,22 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 			.ForEach(v => output.WriteLine($"comp[{v.Name}]:{v.Value}"));
 	}
 
+	[Theory]
+	[InlineData("夏色花梨")]
+	public async void SetComponentsAsync(string cast){
+		var fcw = await FluentCeVIO.FactoryAsync();
+
+		await fcw.SetCastAsync(cast);
+		var result = await fcw.GetComponentsAsync();
+
+
+		try{
+			await fcw.SetComponentsAsync(result);
+		}catch{
+			Debug.WriteLine("e");
+		}
+	}
+
 	[Fact]
 	public async void GetAvailableCastsAsync()
 	{
@@ -408,8 +433,39 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 	public async void SpeakAsync(string text)
 	{
 		var fcw = await FluentCeVIO.FactoryAsync();
+		await fcw.SetSpeedAsync(50);
+		await fcw.SetToneAsync(50);
+		await fcw.SetAlphaAsync(50);
 		var result = await fcw.SpeakAsync(text);
 
 		Assert.True(result);
+	}
+
+	[Theory]
+	[InlineData("夏色花梨","夏色花梨です")]
+	public async void GetPhonemesAsync(string cast, string text)
+	{
+		var fcw = await FluentCeVIO.FactoryAsync();
+		await fcw.SetCastAsync(cast);
+		var comp = await fcw.GetComponentsAsync();
+		comp.ToList().ForEach(v =>
+		{
+			output.WriteLine($"{v.Name}:{v.Value}");
+		});
+		await fcw.SetSpeedAsync(50);
+		await fcw.SetToneAsync(50);
+		await fcw.SetAlphaAsync(50);
+		var speed = await fcw.GetSpeedAsync();
+		output.WriteLine($"speed: {speed}");
+
+		var result = await fcw.GetPhonemesAsync(text);
+
+		result.ToList().ForEach(v => {
+			var ts = TimeSpan.FromSeconds(v.EndTime - v.StartTime);
+
+			output.WriteLine($"phonemes: {v.StartTime * 1000 * 1000 * 10}	{v.EndTime * 1000 * 1000 * 10}	{v.Phoneme}");
+		});
+
+		Assert.True(result.Count > 0);
 	}
 }

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 
 using H.Pipes;
 using ConsoleAppFramework;
+using FluentCeVIOWrapper.Common.Models;
 
 namespace FluentCeVIOWrapper.Server;
 
@@ -96,6 +97,8 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 		var rHost = RemoteHost.GetInstance(product);
 		var isReturnBack = true;
 
+		Console.WriteLine($"■cmd:{cmd},{product},{name},set:{setValue},arg:{argValues},rHost:{rHost.Environment}");
+
 		var value = cmd switch
 		{
 			ServerCommand.Echo => null,
@@ -146,7 +149,8 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 					nameof(ITalker.GetTextDuration) =>
 						await rHost.CallInstanceMethodByHostAsync<double>(host, name, argValues),
 					nameof(ITalker.GetPhonemes) =>
-						await rHost.CallInstanceMethodByHostAsync<ReadOnlyCollection<IPhonemeData>>(host, name, argValues),
+						await rHost.GetPhonemesAsync(argValues?[0]),
+						//await rHost.CallInstanceMethodByHostAsync<ReadOnlyCollection<PhonemeData>>(host, name, argValues),
 					nameof(ITalker.OutputWaveToFile) =>
 						await rHost.CallInstanceMethodByHostAsync<string>(host, name, argValues),
 					_ => null
@@ -216,6 +220,11 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 				case nameof(ITalker.ToneScale):
 					{
 						rHost.ToneScale = setValue;
+						break;
+					}
+				case nameof(ITalker.Components):
+					{
+						rHost.Components = setValue;
 						break;
 					}
 
