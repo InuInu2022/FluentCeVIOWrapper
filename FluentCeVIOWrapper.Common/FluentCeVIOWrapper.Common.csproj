@@ -6,7 +6,7 @@
     <LangVersion>10</LangVersion>
     <!-- nupkg -->
     <PackageId>FluentCeVIOWrapper</PackageId>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
     <Authors>InuInu</Authors>
     <Company>InuInu</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
