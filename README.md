@@ -4,14 +4,14 @@ A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
 
 # What's this?
 
-音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 6からも扱えるようにしたラッパーライブラリ＆連携サーバーです。async/await, ValueTask, nullableなどモダンな書き方に対応しています。
+音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 6からも扱えるようにしたラッパーライブラリ＆連携サーバーです。`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
 
 ## 特徴
 
 - CeVIO AI, CeVIO Creative Studio 7 対応
 - 共通ライブラリAPIはモダンな記法が可能
-  - async / await
-  - nullable
+  - `async` / `await`
+  - `nullable`
   - `ValueTask<T>`
   - C# 10
   - No more GAC、nupkg形式での提供
@@ -81,7 +81,6 @@ await fcw.SpeakAsync("こんにちは。");
   - `-cevio` : `CeVIO_AI` or `CeVIO_CS`
   - `-pipeName` : IPCで使われる名前付きパイプ名。複数起動時に設定します。
   - `-dllPath` : CeVIOのインストールフォルダパス指定
-
 
 ## ライブラリ
 
