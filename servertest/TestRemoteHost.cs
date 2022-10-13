@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
@@ -255,6 +256,24 @@ public class TestRemoteHost : IDisposable
 		await InitAsync();
 		var result = await host!.CallInstanceMethodByHostAsync<bool>(Host.Talker, "Stop");
 
+		Assert.True(result);
+	}
+
+	[Fact]
+	public async void SaveWaveAsync()
+	{
+		// Given
+		await InitAsync();
+		var result = await host!.CallInstanceMethodByHostAsync<bool>(
+			Host.Talker,
+			nameof(ITalker.OutputWaveToFile),
+			//new string[] { "あいうえお", "out.wav" }
+			new List<dynamic>(){"あいうえお", "out.wav"}.AsReadOnly()
+		);
+
+		// When
+
+		// Then
 		Assert.True(result);
 	}
 }

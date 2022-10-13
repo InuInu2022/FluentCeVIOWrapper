@@ -468,4 +468,21 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 
 		Assert.True(result.Count > 0);
 	}
+
+	[Theory]
+	[InlineData("こんにちは",@"..\..\..\out\こんにちは.wav")]
+	public async void SaveWaveAsync(string serif, string path)
+	{
+		// Given
+		var fcw = await FluentCeVIO.FactoryAsync();
+		var npath = Path.GetFullPath(path);
+		var result = await fcw.OutputWaveToFileAsync(serif, npath);
+
+		// When
+		output.WriteLine($"npath:{npath}");
+
+		// Then
+		//Assert.True(Directory.Exists(npath));
+		Assert.True(result);
+	}
 }
