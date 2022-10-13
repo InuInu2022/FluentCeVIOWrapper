@@ -152,7 +152,7 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 						await rHost.GetPhonemesAsync(argValues?[0]),
 						//await rHost.CallInstanceMethodByHostAsync<ReadOnlyCollection<PhonemeData>>(host, name, argValues),
 					nameof(ITalker.OutputWaveToFile) =>
-						await rHost.CallInstanceMethodByHostAsync<string>(host, name, argValues),
+						await rHost.CallInstanceMethodByHostAsync<bool>(host, name, argValues),
 					_ => null
 				},
 			_ => null,
