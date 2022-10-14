@@ -14,7 +14,10 @@ namespace FluentCeVIOWrapper.Common;
 public class FluentCeVIOParam
 {
 	private readonly FluentCeVIO _fcw;
-	private readonly Dictionary<string, dynamic> sendParams = new();
+	private readonly Dictionary<string, dynamic> sendParams
+		= new();
+	private Dictionary<string, uint> sendEmotions
+		= new();
 
 	internal FluentCeVIOParam(FluentCeVIO fcw){
 		_fcw = fcw;
@@ -42,6 +45,19 @@ public class FluentCeVIOParam
 	///<see cref="FluentCeVIO.GetComponentsAsync"/>
 	public FluentCeVIOParam Components(ReadOnlyCollection<TalkerComponent> value)
 		=> SetParam(nameof(FluentCeVIO.SetComponentsAsync), value);
+
+	/// <summary>
+	/// <c>Components</c>の簡易版。
+	/// </summary>
+	/// <example>
+	/// .Emotions(new(){["怒り"]=15,["普通"]=50})
+	/// </example>
+	/// <param name="list">感情名、値（0~100）のDictionaryを与えてください</param>
+	/// <see cref="FluentCeVIOParam.Components(ReadOnlyCollection{TalkerComponent})"/>
+	public FluentCeVIOParam Emotions(Dictionary<string,uint> list){
+		sendEmotions = list;
+		return SetParam(nameof(FluentCeVIOParam.Emotions), sendEmotions);
+	}
 
 	/// <inheritdoc cref="FluentCeVIO.SetSpeedAsync(uint)"/>
 	public FluentCeVIOParam Speed([Range(0,100)] uint value)
@@ -110,6 +126,12 @@ public class FluentCeVIOParam
 						break;
 					}
 
+				case nameof(FluentCeVIOParam.Emotions):
+					{
+						await SetComponentsByNameAsync();
+						break;
+					}
+
 				default:
 					break;
 			}
@@ -117,6 +139,7 @@ public class FluentCeVIOParam
 
 		//clean up
 		sendParams.Clear();
+		sendEmotions.Clear();
 	}
 
 	private FluentCeVIOParam SetParam<T>(string callName, T value)
@@ -124,5 +147,23 @@ public class FluentCeVIOParam
 	{
 		sendParams[callName] = value;
 		return this;
+	}
+
+	private async ValueTask SetComponentsByNameAsync(){
+		var comps = await _fcw.GetComponentsAsync();
+		var sendComps = comps
+			.Select(v =>
+			{
+				if (sendEmotions.ContainsKey(v.Name))
+				{
+					v.Value = sendEmotions[v.Name];
+				}
+
+				return v;
+			})
+			.ToList()
+			.AsReadOnly();
+		sendComps.ToList().ForEach(v => System.Console.WriteLine($"{v.Name}::{v.Value}"));
+		await _fcw.SetComponentsAsync(sendComps);
 	}
 }
