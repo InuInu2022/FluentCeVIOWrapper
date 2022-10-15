@@ -50,7 +50,7 @@ await fcw.SpeakAsync("こんにちは。", true);
 //await Task.Delay(5000);
 
 await fcw.CreateParam()
-	.Cast(casts[0])
+	.Cast("さとうささら")
 	//感情一覧を取得しなくても使える便利関数
 	//感情名が一致すれば設定します。存在しない場合は無視
 	.Emotions(new()
@@ -61,18 +61,20 @@ await fcw.CreateParam()
 			["普通"] = 50
 		})
 	.SendAsync();
+await Task.Delay(1000);	//少し待たないと反映済みComponentsが取得できないっぽい？
 var e = await fcw.GetComponentsAsync();
+await fcw.SpeakAsync("ちょっと、何ですか？", true);
 foreach(var i in e){
 	Console.WriteLine($"{i.Name}:{i.Value}");
 }
-await fcw.SpeakAsync("ちょっと、何ですか？", true);
+
 e = await fcw.GetComponentsAsync();
 foreach(var i in e){
 	Console.WriteLine($"{i.Name}:{i.Value}");
 }
 await fcw.SpeakAsync("ちょっと、何《なん》ですか？", true);
 
-await fcw.OutputWaveToFileAsync("ちょっと、何《なん》ですか？", "/out/test.wav");
+await fcw.OutputWaveToFileAsync("ちょっと、何《なん》ですか？", "./out/test.wav");
 
 //サーバー終了
 process.Kill();
