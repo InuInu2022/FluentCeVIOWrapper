@@ -68,6 +68,21 @@ await fcw.CreateParam()
 	.SendAsync();
 //非同期で音声合成
 await fcw.SpeakAsync("こんにちは。");
+
+//感情設定は Emotions() で簡単にできる
+await fcw.CreateParam()
+	.Cast("さとうささら")
+	//感情一覧を取得しなくても使える便利関数
+	//感情名が一致すれば設定します。存在しない場合は無視
+	.Emotions(new()
+		{
+			["元気"] = 0,
+			["哀しみ"] = 0,
+			["怒り"] = 75,
+			["普通"] = 50
+		})
+	.SendAsync();
+await fcw.SpeakAsync("こんにちは!!");
 ```
 
 ### FluentCeVIOWrapper.Server
