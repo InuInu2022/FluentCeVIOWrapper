@@ -18,6 +18,8 @@ A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
 - 共通ライブラリは .NET Standard 2.0対応
   - .NET Framework系環境・.NET Core系環境どちらかも利用可能
 - 連携サーバーは .NET Framework 4.8上で起動
+- **バグだらけ。テスト甘いです。**
+  - 利用していないAPIはテストされていません
 
 ## 構成
 
@@ -36,7 +38,8 @@ A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
 
 1. nupkgファイルをDL
 2. nupkgをローカルnugetリポジトリに登録
-3. ライブラリとして追加。例：`dotnet add package FluentCeVIOWrapper.Common`
+3. ライブラリとして追加。
+   1. 例：`dotnet add package FluentCeVIOWrapper.Common`
 
 ```cs
 //ファクトリメソッドで非同期生成
@@ -71,6 +74,7 @@ await fcw.SpeakAsync("こんにちは。");
 
 //感情設定は Emotions() で簡単にできる
 await fcw.CreateParam()
+  //キャスト名の直接指定でも実はOK
 	.Cast("さとうささら")
 	//感情一覧を取得しなくても使える便利関数
 	//感情名が一致すれば設定します。存在しない場合は無視
@@ -97,10 +101,21 @@ await fcw.SpeakAsync("こんにちは!!");
   - `-pipeName` : IPCで使われる名前付きパイプ名。複数起動時に設定します。
   - `-dllPath` : CeVIOのインストールフォルダパス指定
 
-## ライブラリ
+CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを2つ立ち上げてください。
 
-- H.Pipes
-- System.Reactive
-- ConsoleAppFramework
-- Microsoft.Extensions.Hosting.Abstractions
-- xunit
+## 使用ライブラリ
+
+- [H.Pipes](https://github.com/HavenDV/H.Pipes)
+- [System.Reactive](https://github.com/dotnet/reactive)
+- [ConsoleAppFramework](https://github.com/Cysharp/ConsoleAppFramework)
+- [Microsoft.Extensions.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions/)
+- [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations/)
+- [xunit](https://xunit.net/)
+
+## ライセンス
+
+> MIT License
+>
+> Copyright (c) 2022 いぬいぬ
+
+See detail [LICENSE](.LICENSE)
