@@ -39,6 +39,7 @@ A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
 ### FluentCeVIOWrapper.Common
 
 1. nupkgファイルをDL
+   1. download from [Releases](https://github.com/InuInu2022/FluentCeVIOWrapper/releases)
 2. nupkgをローカルnugetリポジトリに登録
 3. ライブラリとして追加。
    1. 例：`dotnet add package FluentCeVIOWrapper.Common`
@@ -94,6 +95,7 @@ await fcw.SpeakAsync("こんにちは!!");
 ### FluentCeVIOWrapper.Server
 
 1. exeファイルをDL
+   1. download from [Releases](https://github.com/InuInu2022/FluentCeVIOWrapper/releases)
 2. `Process.Start()`などで外部プロセス呼び出し
 3. サーバー起動後は`FluentCeVIOWrapper.Common.FluentCeVIO`クラスで通信が可能です
 
