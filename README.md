@@ -4,7 +4,7 @@ A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
 
 # What's this?
 
-音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 6からも扱えるようにしたラッパーライブラリ＆連携サーバーです。`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
+音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 6からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
 
 ## 特徴
 
@@ -14,7 +14,9 @@ A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
   - `nullable`
   - `ValueTask<T>`
   - C# 10
+- nuget経由での導入
   - No more GAC、nupkg形式での提供
+  - 現在はローカルnugetの想定です
 - 共通ライブラリは .NET Standard 2.0対応
   - .NET Framework系環境・.NET Core系環境どちらかも利用可能
 - 連携サーバーは .NET Framework 4.8上で起動

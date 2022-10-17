@@ -11,6 +11,13 @@
 		<DebugType>none</DebugType>
         <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
+	<Target Name="MakeZipPackage" AfterTargets="Publish">
+		<MakeDir Directories="$(OutputPath)/_publish/" />
+		<Delete Files="$(OutputPath)/(AssemblyName).pdb" />
+		<Delete Files="$(OutputPath)/publish/(AssemblyName).pdb" />
+		<ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/_publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
+		<Message Text="Actions After Publish" Importance="high" />
+	</Target>
 	<ItemGroup>
 		<PackageReference Include="H.Pipes" Version="2.0.42" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
