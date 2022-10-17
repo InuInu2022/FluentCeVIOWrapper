@@ -123,3 +123,11 @@ CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを
 > Copyright (c) 2022 いぬいぬ
 
 See detail [LICENSE](.LICENSE)
+
+## 🐶Developed by InuInu
+
+- InuInu（いぬいぬ）
+  - YouTube [YouTube](https://bit.ly/InuInuMusic)
+  - Twitter [@InuInuGames](https://twitter.com/InuInuGames)
+  - Blog [note.com](https://note.com/inuinu_)
+  - niconico [niconico](https://nico.ms/user/98013232)
