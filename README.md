@@ -62,8 +62,7 @@ var newEmo = emotes
 			(uint)0;
 		return v;
 	})
-	.ToList()
-	.AsReadOnly();
+	.ToList();
 //メソッドチェーンでまとめてパラメータ指定
 await fcw.CreateParam()
 	.Cast(casts[0])

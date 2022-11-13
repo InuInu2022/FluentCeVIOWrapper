@@ -28,14 +28,16 @@ var casts = await fcw.GetAvailableCastsAsync();
 //感情一覧を非同期で取得
 var emotes = await fcw.GetComponentsAsync();
 var newEmo = emotes
-	.Select(v => {
+	.Select(v =>
+	{
 		v.Value = (v.Name == "哀しみ") ?
 			(uint)100 :
 			(uint)0;
 		return v;
 	})
 	.ToList()
-	.AsReadOnly();
+	//.AsReadOnly();
+	;
 //メソッドチェーンでまとめてパラメータ指定
 await fcw.CreateParam()
 	.Cast(casts[0])
@@ -50,6 +52,7 @@ await fcw.SpeakAsync("こんにちは。", true);
 //await Task.Delay(5000);
 
 await fcw.CreateParam()
+	//キャスト名の直接指定でも実はOK
 	.Cast("さとうささら")
 	//感情一覧を取得しなくても使える便利関数
 	//感情名が一致すれば設定します。存在しない場合は無視
