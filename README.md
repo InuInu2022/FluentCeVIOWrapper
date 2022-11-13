@@ -4,7 +4,7 @@ A named pipe server of CeVIO API for .NET 7 / .NET Standard 2.0
 
 # What's this?
 
-音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 7からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
+音声合成ソフト「[CeVIO](https://cevio.jp/)」の [.NET外部連携インターフェイス](https://cevio.jp/guide/cevio_ai/interface/dotnet/)を 最新の .NET 7等からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
 
 ## 特徴
 
@@ -18,8 +18,10 @@ A named pipe server of CeVIO API for .NET 7 / .NET Standard 2.0
   - No more GAC、nupkg形式での提供
   - 現在はローカルnugetの想定です
 - 共通ライブラリは .NET Standard 2.0対応
-  - .NET Framework系環境・.NET Core系環境どちらかも利用可能
-- 連携サーバーは .NET Framework 4.8上で起動
+  - .NET Framework系環境・.NET Core系環境どちらからも利用可能
+  - .NET 6 / 7での動作を確認済
+- 連携IPCサーバーは .NET Framework 4.8上で起動
+  - 名前付きパイプでのIPCを行います
 - **バグだらけ。テスト甘いです。**
   - 利用していないAPIはテストされていません
 
