@@ -69,6 +69,7 @@ public class TestRemoteHost : IDisposable
 	[Fact]
 	public void TryStart()
 	{
+		if(host is null)return;
 		var result = host.TryStartAsync().Result;
 		output.WriteLine($"result:{result}");
 		Assert.Equal(HostStartResult.Succeeded, result.result);
@@ -78,6 +79,7 @@ public class TestRemoteHost : IDisposable
 	public async void CreateRemoteHostAsync(){
 
 		//var host = await RemoteHost.CreateAsync(new Common.Talk.Environment.AI());
+		if(host is null)return;
 		var result = await host.TryStartAsync();
 		Assert.Equal(HostStartResult.Succeeded, result.result);
 		output.WriteLine($"result:{result}");	//could not call.... why?
@@ -88,6 +90,7 @@ public class TestRemoteHost : IDisposable
 	{
 		await InitAsync();
 		output.WriteLine($"name:{nameof(GetHostVersionAsync)}");
+		if(host is null)return;
 		//var host = await RemoteHost.CreateAsync(new Common.Talk.Environment.AI());
 		//var result = await host.TryStartAsync().ConfigureAwait(false);
 		//Assert.Equal(HostStartResult.Succeeded, result.result);
@@ -110,6 +113,7 @@ public class TestRemoteHost : IDisposable
 		//host = await RemoteHost.CreateAsync(new Common.Talk.Environment.AI());
 		//Assert.NotNull(host);
 		//await host.StartHostAsync();
+		if(host is null)return;
 		var result = await host.GetPropertyByHostAsync<bool>(Host.Service, "IsHostStarted");
 		Assert.IsType<bool>(result);
 		Assert.True(result);
@@ -122,6 +126,7 @@ public class TestRemoteHost : IDisposable
 	[InlineData("Speed")]
 	public async void GetTalkerPropertyAsync(string name){
 		await InitAsync();
+		if(host is null)return;
 		var result = await host.GetPropertyByHostAsync<uint>(Host.Talker, name, true);
 		output.WriteLine($"result:{result}");
 	}
@@ -130,6 +135,7 @@ public class TestRemoteHost : IDisposable
 	public async void GetVolume()
 	{
 		await InitAsync();
+		if(host is null)return;
 		var result = await host.GetVolume();
 		output.WriteLine($"result:{result}");
 	}
@@ -140,6 +146,7 @@ public class TestRemoteHost : IDisposable
 	public async void Volume(uint value)
 	{
 		await InitAsync();
+		if(host is null)return;
 		host.Volume = value;
 		var result = host.Volume;
 		output.WriteLine($"result:{result}");
@@ -152,6 +159,7 @@ public class TestRemoteHost : IDisposable
 	public async void Speed(uint value)
 	{
 		await InitAsync();
+		if(host is null)return;
 		host.Speed = value;
 		var result = host.Speed;
 		output.WriteLine($"result:{result}");
@@ -164,8 +172,9 @@ public class TestRemoteHost : IDisposable
 	public async void Tone(uint value)
 	{
 		await InitAsync();
+		if(host is null)return;
 		host.Tone = value;
-		var result = host.Tone;
+		var result = host?.Tone;
 		output.WriteLine($"result:{result}");
 		Assert.Equal(value, result);
 	}
@@ -176,6 +185,7 @@ public class TestRemoteHost : IDisposable
 	public async void Alpha(uint value)
 	{
 		await InitAsync();
+		if(host is null)return;
 		host.Alpha = value;
 		var result = host.Alpha;
 		output.WriteLine($"result:{result}");
@@ -186,7 +196,7 @@ public class TestRemoteHost : IDisposable
 	public async void Components()
 	{
 		await InitAsync();
-		var comp = host.Components;
+		var comp = host?.Components;
 
 		Assert.IsType<ReadOnlyCollection<TalkerComponent>>(comp);
 
@@ -199,7 +209,7 @@ public class TestRemoteHost : IDisposable
 	public async void AvailableCastsAsync()
 	{
 		await InitAsync();
-		var result = await host.GetPropertyByHostAsync<string[]>(Host.Agent, nameof(ITalker.AvailableCasts));
+		var result = await host?.GetPropertyByHostAsync<string[]>(Host.Agent, nameof(ITalker.AvailableCasts));
 
 		Assert.NotNull(result);
 		Assert.True(result.Length > 0);
