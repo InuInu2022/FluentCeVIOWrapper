@@ -41,9 +41,9 @@ public class FluentCeVIOParam
 	public FluentCeVIOParam Cast(string castName)
 		=> SetParam(nameof(FluentCeVIO.SetCastAsync), castName);
 
-	///<inheritdoc cref="FluentCeVIO.SetComponentsAsync(ReadOnlyCollection{TalkerComponent})"/>
+	///<inheritdoc cref="FluentCeVIO.SetComponentsAsync(IEnumerable{TalkerComponent})"/>
 	///<see cref="FluentCeVIO.GetComponentsAsync"/>
-	public FluentCeVIOParam Components(ReadOnlyCollection<TalkerComponent> value)
+	public FluentCeVIOParam Components(IEnumerable<TalkerComponent> value)
 		=> SetParam(nameof(FluentCeVIO.SetComponentsAsync), value);
 
 	/// <summary>
@@ -53,7 +53,7 @@ public class FluentCeVIOParam
 	/// .Emotions(new(){["怒り"]=15,["普通"]=50})
 	/// </example>
 	/// <param name="list">感情名、値（0~100）のDictionaryを与えてください</param>
-	/// <see cref="FluentCeVIOParam.Components(ReadOnlyCollection{TalkerComponent})"/>
+	/// <see cref="Components(IEnumerable{TalkerComponent})"/>
 	public FluentCeVIOParam Emotions(Dictionary<string,uint> list){
 		sendEmotions = list;
 		return SetParam(nameof(FluentCeVIOParam.Emotions), sendEmotions);

@@ -407,9 +407,9 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 		await fcw.SetCastAsync(cast);
 		var result = await fcw.GetComponentsAsync();
 
-
 		try{
 			await fcw.SetComponentsAsync(result);
+			await fcw.SpeakAsync("感情を設定しました。");
 		}catch{
 			Debug.WriteLine("e");
 		}

@@ -348,8 +348,8 @@ public class FluentCeVIO : IDisposable
 	/// <param name="value">感情パラメータの管理オブジェクト</param>
 	/// <seealso cref="TalkerComponent"/>
 	/// <seealso cref="GetComponentsAsync"/>
-	public async ValueTask SetComponentsAsync(ReadOnlyCollection<TalkerComponent> value){
-		await SetWrapAsync<ReadOnlyCollection<TalkerComponent>>(Host.Talker, nameof(ITalker.Components), value);
+	public async ValueTask SetComponentsAsync(IEnumerable<TalkerComponent> value){
+		await SetWrapAsync(Host.Talker, nameof(ITalker.Components), value);
 	}
 
 	/// <summary>
