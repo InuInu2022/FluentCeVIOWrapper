@@ -1,10 +1,10 @@
 # Fluent CeVIO Wrapper
 
-A named pipe server of CeVIO API for .NET 6 / .NET Standard 2.0
+A named pipe server of CeVIO API for .NET 7 / .NET Standard 2.0
 
 # What's this?
 
-音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 6からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
+音声合成ソフト「[CeVIO](https://cevio.jp/)」の .NET外部連携インターフェイスを 最新の .NET 7からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
 
 ## 特徴
 
