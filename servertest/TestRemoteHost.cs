@@ -209,7 +209,8 @@ public class TestRemoteHost : IDisposable
 	public async void AvailableCastsAsync()
 	{
 		await InitAsync();
-		var result = await host?.GetPropertyByHostAsync<string[]>(Host.Agent, nameof(ITalker.AvailableCasts));
+		if(host is null)return;
+		var result = await host.GetPropertyByHostAsync<string[]>(Host.Agent, nameof(ITalker.AvailableCasts));
 
 		Assert.NotNull(result);
 		Assert.True(result.Length > 0);
