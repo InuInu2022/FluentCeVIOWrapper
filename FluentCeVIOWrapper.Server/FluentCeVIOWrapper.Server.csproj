@@ -6,6 +6,9 @@
 		<Nullable>enable</Nullable>
 		<LangVersion>10</LangVersion>
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+		<Version>0.1.5</Version>
+		<Authors>InuInu</Authors>
+		<Company>InuInu</Company>
 	</PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<DebugType>none</DebugType>
