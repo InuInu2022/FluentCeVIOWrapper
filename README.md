@@ -1,8 +1,10 @@
 # Fluent CeVIO Wrapper
 
-A named pipe server of CeVIO API for .NET 7 / .NET Standard 2.0
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET Standard 2.0](https://img.shields.io/badge/%20.NET%20Standard-2.0-blue.svg?logo=dotnet&style=flat) ![.NET Framework 4.8](https://img.shields.io/badge/%20.NET%20Framework-4.8-blue.svg?logo=dotnet&style=flat)
 
-# What's this?
+A wrapper library and integration IPC server of the [CeVIO](https://cevio.jp/) API for .NET 7 / .NET Standard 2.0
+
+## What's this?
 
 音声合成ソフト「**[CeVIO](https://cevio.jp/)**」の [.NET外部連携インターフェイス](https://cevio.jp/guide/cevio_ai/interface/dotnet/)を 最新の .NET 7等からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、`async`/`await`, `ValueTask`, `nullable`などモダンな書き方に対応しています。
 
@@ -31,11 +33,11 @@ A wrapper library and integration IPC server for the [.NET external integration 
 
 - [FluentCeVIOWrapper.Common](FluentCeVIOWrapper.Common/)
   - 共通ライブラリ
-  - .NET Standard 2.0
+  - .NET Standard 2.0 ![.NET Standard 2.0](https://img.shields.io/badge/%20.NET%20Standard-2.0-blue.svg?logo=dotnet&style=flat)
   - .nupkg
 - [FluentCeVIOWrapper.Server](FluentCeVIOWrapper.Server/)
   - 連携IPCサーバー
-  - .NET Framework 4.8
+  - .NET Framework 4.8 ![.NET Framework 4.8](https://img.shields.io/badge/%20.NET%20Framework-4.8-blue.svg?logo=dotnet&style=flat)
   - Windows console app .exe
 
 ## 使い方
