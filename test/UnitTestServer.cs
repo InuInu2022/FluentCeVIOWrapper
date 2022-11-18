@@ -487,24 +487,44 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 	}
 
 	[Theory]
-	[InlineData("こんにちは","すずきつづみ", 45)]
+	[InlineData("こんにちは","すずきつづみ", 45, 33,0,100,100)]
 	public async void SendAndSpeakTestAsync(
 		string text,
 		string cast,
-		uint speed
+		uint speed,
+		uint alpha,
+		uint tone,
+		uint toneScale,
+		uint vol
 	)
 	{
 		var fcw = await FluentCeVIO.FactoryAsync();
 		await fcw
 			.CreateParam()
+			.Alpha(alpha)
 			.Cast(cast)
+			.Tone(tone)
+			.ToneScale(toneScale)
 			.Speed(speed)
+			.Volume(vol)
 			.SendAndSpeakAsync(text);
+
+		var tmpAlpha = await fcw.GetAlphaAsync();
+		tmpAlpha.Should().Be(alpha);
 
 		var tmpCast = await fcw.GetCastAsync();
 		tmpCast.Should().Be(cast);
 
 		var tmpSpeed = await fcw.GetSpeedAsync();
 		tmpSpeed.Should().Be(speed);
+
+		var tmpTone = await fcw.GetToneAsync();
+		tmpTone.Should().Be(tone);
+
+		var tmpToneScale = await fcw.GetToneScaleAsync();
+		tmpToneScale.Should().Be(toneScale);
+
+		var tmpVol = await fcw.GetVolumeAsync();
+		tmpVol.Should().Be(vol);
 	}
 }
