@@ -27,9 +27,9 @@ public class FluentCeVIOParam
 	/// メソッドチェーンでパラメータを指定できるパラメータクラスのファクトリメソッド
 	/// 最後に <see cref="SendAsync"/>を呼ぶ
 	/// </summary>
-	/// <see cref="FluentCeVIO.CreateParam"/>
-	/// <see cref="SendAsync"/>
-	/// <param name="fcw"></param>
+	/// <seealso cref="FluentCeVIO.CreateParam"/>
+	/// <seealso cref="SendAsync"/>
+	/// <param name="fcw"><see cref="FluentCeVIO"/>インスタンス</param>
 	public static FluentCeVIOParam Create(FluentCeVIO fcw)
 		=> new(fcw);
 
@@ -79,6 +79,7 @@ public class FluentCeVIOParam
 	/// メソッドチェーンで指定したパラメータをまとめて設定する
 	/// 必ず最後に呼ぶ
 	/// </summary>
+    /// <seealso cref="SendAndSpeakAsync(string, bool)"/>
 	/// <returns></returns>
 	public async ValueTask SendAsync(){
 		foreach (var v in sendParams.ToList())
@@ -140,6 +141,20 @@ public class FluentCeVIOParam
 		//clean up
 		sendParams.Clear();
 		sendEmotions.Clear();
+	}
+
+	/// <summary>
+    /// メソッドチェーンで指定したパラメータをまとめて設定してすぐに発声する
+    /// 必ず最後に呼ぶ
+    /// </summary>
+    /// <inheritdoc cref="FluentCeVIO.SpeakAsync(string, bool)"/>
+    /// <seealso cref="SendAsync"/>
+	public async ValueTask SendAndSpeakAsync(
+		string text,
+		bool isWait = true)
+	{
+		await SendAsync();
+		await _fcw.SpeakAsync(text, isWait);
 	}
 
 	private FluentCeVIOParam SetParam<T>(string callName, T value)
