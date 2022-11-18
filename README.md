@@ -127,6 +127,7 @@ CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを
 - [Microsoft.Extensions.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions/)
 - [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations/)
 - [xunit](https://xunit.net/)
+- [FluentAssertions](https://fluentassertions.com/)
 
 ## ライセンス
 

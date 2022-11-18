@@ -485,4 +485,26 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 		//Assert.True(Directory.Exists(npath));
 		Assert.True(result);
 	}
+
+	[Theory]
+	[InlineData("こんにちは","すずきつづみ", 45)]
+	public async void SendAndSpeakTestAsync(
+		string text,
+		string cast,
+		uint speed
+	)
+	{
+		var fcw = await FluentCeVIO.FactoryAsync();
+		await fcw
+			.CreateParam()
+			.Cast(cast)
+			.Speed(speed)
+			.SendAndSpeakAsync(text);
+
+		var tmpCast = await fcw.GetCastAsync();
+		tmpCast.Should().Be(cast);
+
+		var tmpSpeed = await fcw.GetSpeedAsync();
+		tmpSpeed.Should().Be(speed);
+	}
 }
