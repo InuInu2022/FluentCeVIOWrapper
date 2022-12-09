@@ -13,6 +13,10 @@
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<DebugType>none</DebugType>
         <DebugSymbols>false</DebugSymbols>
+		<Deterministic>true</Deterministic>
+		<DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+		<RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+		<PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
     </PropertyGroup>
 	<Target Name="MakeZipPackage" AfterTargets="Publish">
 		<MakeDir Directories="$(OutputPath)/_publish/" />
