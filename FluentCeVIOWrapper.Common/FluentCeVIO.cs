@@ -263,7 +263,7 @@ public class FluentCeVIO : IDisposable
 	/// 音の大きさ（0～100）を設定します。
 	/// </summary>
 	/// <param name="volume">音の大きさ（0～100）</param>
-	/// <see cref="FluentCeVIOParam.Volume(uint)"/>
+	/// <seealso cref="FluentCeVIOParam.Volume(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetVolumeAsync([Range(0,100)] uint volume)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Volume), volume);
@@ -279,6 +279,7 @@ public class FluentCeVIO : IDisposable
 	/// 話す速さ（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">話す速さ（0～100）</param>
+    /// <seealso cref="FluentCeVIOParam.Speed(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetSpeedAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Speed), value);
@@ -294,6 +295,7 @@ public class FluentCeVIO : IDisposable
 	/// 音の高さ（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">音の高さ（0～100）</param>
+    /// <seealso cref="FluentCeVIOParam.Tone(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetToneAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Tone), value);
@@ -309,6 +311,7 @@ public class FluentCeVIO : IDisposable
 	/// 声質（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">声質（0～100）</param>
+    /// <seealso cref="FluentCeVIOParam.Alpha(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetAlphaAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Alpha), value);
@@ -324,6 +327,7 @@ public class FluentCeVIO : IDisposable
 	/// 抑揚（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">抑揚（0～100）</param>
+    /// <seealso cref="FluentCeVIOParam.ToneScale(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetToneScaleAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.ToneScale), value);
