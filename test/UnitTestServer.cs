@@ -527,4 +527,25 @@ public class UnitTestServer : IClassFixture<UnitTestAwakeServer>, IDisposable
 		var tmpVol = await fcw.GetVolumeAsync();
 		tmpVol.Should().Be(vol);
 	}
+
+	[Theory]
+	//[InlineData("さとうささら", Product.CeVIO_AI, "CTNV-JPF-A" )]
+	[InlineData("さとうささら", Product.CeVIO_CS, "A" )]
+	public async void GetCastIdAsync(
+		string name, Product product, string id
+	){
+		var fcw = await FluentCeVIO
+			.FactoryAsync(product: product);
+		await fcw
+			.CreateParam()
+			.Cast(name)
+			.SendAsync();
+
+		var comps = await fcw.GetComponentsAsync();
+		comps.ToList().ForEach(v => output.WriteLine($"id:{v.Id}, {v.Name}, {v.Value}"));
+		//output.WriteLine(comps[0].Id);
+
+		var getId = await fcw.GetCastIdAsync(name);
+		getId.Should().Be(id);
+	}
 }
