@@ -1,0 +1,15 @@
+apiRules:
+- include:
+    uidRegex: ^Global
+    type: Namespace
+- exclude:
+    uidRegex: ^System\.Object
+    type: Type
+- exclude:
+    hasAttribute:
+      uid: System.ComponentModel.EditorBrowsableAttribute
+      ctorArguments:
+      - System.ComponentModel.EditorBrowsableState.Never
+- exclude:
+    hasAttribute:
+      uid: System.ComponentModel.ObsoleteAttribute

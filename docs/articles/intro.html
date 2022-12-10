@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Introduction to Fluent CeVIO Wrapper | Documentation - FluentCeVIOWrapper </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Introduction to Fluent CeVIO Wrapper | Documentation - FluentCeVIOWrapper ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="introduction-to-fluent-cevio-wrapper">Introduction to Fluent CeVIO Wrapper</h1>
+
+<h2 id="whats-this">What's this</h2>
+<p>音声合成ソフト「<strong><a href="https://cevio.jp/">CeVIO</a></strong>」の <a href="https://cevio.jp/guide/cevio_ai/interface/dotnet/">.NET外部連携インターフェイス</a>を 最新の .NET 7等からも扱えるようにしたラッパーライブラリ＆連携サーバーです。.NET Framework 4.8以外むけの.NETアプリから利用できるようになります。また、<code>async</code>/<code>await</code>, <code>ValueTask</code>, <code>nullable</code>などモダンな書き方に対応しています。</p>
+<p>A wrapper library and integration IPC server for the <a href="https://cevio.jp/guide/cevio_ai/interface/dotnet/">.NET external integration interface</a> of the speech synthesis software &quot;<strong><a href="https://cevio.jp/">CeVIO</a></strong>&quot;, which can be used from the latest .NET 7 and other .NET Framework 4.8 environments. It also supports modern C# writing style such as <code>async</code>/<code>await</code>, <code>ValueTask</code>, <code>nullable</code>, and so on.</p>
+<h2 id="problems-of-the-cevio-net-interface">Problems of the CeVIO .NET interface</h2>
+<h3 id="1-net-framework-48">#1 .NET Framework 4.8</h3>
+<p>「<a href="https://cevio.jp/">CeVIO</a>」の <a href="https://cevio.jp/guide/cevio_ai/interface/dotnet/">.NET外部連携インターフェイス</a> は .NET Framework 4.8向けのもので、<strong>最新の.NET環境（.NET 6～）から利用することができません。</strong></p>
+<p>そのため外部連携インターフェイスを利用する.NETアプリは、古い .NET Framework 4.8むけに作らなくてはなりませんでした…。</p>
+<p>最新の.NET環境はマルチプラットホーム対応で、高速、C#の新しい文法が使えるなど、どうしても使いたい…！</p>
+<p>🎉そこで「<strong>Fluent CeVIO Wrapper</strong>」の登場です！</p>
+<p>外部連携インターフェイスとの通信部分をIPCサーバーである <strong>FluentCeVIOWrapper.Server</strong> が行います。
+アプリは <strong>FluentCeVIOWrapper.Common</strong> ライブラリを組み込むだけで、IPCサーバー経由で外部連携インターフェイスを使用できます。</p>
+<p>FluentCeVIOWrapper.Commonは <a href="https://learn.microsoft.com/ja-jp/dotnet/standard/net-standard?tabs=net-standard-2-0">.NET Standard 2.0</a> で書かれている為、
+古い .NET Framework 環境、最新の .NET 6～ 環境どちらからも利用できます。</p>
+<p><strong>アプリ開発者は最新の .NET環境でアプリを組むことができます</strong>！🎉やったね！！！</p>
+<h3 id="2-not-supported-asyncawait">#2. Not supported <code>async</code>/<code>await</code></h3>
+<p>「<a href="https://cevio.jp/">CeVIO</a>」の <a href="https://cevio.jp/guide/cevio_ai/interface/dotnet/">.NET外部連携インターフェイス</a> は C#の標準の非同期処理である<code>async</code>/<code>await</code>に対応していません。</p>
+<p>内部で通信を行っていたり、AIになってからは合成自体に時間がかかるようになったため、同期呼び出しだとプチフリーズすることがよくありました…。</p>
+<p>標準の非同期処理を使うために<code>await Task.Run()</code>で処理をいちいち囲む必要があってかなりツラい…。</p>
+<p>🎉そこで「<strong>Fluent CeVIO Wrapper</strong>」の登場です！</p>
+<p>基本的にすべて、<code>async</code>/<code>await</code>に対応しています。
+可能であれば戻り値は<code>ValueTask&lt;T&gt;</code>になるようにしています。
+元の外部連携インターフェイスでC#のフィールドになっていて非同期処理ができないAPIは非同期のメソッドに置き換えられています。
+詳しくはAPI documentの<code>FluentCeVIO</code>クラスをご覧ください！！</p>
+<h3 id="3-different-name-api-cevio-cs--cevio-ai">#3. Different name API (CeVIO CS / CeVIO AI)</h3>
+<p>CeVIO Creative StudioむけとCeVIO AIむけの外部連携インターフェイスはほぼ同じであるものの、クラス名が<code>Talker</code>と<code>Talker2</code>など微妙に異なり、両方のソフトに対応する際に違いを吸収するのが大変でした。</p>
+<p>🎉そこで「<strong>Fluent CeVIO Wrapper</strong>」の登場です！</p>
+<p>サーバー起動時のオプションを変えるだけで
+共通のAPIでCeVIO CSもAIも呼び出すことができます。
+（同時につかうにはサーバーを複数起動する必要があります）
+<strong>アプリ側ではCSとAIの違いをほとんど意識しないで組むことができます！</strong></p>
+<h3 id="4-old-style-c-73">#4. Old style C# 7.3</h3>
+<p>CeVIOの外部連携インターフェイスは 古い .NET Framework 環境のため、そのままC#で書こうとすると C# 7.3 になっていました。</p>
+<p>最新のC#に比べると…</p>
+<ul>
+<li><code>namespace</code> のインデントが多い！！！！</li>
+<li><code>using</code>が省略できない！！！！</li>
+<li>数行のプログラムでもクラスや<code>Main</code>関数が省略できない！！！</li>
+<li><code>nullable</code>が有効じゃなくてバグが入りやすい！！！！</li>
+<li><code>switch</code>式が使えない！！！！</li>
+<li><code>is</code>は使えても<code>is not</code>が使えない！！</li>
+<li><code>new()</code>って書けない！</li>
+<li><code>record</code>型が作れない！！</li>
+</ul>
+<p>🎉そこで「<strong>Fluent CeVIO Wrapper</strong>」の登場です！</p>
+<p>アプリ側は気にせず、最新のSDKと最新のC#で書けます！！
+※Fluent CeVIO Wrapper自体もC#10で書かれています。</p>
+<h2 id="sample-code">Sample code</h2>
+<pre><code class="lang-cs">//ファクトリメソッドで非同期生成
+//IDisposableを継承しているためusingが使えます
+using var fcw = await FluentCeVIO.FactoryAsync();
+
+//非同期でCeVIO外部連携インターフェイス起動
+await fcw.StartAsync();
+//利用可能なキャスト（ボイス）を非同期で取得
+var casts = await fcw.GetAvailableCastsAsync();
+//感情一覧を非同期で取得
+var emotes = await fcw.GetComponentsAsync();
+var newEmo = emotes
+	.Select(v =&gt; {
+		v.Value = (v.Name == &quot;哀しみ&quot;) ?
+			(uint)100 :
+			(uint)0;
+		return v;
+	})
+	.ToList();
+//メソッドチェーンでまとめてパラメータ指定
+await fcw.CreateParam()
+	.Cast(casts[0])
+	.Alpha(30)
+	.Speed(50)
+	.ToneScale(75)
+	.Components(newEmo)
+	.SendAsync();
+//非同期で音声合成
+await fcw.SpeakAsync(&quot;こんにちは。&quot;);
+
+//感情設定は Emotions() で簡単にできる
+await fcw.CreateParam()
+  //キャスト名の直接指定でも実はOK
+	.Cast(&quot;さとうささら&quot;)
+	//感情一覧を取得しなくても使える便利関数
+	//感情名が一致すれば設定します。存在しない場合は無視
+	.Emotions(new()
+		{
+			[&quot;元気&quot;] = 0,
+			[&quot;哀しみ&quot;] = 0,
+			[&quot;怒り&quot;] = 75,
+			[&quot;普通&quot;] = 50
+		})
+	.SendAsync();
+await fcw.SpeakAsync(&quot;こんにちは!!&quot;);
+</code></pre>
+<p><a href="https://github.com/InuInu2022/FluentCeVIOWrapper/tree/main/Samples">Samples</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            FluentCeVIOWrapper
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
