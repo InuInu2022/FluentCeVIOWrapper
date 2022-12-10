@@ -136,6 +136,7 @@ CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを
 - [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations/)
 - [xunit](https://xunit.net/)
 - [FluentAssertions](https://fluentassertions.com/)
+- [MinVer](https://github.com/adamralph/minver)
 
 ## ライセンス
 

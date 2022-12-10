@@ -6,11 +6,17 @@
     <LangVersion>10</LangVersion>
     <!-- nupkg -->
     <PackageId>FluentCeVIOWrapper</PackageId>
-    <Version>0.1.5</Version>
+    <Version>0.0.1</Version>
     <Authors>InuInu</Authors>
     <Company>InuInu</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- AssemblyInfo プロパティ -->
+    <AssemblyTitle>FluentCeVIOWrapper.Common</AssemblyTitle>
+    <SupportedCultures>en-US;ja</SupportedCultures>
+    <!-- MinVer -->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
       <DebugSymbols>false</DebugSymbols>
@@ -22,6 +28,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="H.Pipes" Version="2.0.42" />
+    <PackageReference Include="MinVer" Version="4.2.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Reactive" Version="5.0.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

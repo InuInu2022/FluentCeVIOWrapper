@@ -42,6 +42,12 @@
           "Microsoft.Extensions.Logging.Abstractions": "3.1.29"
         }
       },
+      "MinVer": {
+        "type": "Direct",
+        "requested": "[4.2.0, )",
+        "resolved": "4.2.0",
+        "contentHash": "Po4tv+sri1jsaebQ8F6+yD5ru9Gas5mR111F6HR2ULqwflvjjZXMstpeOc1GHMJeQa3g4E3b8MX8K2cShkuUAg=="
+      },
       "H.Formatters": {
         "type": "Transitive",
         "resolved": "2.0.42",
@@ -369,10 +375,10 @@
       "FluentCeVIOWrapper": {
         "type": "Project",
         "dependencies": {
-          "H.Pipes": "2.0.42",
-          "Microsoft.CSharp": "4.7.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Reactive": "5.0.0"
+          "H.Pipes": "[2.0.42, )",
+          "Microsoft.CSharp": "[4.7.0, )",
+          "System.ComponentModel.Annotations": "[5.0.0, )",
+          "System.Reactive": "[5.0.0, )"
         }
       }
     },

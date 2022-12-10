@@ -6,9 +6,15 @@
 		<Nullable>enable</Nullable>
 		<LangVersion>10</LangVersion>
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-		<Version>0.1.5</Version>
+		<Version>0.0.1</Version>
 		<Authors>InuInu</Authors>
 		<Company>InuInu</Company>
+		<!-- AssemblyInfo プロパティ -->
+		<AssemblyTitle>FluentCeVIOWrapper.Server</AssemblyTitle>
+		<SupportedCultures>en-US;ja</SupportedCultures>
+		<!-- MinVer -->
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+		<MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
 	</PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<DebugType>none</DebugType>
@@ -40,6 +46,10 @@
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.29" />
+		<PackageReference Include="MinVer" Version="4.2.0">
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		  <PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
