@@ -115,14 +115,17 @@ CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを
 
 ### 使用例 / Examples
 
-- [Samples](./Samples/)
+- **[Samples](./Samples/)**
   - C#10で書かれたサンプルのC#コンソールアプリケーションです
   - キャスト名(`さとうささら`)は所持済みのボイスライブラリ名に書き換えてください
     - 未所持の場合は動きません
-- [KuchiPaku](https://github.com/InuInu2022/KuchiPaku)
+- **[KuchiPaku](https://github.com/InuInu2022/KuchiPaku)**
   - YMM4（ゆっくりムービーメーカー4）むけの「あいうえお口パク（リップシンク）」を生成するツールです。
   - CeVIO API連携ボイスの口パク生成に Fluent CeVIO Wrapper を利用しています
   - このアプリ自体は .NET 6 向けに作られており、.NET Framework 向けであるCeVIOの外部連携インターフェイスをそのままでは利用できません。Fluent CeVIO Wrapper を使用することによりCeVIOを呼び出すことを実現しています。
+- **[LibSasara/Sample/SongToTalk](https://github.com/InuInu2022/LibSasara/tree/master/sample/csharp/SongToTalk)**
+  - CeVIOソングのCCS/CCSTファイルからCeVIOトークの台詞を並べてボイパロイドするための簡易的なツールです
+  - [LibSasara](https://github.com/InuInu2022/LibSasara/)と連携するサンプルにもなっています
 
 ## 使用ライブラリ
 
