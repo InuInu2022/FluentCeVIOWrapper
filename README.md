@@ -98,6 +98,8 @@ await fcw.CreateParam()
 await fcw.SpeakAsync("こんにちは!!");
 ```
 
+- [API documents](https://inuinu2022.github.io/FluentCeVIOWrapper/)
+
 ### FluentCeVIOWrapper.Server
 
 1. exeファイルをDL
