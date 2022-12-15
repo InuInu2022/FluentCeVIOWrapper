@@ -9,6 +9,7 @@
     <Version>0.0.1</Version>
     <Authors>InuInu</Authors>
     <Company>InuInu</Company>
+    <PackageDescription>A wrapper library and integration IPC server of the CeVIO API for .NET 7 / .NET Standard 2.0</PackageDescription>
     <RepositoryUrl>https://github.com/InuInu2022/FluentCeVIOWrapper</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
