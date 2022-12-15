@@ -9,6 +9,7 @@
     <Version>0.0.1</Version>
     <Authors>InuInu</Authors>
     <Company>InuInu</Company>
+    <RepositoryUrl>https://github.com/InuInu2022/FluentCeVIOWrapper</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- AssemblyInfo プロパティ -->
