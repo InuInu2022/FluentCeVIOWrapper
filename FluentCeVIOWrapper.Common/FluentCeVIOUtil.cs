@@ -21,10 +21,6 @@ public static class FluentCeVIOUtil
         string? castName = null
     )
     {
-        if(fcw.CurrentProduct is not Product.CeVIO_CS or Product.CeVIO_AI){
-			throw new NotSupportedException("CeVIO AI, CeVIO CS以外はサポートしていません。");
-		}
-
         if(castName is not null){
 			await fcw.SetCastAsync(castName);
 		}
