@@ -1,0 +1,8 @@
+{
+    "name": "io.github.inuinu2022.fluent_cevio_wrapper.unity",
+    "author": "InuInu2022",
+    "version": "0.1.7",
+    "displayName": "FluentCeVIOWrapper.Unity",
+    "description": "CeVIO IPC lib and server for Unity",
+    "unity": "2020.3"
+}

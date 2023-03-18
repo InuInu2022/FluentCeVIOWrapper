@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packages xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <package id="H.Pipes" version="2.0.47" targetFramework="netstandard2.0" allowedVersions="[2.0.47]" />
+</packages>

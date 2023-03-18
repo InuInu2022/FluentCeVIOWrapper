@@ -1,0 +1,28 @@
+{
+    "managedList": [
+        {
+            "packageName": "H.Pipes",
+            "fileNames": [
+                "H.Pipes"
+            ]
+        },
+        {
+            "packageName": "H.Formatters.BinaryFormatter",
+            "fileNames": [
+                "H.Formatters.BinaryFormatter"
+            ]
+        },
+        {
+            "packageName": "Microsoft.Bcl.AsyncInterfaces",
+            "fileNames": [
+                "Microsoft.Bcl.AsyncInterfaces"
+            ]
+        },
+        {
+            "packageName": "H.Formatters",
+            "fileNames": [
+                "H.Formatters"
+            ]
+        }
+    ]
+}
