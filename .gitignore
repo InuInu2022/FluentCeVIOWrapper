@@ -455,3 +455,7 @@ $RECYCLE.BIN/
 
 test/out/*
 Samples/out/*
+
+!/FluentCeVIOWrapper.Unity/FluentCeVIOWrapper/Packages/FluentCeVIOWrapper/*
+
+FluentCeVIOWrapper.Unity/FluentCeVIOWrapper/Assets/StreamingAssets/FluentCeVIOWrapper.Server/*
