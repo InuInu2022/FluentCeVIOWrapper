@@ -1,18 +1,13 @@
 ﻿using System;
-using System.IO;
-using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
+
+using ConsoleAppFramework;
 
 using FluentCeVIOWrapper.Common;
 using FluentCeVIOWrapper.Common.Talk;
 
-using Microsoft.CSharp;
-using Microsoft.Extensions.Hosting;
-
 using H.Pipes;
-using ConsoleAppFramework;
-using FluentCeVIOWrapper.Common.Models;
 
 namespace FluentCeVIOWrapper.Server;
 
