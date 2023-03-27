@@ -28,6 +28,8 @@ A wrapper library and integration IPC server for the [.NET external integration 
   - .NET 6 / 7での動作を確認済
 - 連携IPCサーバーは .NET Framework 4.8上で起動
   - 名前付きパイプでのIPCを行います
+- Unity3D対応
+  - `.unitypackage` を用意しています
 - **バグだらけ。テスト甘いです。**
   - 利用していないAPIはテストされていません
 
@@ -36,11 +38,17 @@ A wrapper library and integration IPC server for the [.NET external integration 
 - [FluentCeVIOWrapper.Common](FluentCeVIOWrapper.Common/)
   - 共通ライブラリ
   - .NET Standard 2.0 ![.NET Standard 2.0](https://img.shields.io/badge/%20.NET%20Standard-2.0-blue.svg?logo=dotnet&style=flat)
-  - .nupkg
+  - `.nupkg`
 - [FluentCeVIOWrapper.Server](FluentCeVIOWrapper.Server/)
   - 連携IPCサーバー
   - .NET Framework 4.8 ![.NET Framework 4.8](https://img.shields.io/badge/%20.NET%20Framework-4.8-blue.svg?logo=dotnet&style=flat)
   - Windows console app .exe
+- [FluentCeVIOWrapper.Unity](FluentCeVIOWrapper.Unity/)
+  - Unity3D上で動かします
+  - Unity3D 2021.3で動作確認
+    - .NET Standard 2.0 をサポートするバージョンなら動くと思います
+  - Windowsのみ
+  - `.unitypackage`
 
 ## 使い方
 
@@ -116,6 +124,14 @@ await fcw.SpeakAsync("こんにちは!!");
 
 CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを2つ立ち上げてください。
 
+### FluentCeVIOWrapper.Unity
+
+unitypackageを[Releases](https://github.com/InuInu2022/FluentCeVIOWrapper/releases)からDLして取り込むだけです。
+
+see [README](./FluentCeVIOWrapper.Unity/README.md)
+
+`Assets/Init.cs`は実際の呼び出しスクリプトです。
+
 ### 使用例 / Examples
 
 - **[Samples](./Samples/)**
@@ -126,9 +142,15 @@ CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを
   - YMM4（ゆっくりムービーメーカー4）むけの「あいうえお口パク（リップシンク）」を生成するツールです。
   - CeVIO API連携ボイスの口パク生成に Fluent CeVIO Wrapper を利用しています
   - このアプリ自体は .NET 6 向けに作られており、.NET Framework 向けであるCeVIOの外部連携インターフェイスをそのままでは利用できません。Fluent CeVIO Wrapper を使用することによりCeVIOを呼び出すことを実現しています。
+- **[SasaraUtil](https://github.com/InuInu2022/SasaraUtil)**
+  - CeVIOのあれこれを便利するユーティリティアプリ
+  - 下記のボイパロイド機能を移植してUIを付けています
 - **[LibSasara/Sample/SongToTalk](https://github.com/InuInu2022/LibSasara/tree/master/sample/csharp/SongToTalk)**
   - CeVIOソングのCCS/CCSTファイルからCeVIOトークの台詞を並べてボイパロイドするための簡易的なツールです
   - [LibSasara](https://github.com/InuInu2022/LibSasara/)と連携するサンプルにもなっています
+- **[VRM_AI (fork edition)](https://github.com/InuInu2022/VRM_AI)**
+  - ChatGPT/Whisper/VRMをつかってAITuberが簡単に作れる **[VRM_AI](https://note.com/tori29umai/n/n81f3dd2343f3)** をCeVIOに独自対応したfork版です
+  - 公式で対応していないボイスの感情表現に対応しています
 
 ## 使用ライブラリ
 
@@ -145,7 +167,7 @@ CeVIO AIとCeVIO Creative Studioに同時に通信する場合、サーバーを
 
 > MIT License
 >
-> Copyright (c) 2022 いぬいぬ
+> Copyright (c) 2022 - 2023 いぬいぬ
 
 See detail [LICENSE](./LICENSE)
 
