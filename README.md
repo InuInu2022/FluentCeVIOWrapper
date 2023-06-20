@@ -109,6 +109,38 @@ await fcw.SpeakAsync("こんにちは!!");
 
 - [API documents](https://inuinu2022.github.io/FluentCeVIOWrapper/)
 
+#### Comparison table with CeVIO .NET API
+
+| CeVIO class | CeVIO name | FCW class | FCW name |
+|---|---|---|---|
+| - | - | [FluentCeVIOUtil](https://inuinu2022.github.io/FluentCeVIOWrapper/api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html) | `GetCastIdAsync()` |
+| Talker/Talker2 | Alpha | [FluentCeVIO](https://inuinu2022.github.io/FluentCeVIOWrapper/api/FluentCeVIOWrapper.Common.FluentCeVIO.html) | `GetAlphaAsync()/SetAlphaAsync()` |
+| Talker/Talker2 | Alpha | [FluentCeVIOParam](https://inuinu2022.github.io/FluentCeVIOWrapper/api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html) | `Alpha()` |
+| Talker/Talker2 | AvailableCasts | FluentCeVIO | `GetAvailableCastsAsync()/SetAvailableCastsAsync()` |
+| Talker/Talker2 | Cast | FluentCeVIO | `GetCastAsync()/SetCastAsync()` |
+| Talker/Talker2 | Cast | FluentCeVIOParam | `Cast()` |
+| ServiceControl /ServiceControl2 | CloseHost() | FluentCeVIO | `CloseAsync()` |
+| Talker/Talker2 | Components | FluentCeVIO | `GetComponentsAsync()/SetComponentsAsync()` |
+| Talker/Talker2 | Components | FluentCeVIOParam | `Components()` |
+| Talker/Talker2 | Components | FluentCeVIOParam | `Emotions()` |
+| Talker/Talker2 | GetPhonemes() | FluentCeVIO | `GetPhonemesAsync()` |
+| Talker/Talker2 | GetTextDuration() | FluentCeVIO | `GetTextDurationAsync()` |
+| ServiceControl /ServiceControl2 | HostVersion | FluentCeVIO | `GetHostVersionAsync()` |
+| ServiceControl /ServiceControl2 | IsHostStarted | FluentCeVIO | `GetIsHostStartedAsync()` |
+| Talker/Talker2 | OutputWaveToFile() | FluentCeVIO | `OutputWaveToFileAsync()` |
+| Talker/Talker2 | Speak() | FluentCeVIO | `SpeakAsync()` |
+| Talker/Talker2 | Speak() | FluentCeVIOParam | `SendAndSpeakAsync()` |
+| Talker/Talker2 | Speed | FluentCeVIO | `GetSpeedAsync()/SetSpeedAsync()` |
+| Talker/Talker2 | Speed | FluentCeVIOParam | `Speed()` |
+| ServiceControl /ServiceControl2 | StartHost() | FluentCeVIO | `StartAsync()` |
+| Talker/Talker2 | Stop() | FluentCeVIO | `StopAsync()` |
+| Talker/Talker2 | Tone | FluentCeVIO | `GetToneAsync()/SetToneAsync()` |
+| Talker/Talker2 | Tone | FluentCeVIOParam | `Tone()` |
+| Talker/Talker2 | ToneScale | FluentCeVIO | `GetToneScaleAsync()/SetToneScaleAsync()` |
+| Talker/Talker2 | ToneScale | FluentCeVIOParam | `ToneScale()` |
+| Talker/Talker2 | Volume | FluentCeVIO | `GetVolumeAsync()/SetVolumeAsync()` |
+| Talker/Talker2 | Volume | FluentCeVIOParam | `Volume()` |
+
 ### FluentCeVIOWrapper.Server
 
 1. exeファイルをDL
