@@ -116,7 +116,7 @@ await fcw.SpeakAsync("こんにちは!!");
 | - | - | [FluentCeVIOUtil](https://inuinu2022.github.io/FluentCeVIOWrapper/api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html) | `GetCastIdAsync()` |
 | Talker/Talker2 | Alpha | [FluentCeVIO](https://inuinu2022.github.io/FluentCeVIOWrapper/api/FluentCeVIOWrapper.Common.FluentCeVIO.html) | `GetAlphaAsync()` / `SetAlphaAsync()` |
 | Talker/Talker2 | Alpha | [FluentCeVIOParam](https://inuinu2022.github.io/FluentCeVIOWrapper/api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html) | `Alpha()` |
-| Talker/Talker2 | AvailableCasts | FluentCeVIO | `GetAvailableCastsAsync()` / `SetAvailableCastsAsync()` |
+| Talker/Talker2 | AvailableCasts | FluentCeVIO | `GetAvailableCastsAsync()` |
 | Talker/Talker2 | Cast | FluentCeVIO | `GetCastAsync()` / `SetCastAsync()` |
 | Talker/Talker2 | Cast | FluentCeVIOParam | `Cast()` |
 | ServiceControl /ServiceControl2 | CloseHost() | FluentCeVIO | `CloseAsync()` |
