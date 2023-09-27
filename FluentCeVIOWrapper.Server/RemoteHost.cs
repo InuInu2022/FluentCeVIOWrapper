@@ -193,7 +193,7 @@ public sealed class RemoteHost
 		}
 
 		//success
-		return (true, HostStartResult.Succeeded, "start sucess.");
+		return (true, HostStartResult.Succeeded, "start success.");
 	}
 
 	internal async ValueTask<T> GetPropertyAsync<T>(Type type, string name, dynamic? instance = null)
