@@ -15,7 +15,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="H.Pipes" Version="2.0.42" />
+		<PackageReference Include="H.Pipes" Version="2.0.53" />
 		<PackageReference Include="ProcessX" Version="1.5.5" />
 		<PackageReference Include="FluentAssertions" Version="6.8.0" />
 		<PackageReference Include="System.Reactive" Version="5.0.0" />
