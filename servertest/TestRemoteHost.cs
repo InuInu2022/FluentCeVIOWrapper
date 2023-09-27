@@ -136,7 +136,7 @@ public class TestRemoteHost : IDisposable
 	{
 		await InitAsync();
 		if(host is null)return;
-		var result = await host.GetVolume();
+		var result = host.Volume;
 		output.WriteLine($"result:{result}");
 	}
 
