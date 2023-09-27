@@ -350,23 +350,11 @@ public sealed class RemoteHost
 	public async ValueTask<T> CallTalkerMethodAsync<T>(string name, object[]? args)
 		=> await CallMethodAsync<T>(talker!, name, args);
 
-
-	public async ValueTask<uint> GetVolume()
-	{
-		if (talker is null)
-		{
-			throw new NullReferenceException("GetVolume: talker is null");
-		}
-
-		return await Task.Run(() => this.talker?.Volume);
-	}
-
 	public uint Volume
 	{
 		get => this.talker?.Volume;
 		set => this.talker!.Volume = value;
 	}
-
 
 	/// <summary>
 	/// 話す速さ（0～100）を取得または設定します。
