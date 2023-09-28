@@ -10,10 +10,10 @@ namespace FluentCeVIOWrapper.Common.Talk;
 public record TalkerComponent : ITalkerComponent
 {
 	/// <inheritdoc/>
-	public string Id { get; }
+	public string Id { get; set; }
 
 	/// <inheritdoc/>
-	public string Name { get; }
+	public string Name { get; set; }
 
 	/// <inheritdoc/>
 	[Range(0, 100)]
