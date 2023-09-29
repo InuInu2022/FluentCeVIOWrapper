@@ -1,80 +1,80 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<TargetFramework>net48</TargetFramework>
-		<ImplicitUsings>disable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<LangVersion>10</LangVersion>
-		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-		<Version>0.0.1</Version>
-		<Authors>InuInu</Authors>
-		<Company>InuInu</Company>
-		<!-- AssemblyInfo プロパティ -->
-		<AssemblyTitle>FluentCeVIOWrapper.Server</AssemblyTitle>
-		<SupportedCultures>en-US;ja</SupportedCultures>
-		<!-- MinVer -->
-		<MinVerTagPrefix>v</MinVerTagPrefix>
-		<MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
-	</PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)'=='Release'">
-		<DebugType>none</DebugType>
-        <DebugSymbols>false</DebugSymbols>
-		<Deterministic>true</Deterministic>
-		<DeterministicSourceRoot>/_/</DeterministicSourceRoot>
-		<RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
-		<PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
-    </PropertyGroup>
-	<Target Name="MakeZipPackage" AfterTargets="Publish">
-		<MakeDir Directories="$(OutputPath)/_publish/" />
-		<Delete Files="$(OutputPath)/(AssemblyName).pdb" />
-		<Delete Files="$(OutputPath)/publish/(AssemblyName).pdb" />
-		<ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/_publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
-		<Message Text="Actions After Publish" Importance="high" />
-	</Target>
-	<ItemGroup>
-		<Content Include="Licenses/*/*">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-		</Content>
-		<Content Include="../README.md">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-		</Content>
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="AsyncFixer" Version="1.6.0">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="H.Formatters.Ceras" Version="2.0.53" />
-		<PackageReference Include="H.Pipes" Version="2.0.53" />
-		<PackageReference Include="H.Pipes.AccessControl" Version="2.0.53" />
-		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
-		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.29" />
-		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.7.30">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="MinVer" Version="4.3.0">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="NetFabric.CodeAnalysis" Version="4.1.0" />
-		<PackageReference Include="NetFabric.Hyperlinq.Analyzer" Version="2.0.4">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="Roslynator.Analyzers" Version="4.5.0">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="4.5.0">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
-	</ItemGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <Version>0.0.1</Version>
+    <Authors>InuInu</Authors>
+    <Company>InuInu</Company>
+    <!-- AssemblyInfo プロパティ -->
+    <AssemblyTitle>FluentCeVIOWrapper.Server</AssemblyTitle>
+    <SupportedCultures>en-US;ja</SupportedCultures>
+    <!-- MinVer -->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Deterministic>true</Deterministic>
+    <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+    <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+  </PropertyGroup>
+  <Target Name="MakeZipPackage" AfterTargets="Publish">
+    <MakeDir Directories="$(OutputPath)/_publish/" />
+    <Delete Files="$(OutputPath)/(AssemblyName).pdb" />
+    <Delete Files="$(OutputPath)/publish/(AssemblyName).pdb" />
+    <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/_publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
+    <Message Text="Actions After Publish" Importance="high" />
+  </Target>
+  <ItemGroup>
+    <Content Include="Licenses/*/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Include="../README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AsyncFixer" Version="1.6.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="H.Formatters.Ceras" Version="2.0.53" />
+    <PackageReference Include="H.Pipes" Version="2.0.53" />
+    <PackageReference Include="H.Pipes.AccessControl" Version="2.0.53" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.29" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.7.30">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MinVer" Version="4.3.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="NetFabric.CodeAnalysis" Version="4.1.0" />
+    <PackageReference Include="NetFabric.Hyperlinq.Analyzer" Version="2.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.5.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="4.5.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
+  </ItemGroup>
 </Project>

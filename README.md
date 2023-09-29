@@ -187,6 +187,7 @@ see [README](./FluentCeVIOWrapper.Unity/README.md)
 ## 使用ライブラリ
 
 - [H.Pipes](https://github.com/HavenDV/H.Pipes)
+  - [H.Formatters.Ceras](https://github.com/HavenDV/H.Pipes)
 - [System.Reactive](https://github.com/dotnet/reactive)
 - [ConsoleAppFramework](https://github.com/Cysharp/ConsoleAppFramework)
 - [Microsoft.Extensions.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions/)
@@ -194,6 +195,12 @@ see [README](./FluentCeVIOWrapper.Unity/README.md)
 - [xunit](https://xunit.net/)
 - [FluentAssertions](https://fluentassertions.com/)
 - [MinVer](https://github.com/adamralph/minver)
+- analyzers
+  - [AsyncFixer](https://github.com/semihokur/AsyncFixer)
+  - [Microsoft.VisualStudio.Threading.Analyzers](https://github.com/microsoft/vs-threading)
+  - [NetFabric.Hyperlinq.Analyzer](https://github.com/NetFabric/NetFabric.Hyperlinq.Analyzer)
+  - [NetFabric.CodeAnalysis](https://github.com/NetFabric/NetFabric.CodeAnalysis)
+  - [Roslynator](https://github.com/dotnet/roslynator)
 
 ## ライセンス
 
