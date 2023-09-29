@@ -9,19 +9,16 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/FluentCeVIOWrapper.Common.CeVIOTalkMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.CeVIOTalkMessage.html",
-          "hash": "qc8L/92MlC38WwVgCsCk+73biuqtS7w/c470Rl9Hdl0="
+          "relative_path": "api/FluentCeVIOWrapper.Common.CeVIOTalkMessage.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -29,11 +26,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIO.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIO.html",
-          "hash": "IvJIVDJV48Atc95lnhgeDQElWfMc2NC5gL75x3ePO94="
+          "relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIO.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -41,11 +36,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIOParam.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html",
-          "hash": "j09wFQZr22oBFE3XYlray45Baskc7n/1t7mNnC6OGEQ="
+          "relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -53,11 +46,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html",
-          "hash": "qbJlbdTxIrTDR0U1q9YTC7oK/2YUbuwAh4RheqSH+qc="
+          "relative_path": "api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -65,11 +56,19 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Host.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Host.html",
-          "hash": "OPTjSxw6V07UvI7WT85rymQlEmSKzsrjbKcub/DnAes="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Host.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentCeVIOWrapper.Common.Models.FCWFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html"
+        }
+      },
       "version": ""
     },
     {
@@ -77,11 +76,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Models.PhonemeData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Models.PhonemeData.html",
-          "hash": "TvOKgei44H1RGXo7JA7zP8AOCuUI1egvDFPdyISRdxY="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Models.PhonemeData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -89,11 +86,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Models.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Models.html",
-          "hash": "3Cd5AgvNj74FkdJe18fM6f40BlRdygddvWRtc8lZUK0="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Models.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -101,11 +96,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Product.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Product.html",
-          "hash": "1mjjuHFy0dB3cUBzZyek0JeJeMuK918/dFfBr7UZ7kQ="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Product.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -113,11 +106,19 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.ServerCommand.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.ServerCommand.html",
-          "hash": "KjIFeGNjiKp9E94quPwsXKf6DPhWBAc2cWNQ9UywKr8="
+          "relative_path": "api/FluentCeVIOWrapper.Common.ServerCommand.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FluentCeVIOWrapper.Common.SpeakSegment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FluentCeVIOWrapper.Common.SpeakSegment.html"
+        }
+      },
       "version": ""
     },
     {
@@ -125,11 +126,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.AI.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.AI.html",
-          "hash": "0ou9gnLEen1ftayT8kSOxxdfbzrA4oy/MRTx0mGX+YI="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.AI.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -137,11 +136,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.CS.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.CS.html",
-          "hash": "12ypE4L3sBY1aqWNKkbVncShdZYs4zKZJTgAggf+3Fo="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.CS.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -149,11 +146,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.IEnvironment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.IEnvironment.html",
-          "hash": "VgcV480gmNPWiLNPspwZQpmD90zippq6ij5Pi4hhlBM="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.IEnvironment.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -161,11 +156,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.html",
-          "hash": "4hDArM7OhqNnXp5Wg2Kjw1Y9x38Aaofa4+jcz/u33Kw="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.Environment.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -173,11 +166,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.HostCloseMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.HostCloseMode.html",
-          "hash": "WZ6syj++QXo2jNqN2C1lyTmVHiw+YnJuSSJ9FLMkAF0="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.HostCloseMode.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -185,11 +176,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.HostStartResult.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.HostStartResult.html",
-          "hash": "tGj9f3dN+DLCVguhrV9vOptwJQyhatPjjlpsxY72hgk="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.HostStartResult.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -197,11 +186,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.IPhonemeData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.IPhonemeData.html",
-          "hash": "vuFS5fqr7p0zIyYSHk9bMBkRrFFKFL7GjwwI+JoqTaU="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.IPhonemeData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -209,11 +196,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.IServiceControl.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.IServiceControl.html",
-          "hash": "xXRNpImcEmfv8rgHDzG6eknMpekxQYybQU6/ZlQNc0Y="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.IServiceControl.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -221,11 +206,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.ISpeakingState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.ISpeakingState.html",
-          "hash": "ml3H+AVd1qfomjKOpBcfSAqta/jhEu47jxCEYplLG+Y="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.ISpeakingState.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -233,11 +216,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.ITalker.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.ITalker.html",
-          "hash": "ehRTNzg1yQIJb47+jxyGilw9Xz0PXJtHLKbiAumRis0="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.ITalker.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -245,11 +226,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.ITalkerComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.ITalkerComponent.html",
-          "hash": "WyK1lep9c4U57VhKP/+o21UfHD8wkqPVO8OQXaOoeXo="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.ITalkerComponent.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -257,11 +236,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.TalkerComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.TalkerComponent.html",
-          "hash": "P0Tmai5zT4qjyIey96jcg46bWjvu+oavIlql5xhnlWM="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.TalkerComponent.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -269,11 +246,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.Talk.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.html",
-          "hash": "ZjW0JcVMXvH2iCR5QigYg2Tq98BS0rcBNmFKojNvlWY="
+          "relative_path": "api/FluentCeVIOWrapper.Common.Talk.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -281,11 +256,9 @@
       "source_relative_path": "api/FluentCeVIOWrapper.Common.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FluentCeVIOWrapper.Common.html",
-          "hash": "R6KK0AC84pc7oJzmxB58grXkhIiccKhdDYWAURSBHgM="
+          "relative_path": "api/FluentCeVIOWrapper.Common.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -293,11 +266,9 @@
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "2C+xaB0TUeJP8Q9eqQbq9QszKjjeMu4JOI8LRR+K5wc="
+          "relative_path": "api/index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -305,11 +276,9 @@
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "KI8D664TZozHzPOMiVDmHcespdTaCD6qJ4LGbnvoNSk="
+          "relative_path": "api/toc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -317,11 +286,9 @@
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "f6iXMKZVQAybpDOiSoY7A3aFp8CPjA+A8I7uFhlfz9E="
+          "relative_path": "articles/intro.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -329,11 +296,9 @@
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+          "relative_path": "articles/toc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -344,11 +309,9 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "RFHxSJbvFYCToSZoxs2peBEv/LQrFuY3NfbW8ZXTKBs="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -356,53 +319,10 @@
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
-          "hash": "z1GU/6hJZqZpYSpSlaG1+eDQvetjjRTuqgmaF8tHx70="
+          "relative_path": "toc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": true,
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 1
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 23,
-          "skipped_file_count": 23
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
     }
   ],
   "version_info": {},

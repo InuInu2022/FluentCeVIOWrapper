@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class CS
+      <title>Class FCWFormatter
  | Documentation - FluentCeVIOWrapper </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class CS
+      <meta name="title" content="Class FCWFormatter
  | Documentation - FluentCeVIOWrapper ">
     
       <link rel="shortcut icon" href="../favicon.ico">
@@ -77,42 +77,83 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS">
+            <article class="content wrap" id="_content" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter">
 
 
 
-  <h1 id="FluentCeVIOWrapper_Common_Talk_Environment_CS" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS" class="text-break">Class CS
+  <h1 id="FluentCeVIOWrapper_Common_Models_FCWFormatter" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter" class="text-break">Class FCWFormatter
 </h1>
-  <div class="markdown level0 summary"><p>CeVIO Creative Studio (64bit) environment</p>
+  <div class="markdown level0 summary"><p>FCW formatter</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">CS</span></div>
+    <div class="level1"><span class="xref">FormatterBase</span></div>
+    <div class="level2"><span class="xref">CerasFormatter</span></div>
+    <div class="level3"><span class="xref">FCWFormatter</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="FluentCeVIOWrapper.Common.Talk.Environment.IEnvironment.html">IEnvironment</a></div>
+    <div><span class="xref">IFormatter</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FluentCeVIOWrapper.html">FluentCeVIOWrapper</a>.<a class="xref" href="FluentCeVIOWrapper.Common.html">Common</a>.<a class="xref" href="FluentCeVIOWrapper.Common.Talk.html">Talk</a>.<a class="xref" href="FluentCeVIOWrapper.Common.Talk.Environment.html">Environment</a></h6>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">FormatterBase.Serialize(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">FormatterBase.Deserialize&lt;T&gt;(byte[])</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FluentCeVIOWrapper.html">FluentCeVIOWrapper</a>.<a class="xref" href="FluentCeVIOWrapper.Common.html">Common</a>.<a class="xref" href="FluentCeVIOWrapper.Common.Models.html">Models</a></h6>
   <h6><strong>Assembly</strong>: FluentCeVIOWrapper.Common.dll</h6>
-  <h5 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_syntax">Syntax</h5>
+  <h5 id="FluentCeVIOWrapper_Common_Models_FCWFormatter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CS : IEnvironment</code></pre>
+    <pre><code class="lang-csharp hljs">public class FCWFormatter : CerasFormatter, IFormatter</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="FluentCeVIOWrapper_Common_Models_FCWFormatter__ctor_" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.#ctor*"></a>
+  <h4 id="FluentCeVIOWrapper_Common_Models_FCWFormatter__ctor_Ceras_SerializerConfig_" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.#ctor(Ceras.SerializerConfig)">FCWFormatter(SerializerConfig?)</h4>
+  <div class="markdown level1 summary"><p>コンストラクタ</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FCWFormatter(SerializerConfig? config = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SerializerConfig</span></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
 </h3>
 
 
-  <a id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Agent_" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Agent*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Agent" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Agent">Agent</h4>
-  <div class="markdown level1 summary"><p>TalkerAgent class</p>
+  <a id="FluentCeVIOWrapper_Common_Models_FCWFormatter_InternalFormatter_" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter*"></a>
+  <h4 id="FluentCeVIOWrapper_Common_Models_FCWFormatter_InternalFormatter" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter">InternalFormatter</h4>
+  <div class="markdown level1 summary"><p>内部フォーマッター</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Agent { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CerasSerializer InternalFormatter { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -124,23 +165,42 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="xref">CerasSerializer</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+</h3>
 
 
-  <a id="FluentCeVIOWrapper_Common_Talk_Environment_CS_DllName_" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.DllName*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_DllName" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.DllName">DllName</h4>
-  <div class="markdown level1 summary"><p>dllの名称</p>
+  <a id="FluentCeVIOWrapper_Common_Models_FCWFormatter_DeserializeInternal_" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal*"></a>
+  <h4 id="FluentCeVIOWrapper_Common_Models_FCWFormatter_DeserializeInternal__1_System_Byte___" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal``1(System.Byte[])">DeserializeInternal&lt;T&gt;(byte[])</h4>
+  <div class="markdown level1 summary"><p>デシリアライズ</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string DllName { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected override T DeserializeInternal&lt;T&gt;(byte[] bytes)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
@@ -150,23 +210,57 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">CerasFormatter.DeserializeInternal&lt;T&gt;(byte[])</a></div>
 
 
-  <a id="FluentCeVIOWrapper_Common_Talk_Environment_CS_DllPath_" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.DllPath*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_DllPath" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.DllPath">DllPath</h4>
-  <div class="markdown level1 summary"><p>デフォルトのdllのpath</p>
+  <a id="FluentCeVIOWrapper_Common_Models_FCWFormatter_SerializeInternal_" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal*"></a>
+  <h4 id="FluentCeVIOWrapper_Common_Models_FCWFormatter_SerializeInternal_System_Object_" data-uid="FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal(System.Object)">SerializeInternal(object)</h4>
+  <div class="markdown level1 summary"><p>シリアライズ</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string DllPath { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected override byte[] SerializeInternal(object obj)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
@@ -176,92 +270,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-
-
-  <a id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Product_" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Product*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Product" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Product">Product</h4>
-  <div class="markdown level1 summary"><p>CeVIOの種類</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Product Product { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FluentCeVIOWrapper.Common.Product.html">Product</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Service_" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Service*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Service" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Service">Service</h4>
-  <div class="markdown level1 summary"><p>ServiceControll class</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Service { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Talker_" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Talker*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_Environment_CS_Talker" data-uid="FluentCeVIOWrapper.Common.Talk.Environment.CS.Talker">Talker</h4>
-  <div class="markdown level1 summary"><p>Talker class</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Talker { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">CerasFormatter.SerializeInternal(object)</a></div>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="FluentCeVIOWrapper.Common.Talk.Environment.IEnvironment.html">IEnvironment</a>
+      <span class="xref">H.Formatters.IFormatter</span>
   </div>
 
 </article>

@@ -123,19 +123,6 @@ references:
   commentId: T:FluentCeVIOWrapper.Common.FluentCeVIO
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO
   nameWithType: FluentCeVIO
-- uid: FluentCeVIOWrapper.Common.FluentCeVIO.Cast
-  name: Cast
-  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_Cast
-  commentId: P:FluentCeVIOWrapper.Common.FluentCeVIO.Cast
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.Cast
-  nameWithType: FluentCeVIO.Cast
-- uid: FluentCeVIOWrapper.Common.FluentCeVIO.Cast*
-  name: Cast
-  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_Cast_
-  commentId: Overload:FluentCeVIOWrapper.Common.FluentCeVIO.Cast
-  isSpec: "True"
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.Cast
-  nameWithType: FluentCeVIO.Cast
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.CloseAsync
   name: CloseAsync()
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_CloseAsync
@@ -188,12 +175,28 @@ references:
   isSpec: "True"
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.CurrentProduct
   nameWithType: FluentCeVIO.CurrentProduct
+- uid: FluentCeVIOWrapper.Common.FluentCeVIO.CurrentVersion
+  name: CurrentVersion
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_CurrentVersion
+  commentId: P:FluentCeVIOWrapper.Common.FluentCeVIO.CurrentVersion
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.CurrentVersion
+  nameWithType: FluentCeVIO.CurrentVersion
+- uid: FluentCeVIOWrapper.Common.FluentCeVIO.CurrentVersion*
+  name: CurrentVersion
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_CurrentVersion_
+  commentId: Overload:FluentCeVIOWrapper.Common.FluentCeVIO.CurrentVersion
+  isSpec: "True"
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.CurrentVersion
+  nameWithType: FluentCeVIO.CurrentVersion
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.FactoryAsync(System.String,FluentCeVIOWrapper.Common.Product)
-  name: FactoryAsync(String, Product)
+  name: FactoryAsync(string?, Product)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_FactoryAsync_System_String_FluentCeVIOWrapper_Common_Product_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.FactoryAsync(System.String,FluentCeVIOWrapper.Common.Product)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.FactoryAsync(System.String, FluentCeVIOWrapper.Common.Product)
-  nameWithType: FluentCeVIO.FactoryAsync(String, Product)
+  name.vb: FactoryAsync(String, Product)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.FactoryAsync(string?, FluentCeVIOWrapper.Common.Product)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.FactoryAsync(String, FluentCeVIOWrapper.Common.Product)
+  nameWithType: FluentCeVIO.FactoryAsync(string?, Product)
+  nameWithType.vb: FluentCeVIO.FactoryAsync(String, Product)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.FactoryAsync*
   name: FactoryAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_FactoryAsync_
@@ -280,11 +283,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetIsHostStartedAsync
   nameWithType: FluentCeVIO.GetIsHostStartedAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.GetPhonemesAsync(System.String)
-  name: GetPhonemesAsync(String)
+  name: GetPhonemesAsync(string)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_GetPhonemesAsync_System_String_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.GetPhonemesAsync(System.String)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetPhonemesAsync(System.String)
-  nameWithType: FluentCeVIO.GetPhonemesAsync(String)
+  name.vb: GetPhonemesAsync(String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetPhonemesAsync(string)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.GetPhonemesAsync(String)
+  nameWithType: FluentCeVIO.GetPhonemesAsync(string)
+  nameWithType.vb: FluentCeVIO.GetPhonemesAsync(String)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.GetPhonemesAsync*
   name: GetPhonemesAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_GetPhonemesAsync_
@@ -306,11 +312,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetSpeedAsync
   nameWithType: FluentCeVIO.GetSpeedAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.GetTextDurationAsync(System.String)
-  name: GetTextDurationAsync(String)
+  name: GetTextDurationAsync(string)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_GetTextDurationAsync_System_String_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.GetTextDurationAsync(System.String)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetTextDurationAsync(System.String)
-  nameWithType: FluentCeVIO.GetTextDurationAsync(String)
+  name.vb: GetTextDurationAsync(String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetTextDurationAsync(string)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.GetTextDurationAsync(String)
+  nameWithType: FluentCeVIO.GetTextDurationAsync(string)
+  nameWithType.vb: FluentCeVIO.GetTextDurationAsync(String)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.GetTextDurationAsync*
   name: GetTextDurationAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_GetTextDurationAsync_
@@ -358,11 +367,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.GetVolumeAsync
   nameWithType: FluentCeVIO.GetVolumeAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.OutputWaveToFileAsync(System.String,System.String)
-  name: OutputWaveToFileAsync(String, String)
+  name: OutputWaveToFileAsync(string, string)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_OutputWaveToFileAsync_System_String_System_String_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.OutputWaveToFileAsync(System.String,System.String)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.OutputWaveToFileAsync(System.String, System.String)
-  nameWithType: FluentCeVIO.OutputWaveToFileAsync(String, String)
+  name.vb: OutputWaveToFileAsync(String, String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.OutputWaveToFileAsync(string, string)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.OutputWaveToFileAsync(String, String)
+  nameWithType: FluentCeVIO.OutputWaveToFileAsync(string, string)
+  nameWithType.vb: FluentCeVIO.OutputWaveToFileAsync(String, String)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.OutputWaveToFileAsync*
   name: OutputWaveToFileAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_OutputWaveToFileAsync_
@@ -377,11 +389,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.PipeName
   nameWithType: FluentCeVIO.PipeName
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync(System.UInt32)
-  name: SetAlphaAsync(UInt32)
+  name: SetAlphaAsync(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetAlphaAsync_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync(System.UInt32)
-  nameWithType: FluentCeVIO.SetAlphaAsync(UInt32)
+  name.vb: SetAlphaAsync(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync(UInteger)
+  nameWithType: FluentCeVIO.SetAlphaAsync(uint)
+  nameWithType.vb: FluentCeVIO.SetAlphaAsync(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync*
   name: SetAlphaAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetAlphaAsync_
@@ -390,11 +405,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetAlphaAsync
   nameWithType: FluentCeVIO.SetAlphaAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetCastAsync(System.String)
-  name: SetCastAsync(String)
+  name: SetCastAsync(string)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetCastAsync_System_String_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SetCastAsync(System.String)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetCastAsync(System.String)
-  nameWithType: FluentCeVIO.SetCastAsync(String)
+  name.vb: SetCastAsync(String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetCastAsync(string)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SetCastAsync(String)
+  nameWithType: FluentCeVIO.SetCastAsync(string)
+  nameWithType.vb: FluentCeVIO.SetCastAsync(String)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetCastAsync*
   name: SetCastAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetCastAsync_
@@ -419,11 +437,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetComponentsAsync
   nameWithType: FluentCeVIO.SetComponentsAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync(System.UInt32)
-  name: SetSpeedAsync(UInt32)
+  name: SetSpeedAsync(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetSpeedAsync_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync(System.UInt32)
-  nameWithType: FluentCeVIO.SetSpeedAsync(UInt32)
+  name.vb: SetSpeedAsync(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync(UInteger)
+  nameWithType: FluentCeVIO.SetSpeedAsync(uint)
+  nameWithType.vb: FluentCeVIO.SetSpeedAsync(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync*
   name: SetSpeedAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetSpeedAsync_
@@ -432,11 +453,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetSpeedAsync
   nameWithType: FluentCeVIO.SetSpeedAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync(System.UInt32)
-  name: SetToneAsync(UInt32)
+  name: SetToneAsync(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetToneAsync_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync(System.UInt32)
-  nameWithType: FluentCeVIO.SetToneAsync(UInt32)
+  name.vb: SetToneAsync(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync(UInteger)
+  nameWithType: FluentCeVIO.SetToneAsync(uint)
+  nameWithType.vb: FluentCeVIO.SetToneAsync(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync*
   name: SetToneAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetToneAsync_
@@ -445,11 +469,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneAsync
   nameWithType: FluentCeVIO.SetToneAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync(System.UInt32)
-  name: SetToneScaleAsync(UInt32)
+  name: SetToneScaleAsync(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetToneScaleAsync_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync(System.UInt32)
-  nameWithType: FluentCeVIO.SetToneScaleAsync(UInt32)
+  name.vb: SetToneScaleAsync(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync(UInteger)
+  nameWithType: FluentCeVIO.SetToneScaleAsync(uint)
+  nameWithType.vb: FluentCeVIO.SetToneScaleAsync(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync*
   name: SetToneScaleAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetToneScaleAsync_
@@ -458,11 +485,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetToneScaleAsync
   nameWithType: FluentCeVIO.SetToneScaleAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync(System.UInt32)
-  name: SetVolumeAsync(UInt32)
+  name: SetVolumeAsync(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetVolumeAsync_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync(System.UInt32)
-  nameWithType: FluentCeVIO.SetVolumeAsync(UInt32)
+  name.vb: SetVolumeAsync(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync(UInteger)
+  nameWithType: FluentCeVIO.SetVolumeAsync(uint)
+  nameWithType.vb: FluentCeVIO.SetVolumeAsync(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync*
   name: SetVolumeAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SetVolumeAsync_
@@ -470,12 +500,15 @@ references:
   isSpec: "True"
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SetVolumeAsync
   nameWithType: FluentCeVIO.SetVolumeAsync
-- uid: FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(System.String,System.Boolean)
-  name: SpeakAsync(String, Boolean)
-  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SpeakAsync_System_String_System_Boolean_
-  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(System.String,System.Boolean)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(System.String, System.Boolean)
-  nameWithType: FluentCeVIO.SpeakAsync(String, Boolean)
+- uid: FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(System.String,System.Boolean,FluentCeVIOWrapper.Common.SpeakSegment,System.Nullable{System.Threading.CancellationToken})
+  name: SpeakAsync(string, bool, SpeakSegment, CancellationToken?)
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SpeakAsync_System_String_System_Boolean_FluentCeVIOWrapper_Common_SpeakSegment_System_Nullable_System_Threading_CancellationToken__
+  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(System.String,System.Boolean,FluentCeVIOWrapper.Common.SpeakSegment,System.Nullable{System.Threading.CancellationToken})
+  name.vb: SpeakAsync(String, Boolean, SpeakSegment, CancellationToken?)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(string, bool, FluentCeVIOWrapper.Common.SpeakSegment, System.Threading.CancellationToken?)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(String, Boolean, FluentCeVIOWrapper.Common.SpeakSegment, System.Threading.CancellationToken?)
+  nameWithType: FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, CancellationToken?)
+  nameWithType.vb: FluentCeVIO.SpeakAsync(String, Boolean, SpeakSegment, CancellationToken?)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync*
   name: SpeakAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SpeakAsync_
@@ -509,23 +542,6 @@ references:
   isSpec: "True"
   fullName: FluentCeVIOWrapper.Common.FluentCeVIO.StopAsync
   nameWithType: FluentCeVIO.StopAsync
-- uid: FluentCeVIOWrapper.Common.FluentCeVIO.System#IDisposable#Dispose
-  name: IDisposable.Dispose()
-  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_System_IDisposable_Dispose
-  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIO.System#IDisposable#Dispose
-  name.vb: System.IDisposable.Dispose()
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.System.IDisposable.Dispose()
-  nameWithType: FluentCeVIO.IDisposable.Dispose()
-  nameWithType.vb: FluentCeVIO.System.IDisposable.Dispose()
-- uid: FluentCeVIOWrapper.Common.FluentCeVIO.System#IDisposable#Dispose*
-  name: IDisposable.Dispose
-  href: api/FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_System_IDisposable_Dispose_
-  commentId: Overload:FluentCeVIOWrapper.Common.FluentCeVIO.System#IDisposable#Dispose
-  isSpec: "True"
-  name.vb: System.IDisposable.Dispose
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIO.System.IDisposable.Dispose
-  nameWithType: FluentCeVIO.IDisposable.Dispose
-  nameWithType.vb: FluentCeVIO.System.IDisposable.Dispose
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam
   name: FluentCeVIOParam
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html
@@ -533,11 +549,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam
   nameWithType: FluentCeVIOParam
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha(System.UInt32)
-  name: Alpha(UInt32)
+  name: Alpha(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Alpha_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha(System.UInt32)
-  nameWithType: FluentCeVIOParam.Alpha(UInt32)
+  name.vb: Alpha(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha(UInteger)
+  nameWithType: FluentCeVIOParam.Alpha(uint)
+  nameWithType.vb: FluentCeVIOParam.Alpha(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha*
   name: Alpha
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Alpha_
@@ -546,11 +565,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Alpha
   nameWithType: FluentCeVIOParam.Alpha
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Cast(System.String)
-  name: Cast(String)
+  name: Cast(string)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Cast_System_String_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.Cast(System.String)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Cast(System.String)
-  nameWithType: FluentCeVIOParam.Cast(String)
+  name.vb: Cast(String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Cast(string)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Cast(String)
+  nameWithType: FluentCeVIOParam.Cast(string)
+  nameWithType.vb: FluentCeVIOParam.Cast(String)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Cast*
   name: Cast
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Cast_
@@ -588,14 +610,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Create
   nameWithType: FluentCeVIOParam.Create
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions(System.Collections.Generic.Dictionary{System.String,System.UInt32})
-  name: Emotions(Dictionary<String, UInt32>)
+  name: Emotions(Dictionary<string, uint>)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Emotions_System_Collections_Generic_Dictionary_System_String_System_UInt32__
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions(System.Collections.Generic.Dictionary{System.String,System.UInt32})
-  name.vb: Emotions(Dictionary(Of String, UInt32))
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions(System.Collections.Generic.Dictionary<System.String, System.UInt32>)
-  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions(System.Collections.Generic.Dictionary(Of System.String, System.UInt32))
-  nameWithType: FluentCeVIOParam.Emotions(Dictionary<String, UInt32>)
-  nameWithType.vb: FluentCeVIOParam.Emotions(Dictionary(Of String, UInt32))
+  name.vb: Emotions(Dictionary(Of String, UInteger))
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions(System.Collections.Generic.Dictionary<string, uint>)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions(System.Collections.Generic.Dictionary(Of String, UInteger))
+  nameWithType: FluentCeVIOParam.Emotions(Dictionary<string, uint>)
+  nameWithType.vb: FluentCeVIOParam.Emotions(Dictionary(Of String, UInteger))
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions*
   name: Emotions
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Emotions_
@@ -603,12 +625,15 @@ references:
   isSpec: "True"
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Emotions
   nameWithType: FluentCeVIOParam.Emotions
-- uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(System.String,System.Boolean)
-  name: SendAndSpeakAsync(String, Boolean)
-  href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_SendAndSpeakAsync_System_String_System_Boolean_
-  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(System.String,System.Boolean)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(System.String, System.Boolean)
-  nameWithType: FluentCeVIOParam.SendAndSpeakAsync(String, Boolean)
+- uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(System.String,System.Boolean,FluentCeVIOWrapper.Common.SpeakSegment,System.Nullable{System.Threading.CancellationToken})
+  name: SendAndSpeakAsync(string, bool, SpeakSegment, CancellationToken?)
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_SendAndSpeakAsync_System_String_System_Boolean_FluentCeVIOWrapper_Common_SpeakSegment_System_Nullable_System_Threading_CancellationToken__
+  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(System.String,System.Boolean,FluentCeVIOWrapper.Common.SpeakSegment,System.Nullable{System.Threading.CancellationToken})
+  name.vb: SendAndSpeakAsync(String, Boolean, SpeakSegment, CancellationToken?)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(string, bool, FluentCeVIOWrapper.Common.SpeakSegment, System.Threading.CancellationToken?)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync(String, Boolean, FluentCeVIOWrapper.Common.SpeakSegment, System.Threading.CancellationToken?)
+  nameWithType: FluentCeVIOParam.SendAndSpeakAsync(string, bool, SpeakSegment, CancellationToken?)
+  nameWithType.vb: FluentCeVIOParam.SendAndSpeakAsync(String, Boolean, SpeakSegment, CancellationToken?)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAndSpeakAsync*
   name: SendAndSpeakAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_SendAndSpeakAsync_
@@ -630,11 +655,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.SendAsync
   nameWithType: FluentCeVIOParam.SendAsync
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed(System.UInt32)
-  name: Speed(UInt32)
+  name: Speed(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Speed_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed(System.UInt32)
-  nameWithType: FluentCeVIOParam.Speed(UInt32)
+  name.vb: Speed(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed(UInteger)
+  nameWithType: FluentCeVIOParam.Speed(uint)
+  nameWithType.vb: FluentCeVIOParam.Speed(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed*
   name: Speed
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Speed_
@@ -643,11 +671,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Speed
   nameWithType: FluentCeVIOParam.Speed
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone(System.UInt32)
-  name: Tone(UInt32)
+  name: Tone(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Tone_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone(System.UInt32)
-  nameWithType: FluentCeVIOParam.Tone(UInt32)
+  name.vb: Tone(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone(UInteger)
+  nameWithType: FluentCeVIOParam.Tone(uint)
+  nameWithType.vb: FluentCeVIOParam.Tone(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone*
   name: Tone
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Tone_
@@ -656,11 +687,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Tone
   nameWithType: FluentCeVIOParam.Tone
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale(System.UInt32)
-  name: ToneScale(UInt32)
+  name: ToneScale(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_ToneScale_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale(System.UInt32)
-  nameWithType: FluentCeVIOParam.ToneScale(UInt32)
+  name.vb: ToneScale(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale(UInteger)
+  nameWithType: FluentCeVIOParam.ToneScale(uint)
+  nameWithType.vb: FluentCeVIOParam.ToneScale(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale*
   name: ToneScale
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_ToneScale_
@@ -669,11 +703,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.ToneScale
   nameWithType: FluentCeVIOParam.ToneScale
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Volume(System.UInt32)
-  name: Volume(UInt32)
+  name: Volume(uint)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Volume_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOParam.Volume(System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Volume(System.UInt32)
-  nameWithType: FluentCeVIOParam.Volume(UInt32)
+  name.vb: Volume(UInteger)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOParam.Volume(uint)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOParam.Volume(UInteger)
+  nameWithType: FluentCeVIOParam.Volume(uint)
+  nameWithType.vb: FluentCeVIOParam.Volume(UInteger)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOParam.Volume*
   name: Volume
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOParam.html#FluentCeVIOWrapper_Common_FluentCeVIOParam_Volume_
@@ -688,11 +725,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil
   nameWithType: FluentCeVIOUtil
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync(FluentCeVIOWrapper.Common.FluentCeVIO,System.String)
-  name: GetCastIdAsync(FluentCeVIO, String)
+  name: GetCastIdAsync(FluentCeVIO, string?)
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html#FluentCeVIOWrapper_Common_FluentCeVIOUtil_GetCastIdAsync_FluentCeVIOWrapper_Common_FluentCeVIO_System_String_
   commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync(FluentCeVIOWrapper.Common.FluentCeVIO,System.String)
-  fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync(FluentCeVIOWrapper.Common.FluentCeVIO, System.String)
-  nameWithType: FluentCeVIOUtil.GetCastIdAsync(FluentCeVIO, String)
+  name.vb: GetCastIdAsync(FluentCeVIO, String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync(FluentCeVIOWrapper.Common.FluentCeVIO, string?)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync(FluentCeVIOWrapper.Common.FluentCeVIO, String)
+  nameWithType: FluentCeVIOUtil.GetCastIdAsync(FluentCeVIO, string?)
+  nameWithType.vb: FluentCeVIOUtil.GetCastIdAsync(FluentCeVIO, String)
 - uid: FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync*
   name: GetCastIdAsync
   href: api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html#FluentCeVIOWrapper_Common_FluentCeVIOUtil_GetCastIdAsync_
@@ -700,6 +740,38 @@ references:
   isSpec: "True"
   fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.GetCastIdAsync
   nameWithType: FluentCeVIOUtil.GetCastIdAsync
+- uid: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId(FluentCeVIOWrapper.Common.FluentCeVIO,System.String)
+  name: IsEnglishCastId(FluentCeVIO, string)
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html#FluentCeVIOWrapper_Common_FluentCeVIOUtil_IsEnglishCastId_FluentCeVIOWrapper_Common_FluentCeVIO_System_String_
+  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId(FluentCeVIOWrapper.Common.FluentCeVIO,System.String)
+  name.vb: IsEnglishCastId(FluentCeVIO, String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId(FluentCeVIOWrapper.Common.FluentCeVIO, string)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId(FluentCeVIOWrapper.Common.FluentCeVIO, String)
+  nameWithType: FluentCeVIOUtil.IsEnglishCastId(FluentCeVIO, string)
+  nameWithType.vb: FluentCeVIOUtil.IsEnglishCastId(FluentCeVIO, String)
+- uid: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId*
+  name: IsEnglishCastId
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html#FluentCeVIOWrapper_Common_FluentCeVIOUtil_IsEnglishCastId_
+  commentId: Overload:FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId
+  isSpec: "True"
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastId
+  nameWithType: FluentCeVIOUtil.IsEnglishCastId
+- uid: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync(FluentCeVIOWrapper.Common.FluentCeVIO,System.String)
+  name: IsEnglishCastNameAsync(FluentCeVIO, string?)
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html#FluentCeVIOWrapper_Common_FluentCeVIOUtil_IsEnglishCastNameAsync_FluentCeVIOWrapper_Common_FluentCeVIO_System_String_
+  commentId: M:FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync(FluentCeVIOWrapper.Common.FluentCeVIO,System.String)
+  name.vb: IsEnglishCastNameAsync(FluentCeVIO, String)
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync(FluentCeVIOWrapper.Common.FluentCeVIO, string?)
+  fullName.vb: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync(FluentCeVIOWrapper.Common.FluentCeVIO, String)
+  nameWithType: FluentCeVIOUtil.IsEnglishCastNameAsync(FluentCeVIO, string?)
+  nameWithType.vb: FluentCeVIOUtil.IsEnglishCastNameAsync(FluentCeVIO, String)
+- uid: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync*
+  name: IsEnglishCastNameAsync
+  href: api/FluentCeVIOWrapper.Common.FluentCeVIOUtil.html#FluentCeVIOWrapper_Common_FluentCeVIOUtil_IsEnglishCastNameAsync_
+  commentId: Overload:FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync
+  isSpec: "True"
+  fullName: FluentCeVIOWrapper.Common.FluentCeVIOUtil.IsEnglishCastNameAsync
+  nameWithType: FluentCeVIOUtil.IsEnglishCastNameAsync
 - uid: FluentCeVIOWrapper.Common.Host
   name: Host
   href: api/FluentCeVIOWrapper.Common.Host.html
@@ -730,6 +802,76 @@ references:
   commentId: N:FluentCeVIOWrapper.Common.Models
   fullName: FluentCeVIOWrapper.Common.Models
   nameWithType: FluentCeVIOWrapper.Common.Models
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter
+  name: FCWFormatter
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html
+  commentId: T:FluentCeVIOWrapper.Common.Models.FCWFormatter
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter
+  nameWithType: FCWFormatter
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.#ctor(Ceras.SerializerConfig)
+  name: FCWFormatter(SerializerConfig?)
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter__ctor_Ceras_SerializerConfig_
+  commentId: M:FluentCeVIOWrapper.Common.Models.FCWFormatter.#ctor(Ceras.SerializerConfig)
+  name.vb: New(SerializerConfig)
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.FCWFormatter(Ceras.SerializerConfig?)
+  fullName.vb: FluentCeVIOWrapper.Common.Models.FCWFormatter.New(Ceras.SerializerConfig)
+  nameWithType: FCWFormatter.FCWFormatter(SerializerConfig?)
+  nameWithType.vb: FCWFormatter.New(SerializerConfig)
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.#ctor*
+  name: FCWFormatter
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter__ctor_
+  commentId: Overload:FluentCeVIOWrapper.Common.Models.FCWFormatter.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.FCWFormatter
+  fullName.vb: FluentCeVIOWrapper.Common.Models.FCWFormatter.New
+  nameWithType: FCWFormatter.FCWFormatter
+  nameWithType.vb: FCWFormatter.New
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal*
+  name: DeserializeInternal
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter_DeserializeInternal_
+  commentId: Overload:FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal
+  isSpec: "True"
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal
+  nameWithType: FCWFormatter.DeserializeInternal
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal``1(System.Byte[])
+  name: DeserializeInternal<T>(byte[])
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter_DeserializeInternal__1_System_Byte___
+  commentId: M:FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal``1(System.Byte[])
+  name.vb: DeserializeInternal(Of T)(Byte())
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal<T>(byte[])
+  fullName.vb: FluentCeVIOWrapper.Common.Models.FCWFormatter.DeserializeInternal(Of T)(Byte())
+  nameWithType: FCWFormatter.DeserializeInternal<T>(byte[])
+  nameWithType.vb: FCWFormatter.DeserializeInternal(Of T)(Byte())
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter
+  name: InternalFormatter
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter_InternalFormatter
+  commentId: P:FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter
+  nameWithType: FCWFormatter.InternalFormatter
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter*
+  name: InternalFormatter
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter_InternalFormatter_
+  commentId: Overload:FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter
+  isSpec: "True"
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.InternalFormatter
+  nameWithType: FCWFormatter.InternalFormatter
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal(System.Object)
+  name: SerializeInternal(object)
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter_SerializeInternal_System_Object_
+  commentId: M:FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal(System.Object)
+  name.vb: SerializeInternal(Object)
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal(object)
+  fullName.vb: FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal(Object)
+  nameWithType: FCWFormatter.SerializeInternal(object)
+  nameWithType.vb: FCWFormatter.SerializeInternal(Object)
+- uid: FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal*
+  name: SerializeInternal
+  href: api/FluentCeVIOWrapper.Common.Models.FCWFormatter.html#FluentCeVIOWrapper_Common_Models_FCWFormatter_SerializeInternal_
+  commentId: Overload:FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal
+  isSpec: "True"
+  fullName: FluentCeVIOWrapper.Common.Models.FCWFormatter.SerializeInternal
+  nameWithType: FCWFormatter.SerializeInternal
 - uid: FluentCeVIOWrapper.Common.Models.PhonemeData
   name: PhonemeData
   href: api/FluentCeVIOWrapper.Common.Models.PhonemeData.html
@@ -737,18 +879,24 @@ references:
   fullName: FluentCeVIOWrapper.Common.Models.PhonemeData
   nameWithType: PhonemeData
 - uid: FluentCeVIOWrapper.Common.Models.PhonemeData.#ctor(System.Double,System.Double,System.String)
-  name: PhonemeData(Double, Double, String)
+  name: PhonemeData(double, double, string)
   href: api/FluentCeVIOWrapper.Common.Models.PhonemeData.html#FluentCeVIOWrapper_Common_Models_PhonemeData__ctor_System_Double_System_Double_System_String_
   commentId: M:FluentCeVIOWrapper.Common.Models.PhonemeData.#ctor(System.Double,System.Double,System.String)
-  fullName: FluentCeVIOWrapper.Common.Models.PhonemeData.PhonemeData(System.Double, System.Double, System.String)
-  nameWithType: PhonemeData.PhonemeData(Double, Double, String)
+  name.vb: New(Double, Double, String)
+  fullName: FluentCeVIOWrapper.Common.Models.PhonemeData.PhonemeData(double, double, string)
+  fullName.vb: FluentCeVIOWrapper.Common.Models.PhonemeData.New(Double, Double, String)
+  nameWithType: PhonemeData.PhonemeData(double, double, string)
+  nameWithType.vb: PhonemeData.New(Double, Double, String)
 - uid: FluentCeVIOWrapper.Common.Models.PhonemeData.#ctor*
   name: PhonemeData
   href: api/FluentCeVIOWrapper.Common.Models.PhonemeData.html#FluentCeVIOWrapper_Common_Models_PhonemeData__ctor_
   commentId: Overload:FluentCeVIOWrapper.Common.Models.PhonemeData.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: FluentCeVIOWrapper.Common.Models.PhonemeData.PhonemeData
+  fullName.vb: FluentCeVIOWrapper.Common.Models.PhonemeData.New
   nameWithType: PhonemeData.PhonemeData
+  nameWithType.vb: PhonemeData.New
 - uid: FluentCeVIOWrapper.Common.Models.PhonemeData.EndTime
   name: EndTime
   href: api/FluentCeVIOWrapper.Common.Models.PhonemeData.html#FluentCeVIOWrapper_Common_Models_PhonemeData_EndTime
@@ -836,6 +984,30 @@ references:
   commentId: F:FluentCeVIOWrapper.Common.ServerCommand.SetProperty
   fullName: FluentCeVIOWrapper.Common.ServerCommand.SetProperty
   nameWithType: ServerCommand.SetProperty
+- uid: FluentCeVIOWrapper.Common.SpeakSegment
+  name: SpeakSegment
+  href: api/FluentCeVIOWrapper.Common.SpeakSegment.html
+  commentId: T:FluentCeVIOWrapper.Common.SpeakSegment
+  fullName: FluentCeVIOWrapper.Common.SpeakSegment
+  nameWithType: SpeakSegment
+- uid: FluentCeVIOWrapper.Common.SpeakSegment.Long
+  name: Long
+  href: api/FluentCeVIOWrapper.Common.SpeakSegment.html#FluentCeVIOWrapper_Common_SpeakSegment_Long
+  commentId: F:FluentCeVIOWrapper.Common.SpeakSegment.Long
+  fullName: FluentCeVIOWrapper.Common.SpeakSegment.Long
+  nameWithType: SpeakSegment.Long
+- uid: FluentCeVIOWrapper.Common.SpeakSegment.NoCheck
+  name: NoCheck
+  href: api/FluentCeVIOWrapper.Common.SpeakSegment.html#FluentCeVIOWrapper_Common_SpeakSegment_NoCheck
+  commentId: F:FluentCeVIOWrapper.Common.SpeakSegment.NoCheck
+  fullName: FluentCeVIOWrapper.Common.SpeakSegment.NoCheck
+  nameWithType: SpeakSegment.NoCheck
+- uid: FluentCeVIOWrapper.Common.SpeakSegment.Short
+  name: Short
+  href: api/FluentCeVIOWrapper.Common.SpeakSegment.html#FluentCeVIOWrapper_Common_SpeakSegment_Short
+  commentId: F:FluentCeVIOWrapper.Common.SpeakSegment.Short
+  fullName: FluentCeVIOWrapper.Common.SpeakSegment.Short
+  nameWithType: SpeakSegment.Short
 - uid: FluentCeVIOWrapper.Common.Talk
   name: FluentCeVIOWrapper.Common.Talk
   href: api/FluentCeVIOWrapper.Common.Talk.html
@@ -1239,11 +1411,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.IServiceControl.IsHostStarted
   nameWithType: IServiceControl.IsHostStarted
 - uid: FluentCeVIOWrapper.Common.Talk.IServiceControl.StartHost(System.Boolean)
-  name: StartHost(Boolean)
+  name: StartHost(bool)
   href: api/FluentCeVIOWrapper.Common.Talk.IServiceControl.html#FluentCeVIOWrapper_Common_Talk_IServiceControl_StartHost_System_Boolean_
   commentId: M:FluentCeVIOWrapper.Common.Talk.IServiceControl.StartHost(System.Boolean)
-  fullName: FluentCeVIOWrapper.Common.Talk.IServiceControl.StartHost(System.Boolean)
-  nameWithType: IServiceControl.StartHost(Boolean)
+  name.vb: StartHost(Boolean)
+  fullName: FluentCeVIOWrapper.Common.Talk.IServiceControl.StartHost(bool)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.IServiceControl.StartHost(Boolean)
+  nameWithType: IServiceControl.StartHost(bool)
+  nameWithType.vb: IServiceControl.StartHost(Boolean)
 - uid: FluentCeVIOWrapper.Common.Talk.IServiceControl.StartHost*
   name: StartHost
   href: api/FluentCeVIOWrapper.Common.Talk.IServiceControl.html#FluentCeVIOWrapper_Common_Talk_IServiceControl_StartHost_
@@ -1290,11 +1465,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait()
   nameWithType: ISpeakingState.Wait()
 - uid: FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait(System.Double)
-  name: Wait(Double)
+  name: Wait(double)
   href: api/FluentCeVIOWrapper.Common.Talk.ISpeakingState.html#FluentCeVIOWrapper_Common_Talk_ISpeakingState_Wait_System_Double_
   commentId: M:FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait(System.Double)
-  fullName: FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait(System.Double)
-  nameWithType: ISpeakingState.Wait(Double)
+  name.vb: Wait(Double)
+  fullName: FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait(double)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait(Double)
+  nameWithType: ISpeakingState.Wait(double)
+  nameWithType.vb: ISpeakingState.Wait(Double)
 - uid: FluentCeVIOWrapper.Common.Talk.ISpeakingState.Wait*
   name: Wait
   href: api/FluentCeVIOWrapper.Common.Talk.ISpeakingState.html#FluentCeVIOWrapper_Common_Talk_ISpeakingState_Wait_
@@ -1361,11 +1539,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.ITalker.Components
   nameWithType: ITalker.Components
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes(System.String)
-  name: GetPhonemes(String)
+  name: GetPhonemes(string)
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_GetPhonemes_System_String_
   commentId: M:FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes(System.String)
-  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes(System.String)
-  nameWithType: ITalker.GetPhonemes(String)
+  name.vb: GetPhonemes(String)
+  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes(string)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes(String)
+  nameWithType: ITalker.GetPhonemes(string)
+  nameWithType.vb: ITalker.GetPhonemes(String)
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes*
   name: GetPhonemes
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_GetPhonemes_
@@ -1374,11 +1555,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.ITalker.GetPhonemes
   nameWithType: ITalker.GetPhonemes
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration(System.String)
-  name: GetTextDuration(String)
+  name: GetTextDuration(string)
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_GetTextDuration_System_String_
   commentId: M:FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration(System.String)
-  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration(System.String)
-  nameWithType: ITalker.GetTextDuration(String)
+  name.vb: GetTextDuration(String)
+  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration(string)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration(String)
+  nameWithType: ITalker.GetTextDuration(string)
+  nameWithType.vb: ITalker.GetTextDuration(String)
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration*
   name: GetTextDuration
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_GetTextDuration_
@@ -1387,11 +1571,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.ITalker.GetTextDuration
   nameWithType: ITalker.GetTextDuration
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile(System.String,System.String)
-  name: OutputWaveToFile(String, String)
+  name: OutputWaveToFile(string, string)
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_OutputWaveToFile_System_String_System_String_
   commentId: M:FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile(System.String,System.String)
-  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile(System.String, System.String)
-  nameWithType: ITalker.OutputWaveToFile(String, String)
+  name.vb: OutputWaveToFile(String, String)
+  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile(string, string)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile(String, String)
+  nameWithType: ITalker.OutputWaveToFile(string, string)
+  nameWithType.vb: ITalker.OutputWaveToFile(String, String)
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile*
   name: OutputWaveToFile
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_OutputWaveToFile_
@@ -1400,11 +1587,14 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.ITalker.OutputWaveToFile
   nameWithType: ITalker.OutputWaveToFile
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.Speak(System.String)
-  name: Speak(String)
+  name: Speak(string)
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_Speak_System_String_
   commentId: M:FluentCeVIOWrapper.Common.Talk.ITalker.Speak(System.String)
-  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.Speak(System.String)
-  nameWithType: ITalker.Speak(String)
+  name.vb: Speak(String)
+  fullName: FluentCeVIOWrapper.Common.Talk.ITalker.Speak(string)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.ITalker.Speak(String)
+  nameWithType: ITalker.Speak(string)
+  nameWithType.vb: ITalker.Speak(String)
 - uid: FluentCeVIOWrapper.Common.Talk.ITalker.Speak*
   name: Speak
   href: api/FluentCeVIOWrapper.Common.Talk.ITalker.html#FluentCeVIOWrapper_Common_Talk_ITalker_Speak_
@@ -1529,18 +1719,24 @@ references:
   fullName: FluentCeVIOWrapper.Common.Talk.TalkerComponent
   nameWithType: TalkerComponent
 - uid: FluentCeVIOWrapper.Common.Talk.TalkerComponent.#ctor(System.String,System.String,System.UInt32)
-  name: TalkerComponent(String, String, UInt32)
+  name: TalkerComponent(string, string, uint)
   href: api/FluentCeVIOWrapper.Common.Talk.TalkerComponent.html#FluentCeVIOWrapper_Common_Talk_TalkerComponent__ctor_System_String_System_String_System_UInt32_
   commentId: M:FluentCeVIOWrapper.Common.Talk.TalkerComponent.#ctor(System.String,System.String,System.UInt32)
-  fullName: FluentCeVIOWrapper.Common.Talk.TalkerComponent.TalkerComponent(System.String, System.String, System.UInt32)
-  nameWithType: TalkerComponent.TalkerComponent(String, String, UInt32)
+  name.vb: New(String, String, UInteger)
+  fullName: FluentCeVIOWrapper.Common.Talk.TalkerComponent.TalkerComponent(string, string, uint)
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.TalkerComponent.New(String, String, UInteger)
+  nameWithType: TalkerComponent.TalkerComponent(string, string, uint)
+  nameWithType.vb: TalkerComponent.New(String, String, UInteger)
 - uid: FluentCeVIOWrapper.Common.Talk.TalkerComponent.#ctor*
   name: TalkerComponent
   href: api/FluentCeVIOWrapper.Common.Talk.TalkerComponent.html#FluentCeVIOWrapper_Common_Talk_TalkerComponent__ctor_
   commentId: Overload:FluentCeVIOWrapper.Common.Talk.TalkerComponent.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: FluentCeVIOWrapper.Common.Talk.TalkerComponent.TalkerComponent
+  fullName.vb: FluentCeVIOWrapper.Common.Talk.TalkerComponent.New
   nameWithType: TalkerComponent.TalkerComponent
+  nameWithType.vb: TalkerComponent.New
 - uid: FluentCeVIOWrapper.Common.Talk.TalkerComponent.Id
   name: Id
   href: api/FluentCeVIOWrapper.Common.Talk.TalkerComponent.html#FluentCeVIOWrapper_Common_Talk_TalkerComponent_Id

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Interface IPhonemeData
+      <title>Enum SpeakSegment
  | Documentation - FluentCeVIOWrapper </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Interface IPhonemeData
+      <meta name="title" content="Enum SpeakSegment
  | Documentation - FluentCeVIOWrapper ">
     
       <link rel="shortcut icon" href="../favicon.ico">
@@ -77,102 +77,60 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData">
+            <article class="content wrap" id="_content" data-uid="FluentCeVIOWrapper.Common.SpeakSegment">
 
 
 
-  <h1 id="FluentCeVIOWrapper_Common_Talk_IPhonemeData" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData" class="text-break">Interface IPhonemeData
+
+  <h1 id="FluentCeVIOWrapper_Common_SpeakSegment" data-uid="FluentCeVIOWrapper.Common.SpeakSegment" class="text-break">Enum SpeakSegment
 </h1>
-  <div class="markdown level0 summary"><p>音素データの単位オブジェクト。</p>
+  <div class="markdown level0 summary"><p>セリフをしゃべる際の分割方法を指定します</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FluentCeVIOWrapper.html">FluentCeVIOWrapper</a>.<a class="xref" href="FluentCeVIOWrapper.Common.html">Common</a>.<a class="xref" href="FluentCeVIOWrapper.Common.Talk.html">Talk</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FluentCeVIOWrapper.html">FluentCeVIOWrapper</a>.<a class="xref" href="FluentCeVIOWrapper.Common.html">Common</a></h6>
   <h6><strong>Assembly</strong>: FluentCeVIOWrapper.Common.dll</h6>
-  <h5 id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_syntax">Syntax</h5>
+  <h5 id="FluentCeVIOWrapper_Common_SpeakSegment_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IPhonemeData</code></pre>
+    <pre><code class="lang-csharp hljs">public enum SpeakSegment</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h5 id="FluentCeVIOWrapper_Common_SpeakSegment_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>文字数制限はバージョンと言語によって異なります。文字数制限を超えたセリフを喋らせた場合、そのままではエラーが発生し、はみ出した文字は発声されません。
+<a class="xref" href="FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper_Common_FluentCeVIO_SpeakAsync_System_String_System_Boolean_FluentCeVIOWrapper_Common_SpeakSegment_System_Nullable_System_Threading_CancellationToken__">SpeakAsync(string, bool, SpeakSegment, CancellationToken?)</a>の<code>segment</code>でこの指定をすることでエラーを発生させずに長文読み上げが可能になります。</p>
+<p><strong>CeVIO CS-150文字</strong></p><ul><li><span class="term">CeVIO AI ver.8.1.19より前</span>150文字</li><li><span class="term">CeVIO AI 日本語 ver.8.1.19以降</span>200文字</li><li><span class="term">CeVIO AI 英語 ver.8.1.19以降</span>500文字</li></ul>
+</div>
+  <h3 id="fields">Fields
 </h3>
-
-
-  <a id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_EndTime_" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData.EndTime*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_EndTime" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData.EndTime">EndTime</h4>
-  <div class="markdown level1 summary"><p>終了時間を取得します。単位は秒。</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">double EndTime { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_Phoneme_" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData.Phoneme*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_Phoneme" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData.Phoneme">Phoneme</h4>
-  <div class="markdown level1 summary"><p>音素を取得します。</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string Phoneme { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
     <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td id="FluentCeVIOWrapper_Common_SpeakSegment_Long">Long</td>
+        <td><p>セリフをなるべく文字数制限に近い文字数で分割し、なるべく長くなるようにします。</p>
+</td>
+      </tr>
+      <tr>
+        <td id="FluentCeVIOWrapper_Common_SpeakSegment_NoCheck">NoCheck</td>
+        <td><p>セリフ分割せず、文字数制限もチェックしません。
+文字数制限を超えていた場合はエラーになります。
+文字数が短いことがわかっている場合や、分割処理を自分で行う場合に指定してください。</p>
+</td>
+      </tr>
+      <tr>
+        <td id="FluentCeVIOWrapper_Common_SpeakSegment_Short">Short</td>
+        <td><p>セリフを最初の句読点で分割し、なるべく短くなるようにします。</p>
+</td>
       </tr>
     </tbody>
-  </table>
-
-
-  <a id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_StartTime_" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData.StartTime*"></a>
-  <h4 id="FluentCeVIOWrapper_Common_Talk_IPhonemeData_StartTime" data-uid="FluentCeVIOWrapper.Common.Talk.IPhonemeData.StartTime">StartTime</h4>
-  <div class="markdown level1 summary"><p>開始時間を取得します。単位は秒。</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">double StartTime { get; }</code></pre>
+  </thead></thead></table>
+  <h5 id="FluentCeVIOWrapper_Common_SpeakSegment_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="FluentCeVIOWrapper.Common.FluentCeVIO.html#FluentCeVIOWrapper.Common.FluentCeVIO.SpeakAsync(System.String,System.Boolean,FluentCeVIOWrapper.Common.SpeakSegment,System.Nullable{System.Threading.CancellationToken})">SpeakAsync</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>, <a class="xref" href="FluentCeVIOWrapper.Common.SpeakSegment.html">SpeakSegment</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>?)</div>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
 </article>
           </div>
 
