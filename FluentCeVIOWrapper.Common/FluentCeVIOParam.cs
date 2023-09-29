@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 using FluentCeVIOWrapper.Common.Talk;
@@ -36,17 +36,17 @@ public class FluentCeVIOParam
 		=> new(fcw);
 
 	/// <inheritdoc cref="FluentCeVIO.SetAlphaAsync(uint)"/>
-    /// <seealso cref="FluentCeVIO.SetAlphaAsync(uint)"/>
+	/// <seealso cref="FluentCeVIO.SetAlphaAsync(uint)"/>
 	public FluentCeVIOParam Alpha([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetAlphaAsync), value);
 
 	/// <inheritdoc cref="FluentCeVIO.SetCastAsync(string)"/>
-    /// <seealso cref="FluentCeVIO.SetCastAsync(string)"/>
+	/// <seealso cref="FluentCeVIO.SetCastAsync(string)"/>
 	public FluentCeVIOParam Cast(string castName)
 		=> SetParam(nameof(FluentCeVIO.SetCastAsync), castName);
 
 	///<inheritdoc cref="FluentCeVIO.SetComponentsAsync(IEnumerable{TalkerComponent})"/>
-    ///<seealso cref="FluentCeVIO.SetComponentsAsync(IEnumerable{TalkerComponent})"/>
+	///<seealso cref="FluentCeVIO.SetComponentsAsync(IEnumerable{TalkerComponent})"/>
 	///<seealso cref="FluentCeVIO.GetComponentsAsync"/>
 	public FluentCeVIOParam Components(IEnumerable<TalkerComponent> value)
 		=> SetParam(nameof(FluentCeVIO.SetComponentsAsync), value);
@@ -55,9 +55,9 @@ public class FluentCeVIOParam
 	/// <c>Components</c>の簡易版。
 	/// </summary>
 	/// <example>
-    /// <code>
+	/// <code>
 	/// .Emotions(new(){["怒り"]=15,["普通"]=50})
-    /// </code>
+	/// </code>
 	/// </example>
 	/// <param name="list">感情名、値（0~100）のDictionaryを与えてください</param>
 	/// <seealso cref="Components(IEnumerable{TalkerComponent})"/>
@@ -67,22 +67,22 @@ public class FluentCeVIOParam
 	}
 
 	/// <inheritdoc cref="FluentCeVIO.SetSpeedAsync(uint)"/>
-    /// <seealso cref="FluentCeVIO.SetSpeedAsync(uint)"/>
+	/// <seealso cref="FluentCeVIO.SetSpeedAsync(uint)"/>
 	public FluentCeVIOParam Speed([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetSpeedAsync), value);
 
 	/// <inheritdoc cref="FluentCeVIO.SetToneAsync(uint)"/>
-    /// <seealso cref="FluentCeVIO.SetToneAsync(uint)"/>
+	/// <seealso cref="FluentCeVIO.SetToneAsync(uint)"/>
 	public FluentCeVIOParam Tone([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetToneAsync), value);
 
 	/// <inheritdoc cref="FluentCeVIO.SetToneScaleAsync(uint)"/>
-    /// <seealso cref="FluentCeVIO.SetToneScaleAsync(uint)"/>
+	/// <seealso cref="FluentCeVIO.SetToneScaleAsync(uint)"/>
 	public FluentCeVIOParam ToneScale([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetToneScaleAsync), value);
 
 	/// <inheritdoc cref="FluentCeVIO.SetVolumeAsync(uint)"/>
-    /// <seealso cref="FluentCeVIO.SetVolumeAsync(uint)"/>
+	/// <seealso cref="FluentCeVIO.SetVolumeAsync(uint)"/>
 	public FluentCeVIOParam Volume([Range(0,100)] uint volume)
 		=> SetParam(nameof(FluentCeVIO.SetVolumeAsync), volume);
 
@@ -90,12 +90,14 @@ public class FluentCeVIOParam
 	/// メソッドチェーンで指定したパラメータをまとめて設定する
 	/// 必ず最後に呼ぶ
 	/// </summary>
-    /// <seealso cref="Create(FluentCeVIO)"/>
-    /// <seealso cref="SendAndSpeakAsync(string, bool)"/>
+	/// <seealso cref="Create(FluentCeVIO)"/>
+	/// <seealso cref="SendAndSpeakAsync(string, bool, SpeakSegment, CancellationToken?)"/>
 	public async ValueTask SendAsync(){
-		foreach (var v in sendParams.ToList())
+		List<KeyValuePair<string, dynamic>> list = sendParams.ToList();
+		for (int i = 0; i < list.Count; i++)
 		{
-			switch(v.Key){
+			KeyValuePair<string, dynamic> v = list[i];
+			switch (v.Key){
 				case nameof(FluentCeVIO.SetAlphaAsync):
 					{
 						await _fcw.SetAlphaAsync(v.Value);
@@ -155,17 +157,21 @@ public class FluentCeVIOParam
 	}
 
 	/// <summary>
-    /// メソッドチェーンで指定したパラメータをまとめて設定してすぐに発声する
-    /// 必ず最後に呼ぶ
-    /// </summary>
-    /// <inheritdoc cref="FluentCeVIO.SpeakAsync(string, bool)"/>
-    /// <seealso cref="SendAsync"/>
+	/// メソッドチェーンで指定したパラメータをまとめて設定してすぐに発声する
+	/// 必ず最後に呼ぶ
+	/// </summary>
+	/// <inheritdoc cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken?)"/>
+	/// <seealso cref="SendAsync"/>
 	public async ValueTask SendAndSpeakAsync(
 		string text,
-		bool isWait = true)
+		bool isWait = true,
+		SpeakSegment segment = SpeakSegment.NoCheck,
+		CancellationToken? token = null
+	)
 	{
 		await SendAsync();
-		await _fcw.SpeakAsync(text, isWait);
+		await _fcw
+			.SpeakAsync(text, isWait, segment, token);
 	}
 
 	private FluentCeVIOParam SetParam<T>(string callName, T value)

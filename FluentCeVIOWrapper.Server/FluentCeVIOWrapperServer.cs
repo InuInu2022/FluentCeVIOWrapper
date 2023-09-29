@@ -8,6 +8,9 @@ using FluentCeVIOWrapper.Common;
 using FluentCeVIOWrapper.Common.Talk;
 
 using H.Pipes;
+using H.Formatters;
+using H.Pipes.AccessControl;
+using FluentCeVIOWrapper.Common.Models;
 
 namespace FluentCeVIOWrapper.Server;
 
@@ -17,7 +20,8 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 	private static async Task Main(string[] arguments){
 		await Microsoft.Extensions.Hosting.Host
 			.CreateDefaultBuilder()
-			.RunConsoleAppFrameworkAsync<FluentCeVIOWrapperServer>(arguments);
+			.RunConsoleAppFrameworkAsync<FluentCeVIOWrapperServer>(arguments)
+			.ConfigureAwait(false);
 	}
 
 	public async ValueTask AwakeAsync(
@@ -49,15 +53,17 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 		var host = await RemoteHost.CreateAsync(env);
 		var result = await host.TryStartAsync();
 		Console.WriteLine($"RESULT:{result}");
-		await Task.Run(
-			async () => await RunAsync(pipename).ConfigureAwait(false));
+		//await Task.Run(
+		//	async () => );
+		await RunAsync(pipename)
+			.ConfigureAwait(false);
 
 	}
 
 	void IDisposable.Dispose() // NOTE: can not implement `public void Dispose()`
-    {
-        Console.WriteLine("DISPOSED");
-    }
+	{
+		Console.WriteLine("DISPOSED");
+	}
 
 	private static async ValueTask MessageReceivedAsync(
 		H.Pipes.Args.ConnectionMessageEventArgs<CeVIOTalkMessage>? args
@@ -133,12 +139,12 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 				{
 					//void
 					nameof(IServiceControl.CloseHost) =>
-						await rHost.CallStaticMethodByHostAsync<ValueTask>(host, name, argValues),
+						await rHost.CallStaticMethodByHostAsync<bool>(host, name, argValues),
 					//HostStartResult
 					nameof(IServiceControl.StartHost) =>
 						await rHost.StartHostAsync(),
 					nameof(ITalker.Speak) =>
-						await rHost.SpeakAsync(argValues?[0],true),
+						await rHost.SpeakAsync(argValues?[0],argValues?[1] ?? true),
 					nameof(ITalker.Stop) =>
 						await rHost.CallInstanceMethodByHostAsync<bool>(host, name, argValues),
 					nameof(ITalker.GetTextDuration) =>
@@ -248,7 +254,7 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 		}
 	}
 
-	public static async ValueTask RunAsync(string pipeName)
+	public static async Task RunAsync(string pipeName)
 	{
 		try
 		{
@@ -257,39 +263,37 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 			Console.WriteLine($"Running in SERVER mode. PipeName: {pipeName}");
 			Console.WriteLine("Enter 'q' to exit");
 
-			await using var server = new PipeServer<CeVIOTalkMessage>(pipeName);
-			server.ClientConnected += async (_, args) =>
+			var formatter = new FCWFormatter();
+			await using var server = new PipeServer<CeVIOTalkMessage>(
+				pipeName,
+				formatter: formatter);
+			server.AllowUsersReadWrite();	//set for ASP.NET
+
+			static void OnConnection(
+				object _,
+				H.Pipes.Args.ConnectionEventArgs<CeVIOTalkMessage> args)
 			{
-				await Task.Run(() =>
-				Console.WriteLine($"Client {args.Connection.PipeName} is now connected!"));
+				Console.WriteLine($"Client {args.Connection.PipeName} is now connected!");
+			}
+			server.ClientConnected += OnConnection;
 
-
-				/*
-				try
-				{
-					await args.Connection.WriteAsync(
-						new CeVIOTalkMessage
-							{
-								Product = Product.CeVIO_AI,
-								ServerCommand = "Hello"
-							},
-						source.Token)
-						.ConfigureAwait(false);
-				}
-				catch (Exception exception)
-				{
-					OnExceptionOccurred(exception);
-				}
-				*/
-			};
 			server.ClientDisconnected += (_, args)
 				=> Console.WriteLine($"Client {args.Connection.PipeName} disconnected");
-			server.MessageReceived += async (_, args)
-				=> await MessageReceivedAsync(args!);//MessageReceivedAsync;
-			/*
-			(_, args)
-				=> Console.WriteLine($"Client {args.Connection.PipeName} says: {args.Message}");
-			*/
+
+			static async void OnReceivedAsync(
+				object _,
+				H.Pipes.Args.ConnectionMessageEventArgs<CeVIOTalkMessage?> args
+			){
+				try
+				{
+					await MessageReceivedAsync(args!);
+				}
+				catch (System.Exception e)
+				{
+					OnExceptionOccurred(e);
+				}
+			}
+			server.MessageReceived += OnReceivedAsync;
 			server.ExceptionOccurred += (_, args)
 				=> OnExceptionOccurred(args.Exception);
 
@@ -327,14 +331,19 @@ internal class FluentCeVIOWrapperServer : ConsoleAppBase, IDisposable{
 
 			Console.WriteLine("Server starting...");
 
-			await server.StartAsync(cancellationToken: source.Token).ConfigureAwait(false);
+			await server
+				.StartAsync(cancellationToken: source.Token)
+				.ConfigureAwait(false);
 
 			Console.WriteLine("Server is started!");
 
-			await Task.Delay(Timeout.InfiniteTimeSpan, source.Token).ConfigureAwait(false);
+			await Task
+				.Delay(Timeout.InfiniteTimeSpan, source.Token)
+				.ConfigureAwait(false);
 		}
-		catch (OperationCanceledException)
+		catch (OperationCanceledException exception)
 		{
+			Console.WriteLine($"サーバーを終了します.理由:{exception.Message}");
 		}
 		catch (Exception exception)
 		{

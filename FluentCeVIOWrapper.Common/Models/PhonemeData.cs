@@ -23,11 +23,11 @@ public class PhonemeData : IPhonemeData
 	}
 
 	/// <inheritdoc/>
-	public string Phoneme { get; }
+	public string Phoneme { get; set; }
 
 	/// <inheritdoc/>
-	public double StartTime { get; }
+	public double StartTime { get; set; }
 
 	/// <inheritdoc/>
-	public double EndTime { get; }
+	public double EndTime { get; set; }
 }

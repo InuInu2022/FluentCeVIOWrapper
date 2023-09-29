@@ -1,11 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
 using FluentCeVIOWrapper.Common.Models;
 using FluentCeVIOWrapper.Common.Talk;
 
@@ -40,8 +42,14 @@ public class FluentCeVIO : IDisposable
 	/// </summary>
 	public Product CurrentProduct { get; }
 
+	/// <summary>
+	/// 現在の制御しているCeVIOのバージョン
+	/// </summary>
+	public Version? CurrentVersion { get; private set; }
+
 	private readonly CancellationTokenSource source;
 	private readonly PipeClient<CeVIOTalkMessage> client;
+	private readonly Version CheckLengthVer = new(8, 1, 19);
 
 	internal FluentCeVIO(string? newPipeName, Product product)
 	{
@@ -49,11 +57,16 @@ public class FluentCeVIO : IDisposable
 
 		CurrentPipeName = newPipeName ?? PipeName;
 		CurrentProduct = product;
-		client = new PipeClient<CeVIOTalkMessage>(CurrentPipeName);
+		var formatter = new FCWFormatter();
+		client = new PipeClient<CeVIOTalkMessage>(
+			CurrentPipeName,
+			formatter: formatter);
 		client.Disconnected += (o, args)
 			=> Console.WriteLine($"{nameof(FluentCeVIO)}:Disconnected from server");
 		client.Connected += (o, args)
 			=> Console.WriteLine($"{nameof(FluentCeVIO)}:Connected to server");
+		client.ExceptionOccurred += (o, args)
+			=> Console.Error.WriteLine($"Clinet error! : {args.Exception}");
 		var _ = client
 			.ConnectAsync(source.Token)
 			.ConfigureAwait(false);
@@ -99,26 +112,42 @@ public class FluentCeVIO : IDisposable
 	private Task<T> CallWrapAsync<T>(
 		Host host,
 		string callName,
-		ReadOnlyCollection<dynamic>? args = null
+		ReadOnlyCollection<dynamic>? callArgs = null
 	)
 	{
 		var tcs = new TaskCompletionSource<T>();
-		void handler(object? _, ConnectionMessageEventArgs<CeVIOTalkMessage?> args)
+		void Handler(object? _, ConnectionMessageEventArgs<CeVIOTalkMessage?> args)
 		{
 			var result = args?.Message?.ServerCallValue;
-			client.MessageReceived -= handler;
-			tcs.TrySetResult(result);
+			client.MessageReceived -= Handler;
+
+			if(result is null){
+				tcs.TrySetException(new NullReferenceException("received message has null referrence."));
+			}else if(typeof(T) == typeof(HostStartResult)){
+				//castに失敗することがある
+				tcs.TrySetResult((T)(object)result);
+			}
+			else{
+				tcs.TrySetResult(result);
+			}
 		}
+		client.MessageReceived += Handler;
 
-		client.MessageReceived += handler;
+		void ErrorHandler(object? _, ExceptionEventArgs args)
+		{
+			Console.Error.WriteLine($"Error: {args.Exception.Message}");
+			client.ExceptionOccurred -= ErrorHandler;
+			tcs.TrySetCanceled();
+		}
+		client.ExceptionOccurred += ErrorHandler;
 
-		client.WriteAsync(
+		_ = client.WriteAsync(
 			new CeVIOTalkMessage
 			{
 				ServerCommand = ServerCommand.CallMethod,
 				ServerHost = host,
 				ServerCallName = callName,
-				ServerCallArgValues = args,
+				ServerCallArgValues = callArgs,
 				Product = CurrentProduct
 			}
 		);
@@ -132,14 +161,31 @@ public class FluentCeVIO : IDisposable
 	)
 	{
 		var tcs = new TaskCompletionSource<T>();
-		void handler(object? _, ConnectionMessageEventArgs<CeVIOTalkMessage?> args)
+		void Handler(
+			object? _,
+			ConnectionMessageEventArgs<CeVIOTalkMessage?> args)
 		{
 			var result = args?.Message?.ServerCallValue;
-			client.MessageReceived -= handler;
-			tcs.TrySetResult(result);
+			client.MessageReceived -= Handler;
+			if(result is null){
+				tcs.TrySetException(new NullReferenceException("received message has null referrence."));
+			}else if(typeof(T) == typeof(HostStartResult)){
+				//castに失敗することがある
+				tcs.TrySetResult((T)(object)result);
+			}
+			else{
+				tcs.TrySetResult(result);
+			}
 		}
-		client.MessageReceived += handler;
-		client.WriteAsync(
+		client.MessageReceived += Handler;
+		void ErrorHandler(object? _, ExceptionEventArgs args)
+		{
+			Console.Error.WriteLine($"Error: {args.Exception.Message}");
+			client.ExceptionOccurred -= ErrorHandler;
+			tcs.TrySetCanceled();
+		}
+		client.ExceptionOccurred += ErrorHandler;
+		_ = client.WriteAsync(
 			new CeVIOTalkMessage
 			{
 				ServerCommand = ServerCommand.GetProperty,
@@ -183,8 +229,8 @@ public class FluentCeVIO : IDisposable
 	/// 非同期で起動
 	/// 元の<c>StartHost</c>
 	/// </summary>
-	public Task<HostStartResult?> StartAsync()
-		=> CallWrapAsync<HostStartResult?>(Host.Service, nameof(IServiceControl.StartHost));
+	public async Task<HostStartResult> StartAsync()
+		=> await CallWrapAsync<HostStartResult>(Host.Service, nameof(IServiceControl.StartHost));
 
 	/// <summary>
 	/// 非同期で終了処理
@@ -228,9 +274,13 @@ public class FluentCeVIO : IDisposable
 	/// <param name="castName">キャスト名。利用可能なキャスト名の文字列は<see cref="GetAvailableCastsAsync"/>で取得可。</param>
 	/// <seealso cref="GetCastAsync"/>
 	/// <seealso cref="GetAvailableCastsAsync"/>
-    /// <seealso cref="FluentCeVIOParam.Cast(string)"/>
+	/// <seealso cref="FluentCeVIOParam.Cast(string)"/>
 	public async ValueTask SetCastAsync(string castName)
-		=> await SetWrapAsync(Host.Talker, nameof(ITalker.Cast), castName);
+	{
+		await SetWrapAsync(Host.Talker, nameof(ITalker.Cast), castName);
+		//少し待たないと反映されない
+		await Task.Delay(10);
+	}
 
 	/// <summary>
 	/// 現在のキャスト(話者)を取得します。
@@ -240,6 +290,7 @@ public class FluentCeVIO : IDisposable
 	public Task<string> GetCastAsync()
 		=> GetWrapAsync<string>(Host.Talker, nameof(ITalker.Cast));
 
+	/*
 	/// <summary>
 	/// キャストを取得または設定します。<br />
 	/// ※互換性の為に残されています。<see cref="GetCastAsync"/>,<see cref="SetCastAsync(string)"/>を利用して下さい。
@@ -252,12 +303,13 @@ public class FluentCeVIO : IDisposable
 		get => GetCastAsync().Result;
 		set => SetCastAsync(value).AsTask().Wait();
 	}
+	*/
 
 	/// <summary>
 	/// 音の大きさ（0～100）を取得します。
 	/// </summary>
 	/// <returns>音の大きさ（0～100）</returns>
-    /// <seealso cref="SetVolumeAsync(uint)"/>
+	/// <seealso cref="SetVolumeAsync(uint)"/>
 	public Task<uint> GetVolumeAsync()
 		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Volume));
 
@@ -265,7 +317,7 @@ public class FluentCeVIO : IDisposable
 	/// 音の大きさ（0～100）を設定します。
 	/// </summary>
 	/// <param name="volume">音の大きさ（0～100）</param>
-    /// <seealso cref="GetVolumeAsync"/>
+	/// <seealso cref="GetVolumeAsync"/>
 	/// <seealso cref="FluentCeVIOParam.Volume(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetVolumeAsync([Range(0,100)] uint volume)
@@ -275,7 +327,7 @@ public class FluentCeVIO : IDisposable
 	/// 話す速さ（0～100）を取得します。
 	/// </summary>
 	/// <returns>話す速さ（0～100）</returns>
-    /// <seealso cref="SetSpeedAsync(uint)"/>
+	/// <seealso cref="SetSpeedAsync(uint)"/>
 	public Task<uint> GetSpeedAsync()
 		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Speed));
 
@@ -283,8 +335,8 @@ public class FluentCeVIO : IDisposable
 	/// 話す速さ（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">話す速さ（0～100）</param>
-    /// <seealso cref="GetSpeedAsync"/>
-    /// <seealso cref="FluentCeVIOParam.Speed(uint)"/>
+	/// <seealso cref="GetSpeedAsync"/>
+	/// <seealso cref="FluentCeVIOParam.Speed(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetSpeedAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Speed), value);
@@ -293,7 +345,7 @@ public class FluentCeVIO : IDisposable
 	/// 音の高さ（0～100）を取得します。
 	/// </summary>
 	/// <returns>音の高さ（0～100）</returns>
-    /// <seealso cref="SetToneAsync(uint)"/>
+	/// <seealso cref="SetToneAsync(uint)"/>
 	public Task<uint> GetToneAsync()
 		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Tone));
 
@@ -301,8 +353,8 @@ public class FluentCeVIO : IDisposable
 	/// 音の高さ（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">音の高さ（0～100）</param>
-    /// <seealso cref="GetToneAsync"/>
-    /// <seealso cref="FluentCeVIOParam.Tone(uint)"/>
+	/// <seealso cref="GetToneAsync"/>
+	/// <seealso cref="FluentCeVIOParam.Tone(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetToneAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Tone), value);
@@ -311,7 +363,7 @@ public class FluentCeVIO : IDisposable
 	/// 声質（0～100）を取得します。
 	/// </summary>
 	/// <returns>声質（0～100）</returns>
-    /// <seealso cref="SetAlphaAsync(uint)"/>
+	/// <seealso cref="SetAlphaAsync(uint)"/>
 	public Task<uint> GetAlphaAsync()
 		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.Alpha));
 
@@ -319,8 +371,8 @@ public class FluentCeVIO : IDisposable
 	/// 声質（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">声質（0～100）</param>
-    /// <seealso cref="GetAlphaAsync"/>
-    /// <seealso cref="FluentCeVIOParam.Alpha(uint)"/>
+	/// <seealso cref="GetAlphaAsync"/>
+	/// <seealso cref="FluentCeVIOParam.Alpha(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetAlphaAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.Alpha), value);
@@ -329,7 +381,7 @@ public class FluentCeVIO : IDisposable
 	/// 抑揚（0～100）を取得します。
 	/// </summary>
 	/// <returns>抑揚（0～100）</returns>
-    /// <seealso cref="SetToneScaleAsync(uint)"/>
+	/// <seealso cref="SetToneScaleAsync(uint)"/>
 	public Task<uint> GetToneScaleAsync()
 		=> GetWrapAsync<uint>(Host.Talker, nameof(ITalker.ToneScale));
 
@@ -337,8 +389,8 @@ public class FluentCeVIO : IDisposable
 	/// 抑揚（0～100）を設定します。
 	/// </summary>
 	/// <param name="value">抑揚（0～100）</param>
-    /// <seealso cref="GetToneScaleAsync"/>
-    /// <seealso cref="FluentCeVIOParam.ToneScale(uint)"/>
+	/// <seealso cref="GetToneScaleAsync"/>
+	/// <seealso cref="FluentCeVIOParam.ToneScale(uint)"/>
 	/// <returns></returns>
 	public async ValueTask SetToneScaleAsync([Range(0,100)] uint value)
 		=> await SetWrapAsync<uint>(Host.Talker, nameof(ITalker.ToneScale), value);
@@ -355,7 +407,17 @@ public class FluentCeVIO : IDisposable
 	/// <seealso cref="SetComponentsAsync"/>
 	/// <returns>感情パラメータの管理オブジェクト<see cref="TalkerComponent"/>の<see cref="ReadOnlyCollection{T}"/></returns>
 	public async Task<ReadOnlyCollection<TalkerComponent>> GetComponentsAsync()
-		=> (ReadOnlyCollection<TalkerComponent>)await GetWrapAsync<dynamic>(Host.Talker, nameof(ITalker.Components));
+	{
+		try
+		{
+			return await GetWrapAsync<ReadOnlyCollection<TalkerComponent>>(Host.Talker, nameof(ITalker.Components));
+		}
+		catch (System.Exception e)
+		{
+			Debug.WriteLine(e.Message);
+			throw;
+		}
+	}
 
 	/// <summary>
 	/// 現在のキャストの感情パラメータマップコレクションを設定します。
@@ -388,8 +450,124 @@ public class FluentCeVIO : IDisposable
 	/// </example>
 	/// <param name="text">セリフ。日本語は最大200文字（古いバージョンは150文字）。</param>
 	/// <param name="isWait">再生終了まで待つかどうか</param>
-	/// <returns></returns>
-	public Task<bool> SpeakAsync(string text, bool isWait = true)
+	/// <param name="segment">セリフ文字列の分割モードの指定。</param>
+	/// <param name="token"></param>
+	/// <returns>セリフの再生に成功したかどうか。</returns>
+	/// <seealso cref="SpeakSegment"/>
+	public async Task<bool> SpeakAsync(
+		string text,
+		bool isWait = true,
+		SpeakSegment segment = SpeakSegment.Short,
+		CancellationToken? token = null
+	)
+	{
+		//null, empty, whitespace
+		if(string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text)){
+			return false;
+		}
+		//文字数制限しないで高速処理
+		if(segment == SpeakSegment.NoCheck){
+			token?.ThrowIfCancellationRequested();
+			return await SpeakInternalAsync(text, isWait)
+				.ConfigureAwait(false);
+		}
+
+		//文字数制限の確認
+		CurrentVersion ??= await this.GetHostVersionAsync();
+		var isEnglish = await this.IsEnglishCastNameAsync();
+
+		var limit = CurrentVersion >= CheckLengthVer ?
+			isEnglish ?
+				500 : 200 :
+					150;
+
+		if(segment == SpeakSegment.Short){
+			//なるべく短く
+			return await SpeakSplitAsync(text, limit, isWait, token:token);
+		}
+		else{
+			//なるべく長く
+			throw new NotSupportedException($"Not supported yet: {SpeakSegment.Long}");
+			/*
+			if (text.Length <= limit)
+			{
+				return await SpeakInternalAsync(text, isWait);
+			}
+
+			//分割逐次読み上げ
+			return await ProcessLongTextAsync(text, limit);
+			*/
+		}
+	}
+
+	private async ValueTask<bool> SpeakSplitAsync(
+		string longText,
+		int limit,
+		bool isWait,
+		CancellationToken? token = null
+	)
+	{
+		using var stream = new MemoryStream(Encoding.UTF8.GetBytes(longText));
+		using var reader = new StreamReader(stream, Encoding.UTF8);
+		var buffer = new char[limit];
+		var read = 0;
+		var result = true;
+
+		HashSet<char> sep = new(new[] { '。', '、', '．', '，', '.', ',', '！', '？', '!', '?','[',']','「','」','『','』','(',')','（','）','｛','｝','{','}' });
+
+		while(true)
+		{
+			token?.ThrowIfCancellationRequested();
+
+			buffer.Initialize();
+
+			var bytesRead = await reader
+				.ReadAsync(buffer, 0, buffer.Length);
+			if(bytesRead <= 0){
+				break;
+			}
+			ReadOnlyMemory<char> span = buffer.AsMemory(0, bytesRead);
+			var index = IndexOf(span, sep);
+			var sliceEnd = (index >= 0) ? index + 1 : bytesRead;
+			var sliced = new string(buffer, 0, sliceEnd);
+
+			var text = sliced
+				.Replace("\n","")
+				.Replace("\r","");
+
+			if(!string.IsNullOrEmpty(text)){
+				result = await SpeakInternalAsync(text, isWait)
+					.ConfigureAwait(false);
+			}
+
+			read += Encoding.UTF8.GetByteCount(sliced);
+			reader.BaseStream.Seek(read, SeekOrigin.Begin);
+			reader.DiscardBufferedData();
+			Debug.WriteLine($"[{index}],read:{read}, slliceEnd:{sliceEnd},pos:{reader.BaseStream.Position}\n - {sliced}");
+		}
+		return result;
+
+		static int IndexOf(ReadOnlyMemory<char> span, HashSet<char> sep)
+		{
+			var index = -1;
+			for (var i = 0; i < span.Length; i++)
+			{
+				var isContains = sep.Contains(span.Span[i]);
+				if (isContains)
+				{
+					index = span.Span.IndexOf(span.Span[i]);
+					break;
+				}
+			}
+			return index;
+		}
+	}
+
+	// internal use
+	private Task<bool> SpeakInternalAsync(
+		string text,
+		bool isWait = true
+	)
 		=> CallWrapAsync<bool>(
 			Host.Talker,
 			nameof(ITalker.Speak),
