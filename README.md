@@ -2,7 +2,7 @@
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET Standard 2.0](https://img.shields.io/badge/%20.NET%20Standard-2.0-blue.svg?logo=dotnet&style=flat) ![.NET Framework 4.8](https://img.shields.io/badge/%20.NET%20Framework-4.8-blue.svg?logo=dotnet&style=flat) ![Unity 2021.3](https://img.shields.io/badge/Unity-2021.3-blue.svg?logo=unity&style=flat)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/inuinu2022/fluentceviowrapper?include_prereleases&label=%F0%9F%9A%80release)
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.3-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
 A wrapper library and integration IPC server of the [CeVIO](https://cevio.jp/) API for .NET 7 / .NET Standard 2.0
 
@@ -176,6 +176,7 @@ see [README](./FluentCeVIOWrapper.Unity/README.md)
   - このアプリ自体は .NET 6 向けに作られており、.NET Framework 向けであるCeVIOの外部連携インターフェイスをそのままでは利用できません。Fluent CeVIO Wrapper を使用することによりCeVIOを呼び出すことを実現しています。
 - **[SasaraUtil](https://github.com/InuInu2022/SasaraUtil)**
   - CeVIOのあれこれを便利するユーティリティアプリ
+  - このアプリ自体は.NET 7のAvalonia UIで作られています
   - 下記のボイパロイド機能を移植してUIを付けています
 - **[LibSasara/Sample/SongToTalk](https://github.com/InuInu2022/LibSasara/tree/master/sample/csharp/SongToTalk)**
   - CeVIOソングのCCS/CCSTファイルからCeVIOトークの台詞を並べてボイパロイドするための簡易的なツールです
