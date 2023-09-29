@@ -18,7 +18,7 @@
 		<PackageReference Include="H.Pipes" Version="2.0.53" />
 		<PackageReference Include="ProcessX" Version="1.5.5" />
 		<PackageReference Include="FluentAssertions" Version="6.8.0" />
-		<PackageReference Include="System.Reactive" Version="5.0.0" />
+		<PackageReference Include="System.Reactive" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
