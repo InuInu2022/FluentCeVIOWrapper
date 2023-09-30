@@ -1,7 +1,7 @@
 namespace FluentCeVIOWrapper.Common.Talk;
 
 /// <summary>
-/// <see cref="FluentCeVIO.StartAsync()"/> の結果コードを表します。
+/// <see cref="FluentCeVIO.StartAsync(System.Threading.CancellationToken)"/> の結果コードを表します。
 /// </summary>
 public enum HostStartResult
 {
@@ -24,5 +24,5 @@ public enum HostStartResult
 	/// <summary>
 	///  成功。起動済みの場合も含みます。
 	/// </summary>
-	Succeeded = 0
+	Succeeded = 0,
 }
