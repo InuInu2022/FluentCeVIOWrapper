@@ -1,11 +1,6 @@
-using System.Reflection;
-using System;
-using System.Collections.Generic;
-
 using Ceras;
 
 using FluentCeVIOWrapper.Common.Talk;
-using System.Linq;
 
 namespace FluentCeVIOWrapper.Common.Models;
 
@@ -17,7 +12,7 @@ public class FCWFormatter : H.Formatters.CerasFormatter
 	/// <summary>
 	/// 内部フォーマッター
 	/// </summary>
-    public new CerasSerializer InternalFormatter { get; }
+	public new CerasSerializer InternalFormatter { get; }
 
 	/// <summary>
 	/// コンストラクタ
@@ -49,10 +44,9 @@ public class FCWFormatter : H.Formatters.CerasFormatter
 	/// <param name="obj"></param>
 	/// <returns></returns>
 	protected override byte[] SerializeInternal(object obj)
-    {
-        return InternalFormatter.Serialize(obj);
-    }
-
+	{
+		return InternalFormatter.Serialize(obj);
+	}
 
 	/// <summary>
 	/// デシリアライズ
@@ -60,8 +54,8 @@ public class FCWFormatter : H.Formatters.CerasFormatter
 	/// <typeparam name="T"></typeparam>
 	/// <param name="bytes"></param>
 	/// <returns></returns>
-    protected override T DeserializeInternal<T>(byte[] bytes)
-    {
-        return InternalFormatter.Deserialize<T>(bytes);
-    }
+	protected override T DeserializeInternal<T>(byte[] bytes)
+	{
+		return InternalFormatter.Deserialize<T>(bytes);
+	}
 }
