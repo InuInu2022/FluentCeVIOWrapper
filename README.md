@@ -202,6 +202,7 @@ see [README](./FluentCeVIOWrapper.Unity/README.md)
   - [NetFabric.Hyperlinq.Analyzer](https://github.com/NetFabric/NetFabric.Hyperlinq.Analyzer)
   - [NetFabric.CodeAnalysis](https://github.com/NetFabric/NetFabric.CodeAnalysis)
   - [Roslynator](https://github.com/dotnet/roslynator)
+  - [Meziantou.Analyzer](https://github.com/meziantou/Meziantou.Analyzer)
 
 ## ライセンス
 
