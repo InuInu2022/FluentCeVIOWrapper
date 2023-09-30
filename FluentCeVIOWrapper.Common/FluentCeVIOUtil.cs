@@ -22,10 +22,13 @@ public static class FluentCeVIOUtil
 	)
 	{
 		if(castName is not null){
-			await fcw.SetCastAsync(castName);
+			await fcw.SetCastAsync(castName)
+				.ConfigureAwait(false);
 		}
 
-		var comps = await fcw.GetComponentsAsync();
+		var comps = await fcw
+			.GetComponentsAsync()
+			.ConfigureAwait(false);
 		return fcw.CurrentProduct switch
 		{
 			Product.CeVIO_AI =>

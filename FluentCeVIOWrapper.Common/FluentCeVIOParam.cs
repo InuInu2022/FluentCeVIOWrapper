@@ -35,13 +35,13 @@ public class FluentCeVIOParam
 	public static FluentCeVIOParam Create(FluentCeVIO fcw)
 		=> new(fcw);
 
-	/// <inheritdoc cref="FluentCeVIO.SetAlphaAsync(uint)"/>
-	/// <seealso cref="FluentCeVIO.SetAlphaAsync(uint)"/>
+	/// <inheritdoc cref="FluentCeVIO.SetAlphaAsync(uint,bool)"/>
+	/// <seealso cref="FluentCeVIO.SetAlphaAsync(uint,bool)"/>
 	public FluentCeVIOParam Alpha([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetAlphaAsync), value);
 
-	/// <inheritdoc cref="FluentCeVIO.SetCastAsync(string)"/>
-	/// <seealso cref="FluentCeVIO.SetCastAsync(string)"/>
+	/// <inheritdoc cref="FluentCeVIO.SetCastAsync(string,bool)"/>
+	/// <seealso cref="FluentCeVIO.SetCastAsync(string,bool)"/>
 	public FluentCeVIOParam Cast(string castName)
 		=> SetParam(nameof(FluentCeVIO.SetCastAsync), castName);
 
@@ -66,23 +66,23 @@ public class FluentCeVIOParam
 		return SetParam(nameof(FluentCeVIOParam.Emotions), sendEmotions);
 	}
 
-	/// <inheritdoc cref="FluentCeVIO.SetSpeedAsync(uint)"/>
-	/// <seealso cref="FluentCeVIO.SetSpeedAsync(uint)"/>
+	/// <inheritdoc cref="FluentCeVIO.SetSpeedAsync(uint,bool)"/>
+	/// <seealso cref="FluentCeVIO.SetSpeedAsync(uint,bool)"/>
 	public FluentCeVIOParam Speed([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetSpeedAsync), value);
 
-	/// <inheritdoc cref="FluentCeVIO.SetToneAsync(uint)"/>
-	/// <seealso cref="FluentCeVIO.SetToneAsync(uint)"/>
+	/// <inheritdoc cref="FluentCeVIO.SetToneAsync(uint,bool)"/>
+	/// <seealso cref="FluentCeVIO.SetToneAsync(uint,bool)"/>
 	public FluentCeVIOParam Tone([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetToneAsync), value);
 
-	/// <inheritdoc cref="FluentCeVIO.SetToneScaleAsync(uint)"/>
-	/// <seealso cref="FluentCeVIO.SetToneScaleAsync(uint)"/>
+	/// <inheritdoc cref="FluentCeVIO.SetToneScaleAsync(uint,bool)"/>
+	/// <seealso cref="FluentCeVIO.SetToneScaleAsync(uint,bool)"/>
 	public FluentCeVIOParam ToneScale([Range(0,100)] uint value)
 		=> SetParam(nameof(FluentCeVIO.SetToneScaleAsync), value);
 
-	/// <inheritdoc cref="FluentCeVIO.SetVolumeAsync(uint)"/>
-	/// <seealso cref="FluentCeVIO.SetVolumeAsync(uint)"/>
+	/// <inheritdoc cref="FluentCeVIO.SetVolumeAsync(uint,bool)"/>
+	/// <seealso cref="FluentCeVIO.SetVolumeAsync(uint,bool)"/>
 	public FluentCeVIOParam Volume([Range(0,100)] uint volume)
 		=> SetParam(nameof(FluentCeVIO.SetVolumeAsync), volume);
 
@@ -91,7 +91,7 @@ public class FluentCeVIOParam
 	/// 必ず最後に呼ぶ
 	/// </summary>
 	/// <seealso cref="Create(FluentCeVIO)"/>
-	/// <seealso cref="SendAndSpeakAsync(string, bool, SpeakSegment, CancellationToken?)"/>
+	/// <seealso cref="SendAndSpeakAsync(string, bool, SpeakSegment, CancellationToken)"/>
 	public async ValueTask SendAsync(){
 		List<KeyValuePair<string, dynamic>> list = sendParams.ToList();
 		for (int i = 0; i < list.Count; i++)
@@ -157,18 +157,19 @@ public class FluentCeVIOParam
 	/// メソッドチェーンで指定したパラメータをまとめて設定してすぐに発声する
 	/// 必ず最後に呼ぶ
 	/// </summary>
-	/// <inheritdoc cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken?)"/>
+	/// <inheritdoc cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken)"/>
 	/// <seealso cref="SendAsync"/>
 	public async ValueTask SendAndSpeakAsync(
 		string text,
 		bool isWait = true,
 		SpeakSegment segment = SpeakSegment.NoCheck,
-		CancellationToken? token = null
+		CancellationToken token = default
 	)
 	{
-		await SendAsync();
-		await _fcw
-			.SpeakAsync(text, isWait, segment, token);
+		await SendAsync().ConfigureAwait(false);
+		_ = await _fcw
+			.SpeakAsync(text, isWait, segment, token)
+			.ConfigureAwait(false);
 	}
 
 	private FluentCeVIOParam SetParam<T>(string callName, T value)
@@ -179,7 +180,9 @@ public class FluentCeVIOParam
 	}
 
 	private async ValueTask SetComponentsByNameAsync(){
-		var comps = await _fcw.GetComponentsAsync();
+		var comps = await _fcw
+			.GetComponentsAsync()
+			.ConfigureAwait(false);
 		var sendComps = comps
 			.Select(v =>
 			{
@@ -193,6 +196,8 @@ public class FluentCeVIOParam
 			.ToList()
 			.AsReadOnly();
 		sendComps.ToList().ForEach(v => System.Console.WriteLine($"{v.Name}::{v.Value}"));
-		await _fcw.SetComponentsAsync(sendComps);
+		await _fcw
+			.SetComponentsAsync(sendComps)
+			.ConfigureAwait(false);
 	}
 }
