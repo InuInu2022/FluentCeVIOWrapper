@@ -8,53 +8,53 @@ namespace FluentCeVIOWrapper.Common.Talk;
 /// </summary>
 public interface ITalker
 {
-    /// <summary>
+	/// <summary>
 	/// 音の大きさ（0～100）を取得または設定します。
 	/// </summary>
-    uint Volume { get; set; }
-    /// <summary>
+	uint Volume { get; set; }
+	/// <summary>
 	/// 話す速さ（0～100）を取得または設定します。
 	/// </summary>
-    uint Speed { get; set; }
-    /// <summary>
+	uint Speed { get; set; }
+	/// <summary>
 	/// 音の高さ（0～100）を取得または設定します。
 	/// </summary>
-    uint Tone { get; set; }
-    /// <summary>
+	uint Tone { get; set; }
+	/// <summary>
 	/// 声質（0～100）を取得または設定します。
 	/// </summary>
-    uint Alpha { get; set; }
+	uint Alpha { get; set; }
 
-    /// <inheritdoc/>
-    uint ToneScale { get; set; }
+	/// <inheritdoc/>
+	uint ToneScale { get; set; }
 
 	/// <inheritdoc/>
 	System.Collections.ObjectModel.ReadOnlyCollection<TalkerComponent> Components { get; }
 
-    /// <inheritdoc/>
-    string Cast { get; set; }
+	/// <inheritdoc/>
+	string Cast { get; set; }
 
-    /// <inheritdoc/>
-    string[] AvailableCasts { get; }
+	/// <inheritdoc/>
+	string[] AvailableCasts { get; }
 
-    /// <inheritdoc/>
+	/// <inheritdoc/>
 	ISpeakingState Speak(string text);
 
-    /// <inheritdoc/>
+	/// <inheritdoc/>
 
-    bool Stop();
+	bool Stop();
 
-    /// <inheritdoc/>
+	/// <inheritdoc/>
 
-    double GetTextDuration(string text);
+	double GetTextDuration(string text);
 
-    /// <inheritdoc/>
+	/// <inheritdoc/>
 
-    IPhonemeData[] GetPhonemes(string text);
+	IPhonemeData[] GetPhonemes(string text);
 
-    /// <inheritdoc/>
+	/// <inheritdoc/>
 
-    bool OutputWaveToFile(string text, string path);
+	bool OutputWaveToFile(string text, string path);
 }
 
 /// <summary>
@@ -63,37 +63,37 @@ public interface ITalker
 /// </summary>
 public interface IServiceControl
 {
-    /// <summary>
+	/// <summary>
 	///【CeVIO AI】のバージョンを取得します。
 	/// </summary>
-    string HostVersion { get; }
+	string HostVersion { get; }
 
-    /// <summary>
+	/// <summary>
 	/// 【CeVIO AI】にアクセス可能かどうか取得します。
 	/// </summary>
-    bool IsHostStarted { get; }
+	bool IsHostStarted { get; }
 
-    /// <summary>
+	/// <summary>
 	/// 【CeVIO AI】を起動
 	/// </summary>
 	/// <param name="noWait"></param>
 	/// <returns></returns>
-    HostStartResult StartHost(bool noWait);
-    // 【CeVIO AI】を起動します。起動済みなら何もしません。
-    // 引数：
-    // 　noWait - trueは起動のみ行います。アクセス可能かどうかはIsHostStartedで確認します。
-    // 　　　　　　falseは起動後に外部からアクセス可能になるまで制御を戻しません。
-    // 戻り値：
-    // 　結果コード。
+	HostStartResult StartHost(bool noWait);
+	// 【CeVIO AI】を起動します。起動済みなら何もしません。
+	// 引数：
+	// 　noWait - trueは起動のみ行います。アクセス可能かどうかはIsHostStartedで確認します。
+	// 　　　　　　falseは起動後に外部からアクセス可能になるまで制御を戻しません。
+	// 戻り値：
+	// 　結果コード。
 
-    /// <summary>
+	/// <summary>
 	/// 終了を要求
 	/// </summary>
 	/// <param name="mode"></param>
-    void CloseHost(HostCloseMode mode = HostCloseMode.Default);
-    // 【CeVIO AI】に終了を要求します。
-    // 引数：
-    // 　mode - 処理モード。
+	void CloseHost(HostCloseMode mode = HostCloseMode.Default);
+	// 【CeVIO AI】に終了を要求します。
+	// 引数：
+	// 　mode - 処理モード。
 }
 
 /// <summary>
@@ -101,25 +101,25 @@ public interface IServiceControl
 /// </summary>
 public interface ISpeakingState
 {
-    ///<inheritdoc/>
-    bool IsCompleted { get; }
-    // 再生が完了したかどうかを取得します。
-    // 完了した場合はtrue。（失敗を含む）それ以外の場合はfalse。
+	///<inheritdoc/>
+	bool IsCompleted { get; }
+	// 再生が完了したかどうかを取得します。
+	// 完了した場合はtrue。（失敗を含む）それ以外の場合はfalse。
 
-    ///<inheritdoc/>
-    bool IsSucceeded { get; }
-    // 再生が成功したかどうかを取得します。
-    // 成功した場合はtrue。それ以外の場合はfalse。
+	///<inheritdoc/>
+	bool IsSucceeded { get; }
+	// 再生が成功したかどうかを取得します。
+	// 成功した場合はtrue。それ以外の場合はfalse。
 
-    ///<inheritdoc/>
-    void Wait();
-    // 再生終了を待ちます。
+	///<inheritdoc/>
+	void Wait();
+	// 再生終了を待ちます。
 
-    ///<inheritdoc/>
-    void Wait(double timeout);
-    // 再生終了を待ちます。
-    // 引数：
-    // 　timeout - 最大待機時間。単位は秒。（0未満は無制限）
+	///<inheritdoc/>
+	void Wait(double timeout);
+	// 再生終了を待ちます。
+	// 引数：
+	// 　timeout - 最大待機時間。単位は秒。（0未満は無制限）
 }
 
 /// <summary>
@@ -127,20 +127,20 @@ public interface ISpeakingState
 /// </summary>
 public interface IPhonemeData
 {
-    /// <summary>
+	/// <summary>
 	/// 音素を取得します。
 	/// </summary>
-    string Phoneme { get; }
+	string Phoneme { get; }
 
-    /// <summary>
+	/// <summary>
 	/// 開始時間を取得します。単位は秒。
 	/// </summary>
-    double StartTime { get; }
+	double StartTime { get; }
 
-    /// <summary>
+	/// <summary>
 	/// 終了時間を取得します。単位は秒。
 	/// </summary>
-    double EndTime { get; }
+	double EndTime { get; }
 }
 
 /// <summary>
@@ -148,6 +148,6 @@ public interface IPhonemeData
 /// </summary>
 public enum HostCloseMode
 {
-    ///<inheritdoc/>
-    Default = 0
+	///<inheritdoc/>
+	Default = 0,
 }
