@@ -5,7 +5,7 @@ namespace FluentCeVIOWrapper.Common;
 /// </summary>
 /// <remarks>
 /// 文字数制限はバージョンと言語によって異なります。文字数制限を超えたセリフを喋らせた場合、そのままではエラーが発生し、はみ出した文字は発声されません。
-/// <see cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken?)"/>の<c>segment</c>でこの指定をすることでエラーを発生させずに長文読み上げが可能になります。
+/// <see cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken)"/>の<c>segment</c>でこの指定をすることでエラーを発生させずに長文読み上げが可能になります。
 /// <list type="bullet">
 ///     <listheader>
 ///        <term>CeVIO CS</term>
@@ -25,7 +25,7 @@ namespace FluentCeVIOWrapper.Common;
 ///     </item>
 /// </list>
 /// </remarks>
-/// <seealso cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken?)"/>
+/// <seealso cref="FluentCeVIO.SpeakAsync(string, bool, SpeakSegment, System.Threading.CancellationToken)"/>
 public enum SpeakSegment
 {
 	/// <summary>
