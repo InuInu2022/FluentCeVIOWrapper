@@ -373,4 +373,5 @@ dotnet_diagnostic.AsyncFixer01.severity = suggestion
 dotnet_diagnostic.VSTHRD100.severity = suggestion
 dotnet_diagnostic.VSTHRD111.severity = suggestion
 dotnet_diagnostic.MA0004.severity = suggestion
+dotnet_diagnostic.MA0040.severity = suggestion
 dotnet_diagnostic.IDE1006.severity = none
