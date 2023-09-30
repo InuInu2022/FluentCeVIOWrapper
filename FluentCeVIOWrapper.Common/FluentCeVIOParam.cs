@@ -16,10 +16,10 @@ public class FluentCeVIOParam
 	private readonly FluentCeVIO _fcw;
 
 	private readonly Dictionary<string, dynamic> sendParams
-		= new();
+		= new(comparer: System.StringComparer.Ordinal);
 
 	private Dictionary<string, uint> sendEmotions
-		= new();
+		= new(comparer: System.StringComparer.Ordinal);
 
 	internal FluentCeVIOParam(FluentCeVIO fcw){
 		_fcw = fcw;
@@ -61,8 +61,8 @@ public class FluentCeVIOParam
 	/// </example>
 	/// <param name="list">感情名、値（0~100）のDictionaryを与えてください</param>
 	/// <seealso cref="Components(IEnumerable{TalkerComponent})"/>
-	public FluentCeVIOParam Emotions(Dictionary<string,uint> list){
-		sendEmotions = list;
+	public FluentCeVIOParam Emotions(IDictionary<string,uint> list){
+		sendEmotions = new Dictionary<string, uint>(list, System.StringComparer.Ordinal);
 		return SetParam(nameof(FluentCeVIOParam.Emotions), sendEmotions);
 	}
 
@@ -145,9 +145,6 @@ public class FluentCeVIOParam
 						await SetComponentsByNameAsync();
 						break;
 					}
-
-				default:
-					break;
 			}
 		}
 
